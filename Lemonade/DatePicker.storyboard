@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w5w-ff-CwY">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Date Picker View Controller-->
+        <scene sceneID="FoZ-6v-bTS">
+            <objects>
+                <viewController id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rc0-1O-Gfd"/>
+                        <viewControllerLayoutGuide type="bottom" id="iNb-lZ-yiP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R0T-nj-NVb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
+                                <rect key="frame" x="116" y="106" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="492725575.798774">
+                                    <!--2016-08-12 20:12:55 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
+                                <rect key="frame" x="174" y="348" width="150" height="89"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="Y2o-QF-WI1" kind="show" id="PNL-dC-RC6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="74g-XH-wrq" id="UNt-Vx-xAt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6n-CP-5yP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="205" y="350"/>
+        </scene>
+        <!--Horoscope-->
+        <scene sceneID="sIy-QX-UQM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Horoscope" id="Y2o-QF-WI1" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPa-oy-hAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="654.5" y="369"/>
+        </scene>
+    </scenes>
+</document>
