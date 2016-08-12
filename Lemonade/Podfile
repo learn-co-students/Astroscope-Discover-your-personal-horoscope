@@ -6,6 +6,7 @@ target 'Lemonade' do
   use_frameworks!
 
   # Pods for Lemonade
+    pod 'SnapKit', '~> 0.15.0'
   
 
 end
