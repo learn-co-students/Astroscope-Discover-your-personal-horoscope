@@ -24,6 +24,12 @@
                                     <segue destination="FSj-fs-b1b" kind="show" id="AoO-pt-85v"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="wPe-mX-J4J">
+                                <rect key="frame" x="0.0" y="78" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="492722630.48618102">
+                                    <!--2016-08-12 19:23:50 +0000-->
+                                </date>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
