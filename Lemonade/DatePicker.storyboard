@@ -14,32 +14,37 @@
                         <viewControllerLayoutGuide type="bottom" id="iNb-lZ-yiP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R0T-nj-NVb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
-                                <rect key="frame" x="174" y="348" width="150" height="89"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Y2o-QF-WI1" kind="show" id="PNL-dC-RC6"/>
-                                </connections>
-                            </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
-                                <rect key="frame" x="0.0" y="107" width="600" height="216"/>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
+                                <rect key="frame" x="0.0" y="109" width="375" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="492725575.798774">
                                     <!--2016-08-12 20:12:55 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerAction:" destination="w5w-ff-CwY" eventType="valueChanged" id="6I8-A0-8Cn"/>
+                                </connections>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
+                                <rect key="frame" x="157" y="508" width="61" height="20"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="kwI-w1-Hhy"/>
+                                    <segue destination="Y2o-QF-WI1" kind="show" id="PNL-dC-RC6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="datePicker" destination="74g-XH-wrq" id="UNt-Vx-xAt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6n-CP-5yP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="205" y="350"/>
+            <point key="canvasLocation" x="204.5" y="349.5"/>
         </scene>
         <!--Horoscope-->
         <scene sceneID="sIy-QX-UQM">
