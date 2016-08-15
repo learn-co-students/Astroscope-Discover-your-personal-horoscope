@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w5w-ff-CwY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w5w-ff-CwY">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
-                                <rect key="frame" x="116" y="106" width="600" height="216"/>
+                                <rect key="frame" x="20" y="55" width="600" height="216"/>
                                 <date key="date" timeIntervalSinceReferenceDate="492725575.798774">
                                     <!--2016-08-12 20:12:55 +0000-->
                                 </date>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
-                                <rect key="frame" x="174" y="348" width="150" height="89"/>
+                                <rect key="frame" x="225" y="342" width="150" height="89"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="Y2o-QF-WI1" kind="show" id="PNL-dC-RC6"/>
+                                    <action selector="myButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="ujI-lp-RxW"/>
                                 </connections>
                             </button>
                         </subviews>

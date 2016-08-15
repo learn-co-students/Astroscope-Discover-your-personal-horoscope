@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class HoroscopeViewController: UIViewController {
 
@@ -22,4 +23,5 @@ class HoroscopeViewController: UIViewController {
 
 
 }
+
 

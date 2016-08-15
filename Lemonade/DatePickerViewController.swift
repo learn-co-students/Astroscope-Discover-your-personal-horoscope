@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import CoreData
+
 
 class DatePickerViewController: UIViewController {
+    
+
+
+
+
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -21,6 +28,11 @@ class DatePickerViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func generateData () {
+        
     }
     
 
