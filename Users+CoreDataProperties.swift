@@ -13,8 +13,6 @@ import Foundation
 import CoreData
 
 extension Users {
-    
-    //don't mess with this class
 
     @NSManaged var birthdate: String?
     @NSManaged var username: String?

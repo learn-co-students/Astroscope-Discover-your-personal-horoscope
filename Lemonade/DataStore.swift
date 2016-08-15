@@ -11,7 +11,7 @@ import CoreData
 
 class DataStore {
     
-    var newUsers: [Users] = []
+    var individual: Users?
     
 static let sharedDataStore = DataStore()
     
@@ -33,39 +33,35 @@ static let sharedDataStore = DataStore()
     func fetchData () {
         var error:NSError? = nil
         
-        let userRequest = NSFetchRequest(entityName: "UsersAndDate")
-        
-        let createdAtSector = NSSortDescriptor(key: "username", ascending: true)
-        // do I have to do this for birthday keys too?
-        
-        userRequest.sortDescriptors = [createdAtSector]  // it says createdAtSorter on lab???? 
+        let userRequest = NSFetchRequest(entityName: "Users")
         
         do{
-            newUsers = try managedObjectContext.executeFetchRequest(userRequest) as! [Users]
+            let object = try managedObjectContext.executeFetchRequest(userRequest) as? [Users]
+            
+            if let object = object{
+                individual = object[0]
+            }
+            
         }catch let nserror1 as NSError{
             error = nserror1
-            newUsers = []
+            print(error)
         }
         
-        if newUsers.count == 0 {
+        if individual == nil {
             generateTestData()
             
         }
-        
-        ////         perform a fetch request to fill an array property on your datastore
     }
 
     func generateTestData () {
         
-        let messageOne: user = NSEntityDescription.insertNewObjectForEntityForName("username", inManagedObjectContext: managedObjectContext) as! user
+        let person = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: managedObjectContext) as! Users
         
-//        messageOne.username = NSString()
-//        messageOne.birthdate = NSString()  // what am I doing wrong here? 
-        
+       person.username = "New User"
+       person.birthdate = "227"
         
         saveContext()
-        fetchData()
-        
+        fetchData()  
     }
     
     
@@ -79,7 +75,7 @@ static let sharedDataStore = DataStore()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("SlapChat", withExtension: "momd")!
+        let modelURL = NSBundle.mainBundle().URLForResource("UsersAndDate", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     

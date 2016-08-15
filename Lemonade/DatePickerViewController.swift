@@ -12,15 +12,18 @@ import CoreData
 
 class DatePickerViewController: UIViewController {
     
-
-
-
+    let store = DataStore()
+    var birthdayFromStore: String?
 
 
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//         test datastore fetch function - input in date picker
+//        store.fetchData()
+//        birthdayFromStore = store.individual?.birthdate
+//        print(birthdayFromStore)
 
         // Do any additional setup after loading the view.
     }
