@@ -31,9 +31,29 @@ static let sharedDataStore = DataStore()
     }
     
     func fetchData () {
+        var error:NSError? = nil
         
+        let userRequest = NSFetchRequest(entityName: "UsersAndDate")
+        
+        let createdAtSector = NSSortDescriptor(key: "username", ascending: true)
+        // do I have to do this for birthday keys too?
+        
+        userRequest.sortDescriptors = [createdAtSector]  // it says createdAtSorter on lab???? 
+        
+        do{
+            newUsers = try managedObjectContext.executeFetchRequest(userRequest) as! [Users]
+        }catch let nserror1 as NSError{
+            error = nserror1
+            newUsers = []
+        }
+        
+        if newUsers.count == 0 {
+//            generateTestData()
+        }
+        
+        ////         perform a fetch request to fill an array property on your datastore
     }
-    
+
     func generateData () {
         
     }
@@ -86,6 +106,7 @@ static let sharedDataStore = DataStore()
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
         return urls[urls.count-1]
     }()
-  
-    
+
+
+
 }
