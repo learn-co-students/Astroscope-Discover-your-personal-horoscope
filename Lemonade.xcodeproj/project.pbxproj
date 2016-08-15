@@ -15,6 +15,7 @@
 		1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */; };
 		1B9B24B51D5E64E200E10D58 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B24B41D5E64E200E10D58 /* DatePickerViewController.swift */; };
 		1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */; };
+		1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE63D781D61FFF100066410 /* datePickerClass.swift */; };
 		237A0C0B41A4CB60C871B44B /* Pods_Lemonade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		1B9B24AE1D5E647600E10D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B9B24B41D5E64E200E10D58 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
+		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
 		AEFDADAF976DB5FE8EEF2799 /* Pods-Lemonade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemonade/Pods-Lemonade.release.xcconfig"; sourceTree = "<group>"; };
 		B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemonade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 				1B9B24A11D5E647600E10D58 /* HoroscopeViewController.swift */,
 				1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */,
 				1B9B24B41D5E64E200E10D58 /* DatePickerViewController.swift */,
+				1BE63D781D61FFF100066410 /* datePickerClass.swift */,
 				1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */,
 				1B9B24A91D5E647600E10D58 /* Assets.xcassets */,
 				1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */,
@@ -223,6 +226,7 @@
 				1B9B24B51D5E64E200E10D58 /* DatePickerViewController.swift in Sources */,
 				1B9B24A21D5E647600E10D58 /* HoroscopeViewController.swift in Sources */,
 				1B9B24A81D5E647600E10D58 /* Lemonade.xcdatamodeld in Sources */,
+				1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */,
 				1B9B24A01D5E647600E10D58 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

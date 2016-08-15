@@ -8,14 +8,22 @@
 
 import UIKit
 
-class HoroscopeViewController: UIViewController {
+class HoroscopeViewController: UIViewController
+{
+    var passedHoroscopeString : String = ""
+    
+    @IBOutlet weak var horoscopeLabel: UILabel!
+    
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        horoscopeLabel.text = passedHoroscopeString
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
