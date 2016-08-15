@@ -48,13 +48,23 @@ static let sharedDataStore = DataStore()
         }
         
         if newUsers.count == 0 {
-//            generateTestData()
+            generateTestData()
+            
         }
         
         ////         perform a fetch request to fill an array property on your datastore
     }
 
-    func generateData () {
+    func generateTestData () {
+        
+        let messageOne: user = NSEntityDescription.insertNewObjectForEntityForName("username", inManagedObjectContext: managedObjectContext) as! user
+        
+//        messageOne.username = NSString()
+//        messageOne.birthdate = NSString()  // what am I doing wrong here? 
+        
+        
+        saveContext()
+        fetchData()
         
     }
     
