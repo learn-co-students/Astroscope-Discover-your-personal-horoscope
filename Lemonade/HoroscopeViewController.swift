@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class HoroscopeViewController: UIViewController {
     
     var imageView = UIImageView()
-    var passedHoroscopeString: String = "Gemini"
+    var passedHoroscopeString: String?
     
     
     override func viewDidLoad() {
@@ -34,19 +35,23 @@ class HoroscopeViewController: UIViewController {
              })
         }
         
-        HoroscopeAPIClient.getDailyHoroscope(passedHoroscopeString) { (zodiacDictionary) in
+        guard let unwrappedPassedHoroscopeString = passedHoroscopeString else {return}
+        HoroscopeAPIClient.getDailyHoroscope(unwrappedPassedHoroscopeString) { (zodiacDictionary) in
             print(zodiacDictionary)
         }
         
            
         // Do any additional setup after loading the view, typically from a nib.
+
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
 
 }
+
 
