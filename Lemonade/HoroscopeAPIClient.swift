@@ -11,18 +11,18 @@ import Foundation
 class HoroscopeAPIClient {
     
     
-    class func getDailyHoroscope(completion: NSDictionary ->()) {
+    class func getDailyHoroscope(sign: String, completion: NSDictionary ->()) {
         
-        // let sunSign = ZodiacSign...  in urlString write as \(ZodiacSigns.) to switch out hardcoded Libra??
         
-        let urlString = "https://horoscope-api.herokuapp.com/horoscope/today/Libra"
+        let urlString = "https://horoscope-api.herokuapp.com/horoscope/today/\(sign)"
         
         let url = NSURL(string: urlString)
         
         let session = NSURLSession.sharedSession()
         
-        
+  
         guard let unwrappedURL = url else { return }
+        
         
         let dataTask = session.dataTaskWithURL(unwrappedURL) { (data, response, error) in
             
@@ -34,7 +34,7 @@ class HoroscopeAPIClient {
                 
                 guard let unwrappedZodiac = zodiacTodayDictionary else {return}
                 completion(unwrappedZodiac)
-                print(zodiacTodayDictionary)
+                
             } catch {
                 print(error)
             }

@@ -7,76 +7,71 @@
 //
 
 import Foundation
+import UIKit
 
 class NASA_API_Client {
     
     class func getPhotoOfDay(completion: UIImage -> ()) {
-        //argument to function call image into microfunction
         
         
-        //        Alamofire.request(.GET, "https://api.nasa.gov/planetary/apod?api_key=teLJU5iqcev3znTAu89eZl66XVsphq7dNNDtdR36")
-        //
-        //
-        //            .responseJSON { response in
-        //                print(response.request)  // original URL request
-        //                print(response.response) // URL response
-        //                print(response.data)     // server data
-        //                print(response.result)   // result of response serialization
-        //
-        //                if let JSON = response.result.value {
-        //                    print("JSON: \(JSON)")
-        //                }
-        //        }
+        let dictionaryURLString = "https://api.nasa.gov/planetary/apod?api_key=\(Secrets.keyNASAAPI)"
         
-        //repsonse is a tuple and we're unwrapping it and doing things to it.
-        // .result us a tuple itself (value, error)
-        //   JSON is declared as a struct within swiftyJSON
+        let dictionaryURL = NSURL(string: dictionaryURLString)
         
-        //        Alamofire.download(.GET, url) { temporaryURL, response in
-        //            let fileManager = NSFileManager.defaultManager()
-        //            let directoryURL = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-        //            let pathComponent = response.suggestedFilename
-        //
-        //            return directoryURL.URLByAppendingPathComponent(pathComponent!)
-        //        }
+        let dictionarySession = NSURLSession.sharedSession()
         
         
+        guard let unwrappedDictionaryURL = dictionaryURL else { return }
         
         
-        //temporarily download image from internet to your phone using Alamofire
-        Alamofire.request(.GET, "https://api.nasa.gov/planetary/apod?api_key=\(Secrets.key)").validate().responseJSON { response in
-            print("THIS IS THE FIRST ALAMOFIRE FUNCTION")
-            switch response.result {
-            case .Success:
-                if let value = response.result.value {
-                    let json = JSON(value)
+        let request = NSMutableURLRequest.init(URL: unwrappedDictionaryURL)
+        
+        request.HTTPMethod = "GET"
+        
+        let task = dictionarySession.dataTaskWithRequest(request){ (data, response, error) in
+            
+            
+            guard let unwrappedData = data else {return}
+            
+            do {
+                guard let photoDictionary = try NSJSONSerialization.JSONObjectWithData(unwrappedData, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary else {return}
+                
+                
+                print(photoDictionary)
+                
+                guard let imageURLString = photoDictionary["url"] as? String else {return}
+                guard let imageURL = NSURL(string: imageURLString) else {return}
+                let imageRequest = NSMutableURLRequest.init(URL: imageURL)
+                
+                imageRequest.HTTPMethod = "GET"
+                
+                let imageDataTask = dictionarySession.dataTaskWithURL(imageURL) { (photoData, photoResponse, photoError) in
                     
-                    print("JSON: \(json)")
-                    let imageURL = json["url"].stringValue
-                    print("image URL:\(imageURL)")
                     
-                    Alamofire.request(.GET, imageURL)
-                        .responseImage { response in
-                            
-                            debugPrint(response)
-                            
-                            print(response.request)
-                            print(response.response)
-                            debugPrint(response.result)
-                            
-                            if let image = response.result.value {
-                                print("image downloaded: \(image)")
-                                completion(image)
-                                
-                            }
+                    do {
+                        guard let photoOfDay = photoData else {return}
+                        guard let photo = UIImage(data: photoOfDay) else {return}
+                    
+                        completion(photo)
+                    
+                        } catch {
+                    
+                        print(photoError)
                     }
                 }
-            case .Failure(let error):
+                
+                imageDataTask.resume()
+                
+            } catch {
                 print(error)
             }
+            
         }
         
+        task.resume()
         
     }
     
 }
+
+

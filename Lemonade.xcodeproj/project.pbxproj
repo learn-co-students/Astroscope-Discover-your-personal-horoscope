@@ -18,7 +18,6 @@
 		237A0C0B41A4CB60C871B44B /* Pods_Lemonade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */; };
 		DEDBEE801D5E728A00208782 /* NASAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE7F1D5E728A00208782 /* NASAAPIClient.swift */; };
 		DEDBEE821D5E72AB00208782 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE811D5E72AB00208782 /* Secrets.swift */; };
-		DEDBEE841D5E72ED00208782 /* ZodiacSigns.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE831D5E72ED00208782 /* ZodiacSigns.swift */; };
 		DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +37,6 @@
 		B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemonade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDBEE7F1D5E728A00208782 /* NASAAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NASAAPIClient.swift; sourceTree = "<group>"; };
 		DEDBEE811D5E72AB00208782 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-		DEDBEE831D5E72ED00208782 /* ZodiacSigns.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZodiacSigns.swift; sourceTree = "<group>"; };
 		DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,11 +81,10 @@
 		1B9B249E1D5E647600E10D58 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
+				1B9B249F1D5E647600E10D58 /* AppDelegate.swift */,
 				DEDBEE7F1D5E728A00208782 /* NASAAPIClient.swift */,
 				DEDBEE811D5E72AB00208782 /* Secrets.swift */,
-				DEDBEE831D5E72ED00208782 /* ZodiacSigns.swift */,
 				DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */,
-				1B9B249F1D5E647600E10D58 /* AppDelegate.swift */,
 				1B9B24A11D5E647600E10D58 /* HoroscopeViewController.swift */,
 				1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */,
 				1B9B24B41D5E64E200E10D58 /* DatePickerViewController.swift */,
@@ -235,7 +232,6 @@
 				1B9B24B51D5E64E200E10D58 /* DatePickerViewController.swift in Sources */,
 				DEDBEE821D5E72AB00208782 /* Secrets.swift in Sources */,
 				1B9B24A21D5E647600E10D58 /* HoroscopeViewController.swift in Sources */,
-				DEDBEE841D5E72ED00208782 /* ZodiacSigns.swift in Sources */,
 				1B9B24A81D5E647600E10D58 /* Lemonade.xcdatamodeld in Sources */,
 				DEDBEE801D5E728A00208782 /* NASAAPIClient.swift in Sources */,
 				DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */,
