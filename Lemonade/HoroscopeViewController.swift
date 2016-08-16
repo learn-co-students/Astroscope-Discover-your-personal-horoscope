@@ -38,19 +38,7 @@ class HoroscopeViewController: UIViewController {
             print(zodiacDictionary)
         }
         
-        
-        //because passing everything in as arguments, viewController calls method. save susan's return variable and pop the return into getDailyHoroscope function.
-//        
-//        var sunSign = Libra
-//        HoroscopeAPIClient.getDailyHoroscope{(sunSign, completion: )
-        
-//        HoroscopeAPIClient.getDailyHoroscope { (zodiacTodayDictionary) in
-//            
-//            print(zodiacTodayDictionary)
-//            
-//        }
-//        
-        
+           
         // Do any additional setup after loading the view, typically from a nib.
     }
 

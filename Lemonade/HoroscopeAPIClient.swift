@@ -20,7 +20,7 @@ class HoroscopeAPIClient {
         
         let session = NSURLSession.sharedSession()
         
-  
+        
         guard let unwrappedURL = url else { return }
         
         
@@ -36,7 +36,7 @@ class HoroscopeAPIClient {
                 completion(unwrappedZodiac)
                 
             } catch {
-                    print(error)
+                print(error)
             }
             
         }
