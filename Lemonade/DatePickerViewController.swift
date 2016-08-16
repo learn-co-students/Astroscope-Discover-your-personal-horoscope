@@ -17,19 +17,28 @@ class DatePickerViewController: UIViewController
     
     var dateClass = datePickerClass()
     
+    @IBOutlet weak var selectBirthdayLabel: UILabel!
     //For testing purposes
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        datePickerAction("")
+//        datePickerAction("")
+//        
+//        print(startDate)
+//        print(userBirthday)
+//    
+//        print(dateClass.gettingHoroscopeString(80))
         
-        print(startDate)
-        print(userBirthday)
-    
-        print(dateClass.gettingHoroscopeString(80))
+        self.view.backgroundColor = UIColor.blackColor()
+        self.datePicker.backgroundColor = UIColor.clearColor()
+        self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        self.datePicker.setValue(false, forKey: "highlightsToday")
+
+
     }
     
+
     //Gets user's input from date picker
     @IBAction func datePickerAction(sender: AnyObject)
     {
@@ -49,7 +58,7 @@ class DatePickerViewController: UIViewController
         let birthdayFormatDate = NSDateFormatter()
         birthdayFormatDate.dateFormat = "MMMM-dd"
         self.userBirthday = birthdayFormatDate.dateFromString(userBirthday)
-        print("User's Input: \(self.userBirthday)")
+        //print("User's Input: \(self.userBirthday)")
 
     }
     
@@ -57,8 +66,8 @@ class DatePickerViewController: UIViewController
     //just a button that prints
     @IBAction func submitButton(sender: AnyObject)
     {
-        let horo = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
-        print("After using datepicker: \(horo)")
+        //let horo = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
+        //print("After using datepicker: \(horo)")
     }
  
     
@@ -67,9 +76,9 @@ class DatePickerViewController: UIViewController
     {
         let destinationVC = segue.destinationViewController as? HoroscopeViewController
         
-        let horoToBeSegued = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
-
-        destinationVC?.passedHoroscopeString = horoToBeSegued
+//        let horoToBeSegued = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
+//
+//        destinationVC?.passedHoroscopeString = horoToBeSegued
     }
 
 }

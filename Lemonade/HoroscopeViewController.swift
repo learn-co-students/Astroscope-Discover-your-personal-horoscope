@@ -10,16 +10,13 @@ import UIKit
 
 class HoroscopeViewController: UIViewController
 {
-    var passedHoroscopeString : String = ""
-    
-    @IBOutlet weak var horoscopeLabel: UILabel!
-    
+   
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        horoscopeLabel.text = passedHoroscopeString
+       
+
     }
 
     override func didReceiveMemoryWarning()
