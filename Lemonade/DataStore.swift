@@ -37,13 +37,14 @@ static let sharedDataStore = DataStore()
         
         do{
             let object = try managedObjectContext.executeFetchRequest(userRequest) as? [Users]
-            
-            if let object = object{
-                individual = object[0]
+
+            if object?.count > 0{
+                if let object = object{
+                    individual = object[0]
+                }
             }
             
-        }catch let nserror1 as NSError{
-            error = nserror1
+        }catch {
             print(error)
         }
         
@@ -58,7 +59,7 @@ static let sharedDataStore = DataStore()
         let person = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: managedObjectContext) as! Users
         
        person.username = "New User"
-       person.birthdate = "227"
+       person.birthdate = 227
         
         saveContext()
         fetchData()  
