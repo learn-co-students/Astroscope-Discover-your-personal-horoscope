@@ -16,7 +16,6 @@
 		1B9B24B51D5E64E200E10D58 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B24B41D5E64E200E10D58 /* DatePickerViewController.swift */; };
 		1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */; };
 		237A0C0B41A4CB60C871B44B /* Pods_Lemonade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */; };
-		DEDBEE801D5E728A00208782 /* NASAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE7F1D5E728A00208782 /* NASAAPIClient.swift */; };
 		DEDBEE821D5E72AB00208782 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE811D5E72AB00208782 /* Secrets.swift */; };
 		DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		AEFDADAF976DB5FE8EEF2799 /* Pods-Lemonade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemonade/Pods-Lemonade.release.xcconfig"; sourceTree = "<group>"; };
 		B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemonade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEDBEE7F1D5E728A00208782 /* NASAAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NASAAPIClient.swift; sourceTree = "<group>"; };
 		DEDBEE811D5E72AB00208782 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -82,7 +80,6 @@
 			isa = PBXGroup;
 			children = (
 				1B9B249F1D5E647600E10D58 /* AppDelegate.swift */,
-				DEDBEE7F1D5E728A00208782 /* NASAAPIClient.swift */,
 				DEDBEE811D5E72AB00208782 /* Secrets.swift */,
 				DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */,
 				1B9B24A11D5E647600E10D58 /* HoroscopeViewController.swift */,
@@ -233,7 +230,6 @@
 				DEDBEE821D5E72AB00208782 /* Secrets.swift in Sources */,
 				1B9B24A21D5E647600E10D58 /* HoroscopeViewController.swift in Sources */,
 				1B9B24A81D5E647600E10D58 /* Lemonade.xcdatamodeld in Sources */,
-				DEDBEE801D5E728A00208782 /* NASAAPIClient.swift in Sources */,
 				DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */,
 				1B9B24A01D5E647600E10D58 /* AppDelegate.swift in Sources */,
 			);
