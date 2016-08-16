@@ -20,7 +20,7 @@ class DatePickerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-////         test datastore fetch function - input in date picker
+//         test datastore fetch function - input in date picker
 //        store.fetchData()
 //        birthdayFromStore = store.individual?.birthdate
 //        print(birthdayFromStore)
