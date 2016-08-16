@@ -14,32 +14,51 @@
                         <viewControllerLayoutGuide type="bottom" id="iNb-lZ-yiP"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R0T-nj-NVb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
-                                <rect key="frame" x="20" y="55" width="600" height="216"/>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
+                                <rect key="frame" x="0.0" y="269" width="375" height="210"/>
                                 <date key="date" timeIntervalSinceReferenceDate="492725575.798774">
                                     <!--2016-08-12 20:12:55 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="datePickerAction:" destination="w5w-ff-CwY" eventType="valueChanged" id="6I8-A0-8Cn"/>
+                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
-                                <rect key="frame" x="225" y="342" width="150" height="89"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="157" y="585" width="61" height="20"/>
+                                <state key="normal" title="Submit"/>
                                 <connections>
-                                    <action selector="myButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="ujI-lp-RxW"/>
+                                    <action selector="submitButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="kwI-w1-Hhy"/>
+                                    <segue destination="Y2o-QF-WI1" kind="show" id="PNL-dC-RC6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
+                                <rect key="frame" x="49" y="153" width="277" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="74g-XH-wrq" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="1Wy-Ee-Fc6"/>
+                            <constraint firstItem="jyl-hJ-cD8" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="4Kq-3b-oDb"/>
+                            <constraint firstItem="74g-XH-wrq" firstAttribute="width" secondItem="R0T-nj-NVb" secondAttribute="width" id="NuW-4T-2LF"/>
+                            <constraint firstItem="74g-XH-wrq" firstAttribute="centerY" secondItem="R0T-nj-NVb" secondAttribute="centerY" id="WII-vp-KwP"/>
+                            <constraint firstItem="jyl-hJ-cD8" firstAttribute="top" secondItem="rc0-1O-Gfd" secondAttribute="bottom" constant="133" id="sTB-hH-Ye9"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="datePicker" destination="74g-XH-wrq" id="UNt-Vx-xAt"/>
+                        <outlet property="selectBirthdayLabel" destination="jyl-hJ-cD8" id="F1r-ge-y4D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6n-CP-5yP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="205" y="350"/>
+            <point key="canvasLocation" x="204.5" y="349.5"/>
         </scene>
         <!--Horoscope-->
         <scene sceneID="sIy-QX-UQM">
