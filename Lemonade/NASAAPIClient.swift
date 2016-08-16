@@ -47,23 +47,18 @@ class NASA_API_Client {
                 
                 let imageDataTask = dictionarySession.dataTaskWithURL(imageURL) { (photoData, photoResponse, photoError) in
                     
-                    
-                    do {
                         guard let photoOfDay = photoData else {return}
                         guard let photo = UIImage(data: photoOfDay) else {return}
                     
                         completion(photo)
                     
-                        } catch {
-                    
-                        print(photoError)
-                    }
                 }
                 
                 imageDataTask.resume()
                 
             } catch {
-                print(error)
+                print("########### NASAAPI \(error)")
+                
             }
             
         }

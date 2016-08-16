@@ -36,7 +36,7 @@ class HoroscopeAPIClient {
                 completion(unwrappedZodiac)
                 
             } catch {
-                print(error)
+                    print("########### HOROSCOPEAPI \(error)")
             }
             
         }

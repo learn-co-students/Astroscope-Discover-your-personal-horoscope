@@ -11,7 +11,7 @@ import UIKit
 class HoroscopeViewController: UIViewController {
     
     var imageView = UIImageView()
-    var passedHoroscopeString: String = ""
+    var passedHoroscopeString: String = "Gemini"
     
     
     override func viewDidLoad() {
@@ -20,6 +20,9 @@ class HoroscopeViewController: UIViewController {
         
         
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
+            
+            NSOperationQueue.mainQueue().addOperationWithBlock({
+           
             self.imageView.image = spaceImage
             self.view.addSubview(self.imageView)
             
@@ -28,7 +31,7 @@ class HoroscopeViewController: UIViewController {
             self.imageView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
             self.imageView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
             self.imageView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
-            
+             })
         }
         
         HoroscopeAPIClient.getDailyHoroscope(passedHoroscopeString) { (zodiacDictionary) in
