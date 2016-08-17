@@ -11,6 +11,7 @@ import CoreData
 
 class HoroscopeViewController: UIViewController {
     
+    @IBOutlet weak var testview: UIButton!
     var imageView = UIImageView()
     var passedHoroscopeString: String?
     

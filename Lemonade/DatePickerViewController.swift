@@ -10,7 +10,8 @@ import UIKit
 import CoreData
 
 
-class DatePickerViewController: UIViewController {
+class DatePickerViewController: UIViewController
+{
     
     let store = DataStore()
     var birthdayFromStore: Int32?
@@ -43,15 +44,20 @@ class DatePickerViewController: UIViewController {
 //        print(startDate)
 //        print(userBirthday)
 //    
-//        print(dateClass.gettingHoroscopeString(80))
+//        print(dateClass.gettingHoroscopeString(284))
         
         self.view.backgroundColor = UIColor.blackColor()
         self.datePicker.backgroundColor = UIColor.clearColor()
         self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         self.datePicker.setValue(false, forKey: "highlightsToday")
-
-
-
+        
+        
+        startDate = dateClass.setStartingDate()
+        userBirthday = dateClass.setEndDate(datePicker.date)
+        
+        print("Starting Date: \(startDate)")
+        print("Today's Date: \(userBirthday)")
+        
     }
     
     
@@ -63,23 +69,8 @@ class DatePickerViewController: UIViewController {
     //Gets user's input from date picker
     @IBAction func datePickerAction(sender: AnyObject)
     {
-        //starting date (January 01)
-        let startDateString = "January-01"
-        
-        let startStringFormatter = NSDateFormatter()
-        startStringFormatter.dateFormat = "MMMM-dd"
-        self.startDate = startStringFormatter.dateFromString(startDateString)
-      
-        
-        //User's input for their birthday
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMMM-dd"
-        let userBirthday = dateFormatter.stringFromDate(datePicker.date)
-        
-        let birthdayFormatDate = NSDateFormatter()
-        birthdayFormatDate.dateFormat = "MMMM-dd"
-        self.userBirthday = birthdayFormatDate.dateFromString(userBirthday)
-        //print("User's Input: \(self.userBirthday)")
+        self.userBirthday = dateClass.setEndDate(datePicker.date)
+        print("Date picked: \(self.userBirthday)")
 
     }
     
@@ -87,8 +78,10 @@ class DatePickerViewController: UIViewController {
     //just a button that prints
     @IBAction func submitButton(sender: AnyObject)
     {
-        //let horo = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
-        //print("After using datepicker: \(horo)")
+//        let dateInt = dateClass.daysBetweenDates(self.startDate, endDate: self.userBirthday)
+//        print("Difference: \(dateInt)")
+        let horo = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
+        print("After using datepicker: \(horo)")
     }
  
     
