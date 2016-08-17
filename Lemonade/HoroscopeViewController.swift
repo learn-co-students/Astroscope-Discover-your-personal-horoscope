@@ -15,6 +15,7 @@ class HoroscopeViewController: UIViewController {
     var passedHoroscopeString: String?
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
