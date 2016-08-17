@@ -69,7 +69,6 @@ class DatePickerViewController: UIViewController
     //Gets user's input from date picker
     @IBAction func datePickerAction(sender: AnyObject)
     {
-    
         self.userBirthday = dateClass.setEndDate(datePicker.date)
         print("Date picked: \(self.userBirthday)")
 
@@ -79,6 +78,8 @@ class DatePickerViewController: UIViewController
     //just a button that prints
     @IBAction func submitButton(sender: AnyObject)
     {
+//        let dateInt = dateClass.daysBetweenDates(self.startDate, endDate: self.userBirthday)
+//        print("Difference: \(dateInt)")
         let horo = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
         print("After using datepicker: \(horo)")
     }
