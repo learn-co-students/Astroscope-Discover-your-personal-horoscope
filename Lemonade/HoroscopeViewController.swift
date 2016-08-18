@@ -16,7 +16,7 @@ class HoroscopeViewController: UIViewController {
     var imageView = UIImageView()
     var passedHoroscopeString: String?
     
-    let saveNASAImageToCameraRollButton = UIButton.init(type: UIButtonType.System) as UIButton!
+    let saveNASAImageToCameraRollButton = UIButton()
     
     
     
@@ -24,10 +24,10 @@ class HoroscopeViewController: UIViewController {
         super.viewDidLoad()
         
        createSaveImageButton()
-        saveImageButtonTapped()
+       saveImageButtonTapped()
         
-       
         
+
         
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
             
@@ -58,15 +58,19 @@ class HoroscopeViewController: UIViewController {
     
     func createSaveImageButton () {
         
-        saveNASAImageToCameraRollButton.backgroundColor = UIColor.greenColor()
+        saveNASAImageToCameraRollButton.backgroundColor = UIColor.whiteColor()
+        saveNASAImageToCameraRollButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         saveNASAImageToCameraRollButton.setTitle("Save Image To Camera Roll", forState: UIControlState.Normal)
         saveNASAImageToCameraRollButton.frame = CGRectMake(100, 100, 100, 50)
         saveNASAImageToCameraRollButton.addTarget(self, action: #selector (saveImageButtonTapped), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.addSubview(saveNASAImageToCameraRollButton)
-       
-
         
+        
+        self.saveNASAImageToCameraRollButton.translatesAutoresizingMaskIntoConstraints = false
+        self.saveNASAImageToCameraRollButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor, constant: 0).active = true
+        self.saveNASAImageToCameraRollButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: 0).active = true 
+ 
     }
     
     func saveImageButtonTapped () {
@@ -77,6 +81,8 @@ class HoroscopeViewController: UIViewController {
             let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
             savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             presentViewController(savedAlertController, animated: true, completion: nil)
+            savedAlertController.view.backgroundColor = UIColor.blackColor()
+            savedAlertController.view.tintColor = UIColor.blackColor()
         }
         
         else {
