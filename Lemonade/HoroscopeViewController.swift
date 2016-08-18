@@ -54,6 +54,9 @@ class HoroscopeViewController: UIViewController {
         saveNASAImageToCameraRollButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         saveNASAImageToCameraRollButton.setTitle("Save Image To Camera Roll", forState: UIControlState.Normal)
         saveNASAImageToCameraRollButton.frame = CGRectMake(100, 100, 100, 50)
+        saveNASAImageToCameraRollButton.layer.cornerRadius = 5
+        saveNASAImageToCameraRollButton.layer.borderWidth = 1
+        saveNASAImageToCameraRollButton.layer.borderColor = UIColor.blueColor().CGColor
         saveNASAImageToCameraRollButton.addTarget(self, action: #selector (saveImageButtonTapped), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.addSubview(saveNASAImageToCameraRollButton)
@@ -83,15 +86,11 @@ class HoroscopeViewController: UIViewController {
             presentViewController(savedAlertControllerError, animated: true, completion: nil)
         }
     }
-    
-
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
 
 }
 
