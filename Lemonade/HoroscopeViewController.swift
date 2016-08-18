@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import AssetsLibrary
 
 class HoroscopeViewController: UIViewController {
     
@@ -15,11 +16,14 @@ class HoroscopeViewController: UIViewController {
     var imageView = UIImageView()
     var passedHoroscopeString: String?
     
+    let saveNASAImageToCameraRollButton = UIButton.init(type: UIButtonType.System) as UIButton!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       createSaveImageButton()
         
         
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
@@ -34,7 +38,11 @@ class HoroscopeViewController: UIViewController {
             self.imageView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
             self.imageView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
             self.imageView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
+                
+                self.view.sendSubviewToBack(self.imageView)
              })
+            
+            
         }
         
         guard let unwrappedPassedHoroscopeString = passedHoroscopeString else {return}
@@ -46,12 +54,54 @@ class HoroscopeViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
     }
+    
+    
+    
+    func createSaveImageButton () {
+        saveNASAImageToCameraRollButton.backgroundColor = UIColor.greenColor()
+        saveNASAImageToCameraRollButton.setTitle("Save Image To Camera Roll", forState: UIControlState.Normal)
+        saveNASAImageToCameraRollButton.frame = CGRectMake(100, 100, 100, 50)
+        saveNASAImageToCameraRollButton.addTarget(self, action: #selector (saveImageButtonTapped), forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.view.addSubview(saveNASAImageToCameraRollButton)
+
+        
+    }
+    
+    func saveImageButtonTapped () {
+        
+        
+        
+        if let unwrappedImage = imageView.image {
+
+        UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
+            
+    
+        }
+    }
+    
+    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+        if error == nil {
+            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+        } else {
+            let ac = UIAlertController(title: "Save error", message: error?.localizedDescription, preferredStyle: .Alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(ac, animated: true, completion: nil)
+        }
+    }
 
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+  
+    
+    
+ 
 
 
 }
