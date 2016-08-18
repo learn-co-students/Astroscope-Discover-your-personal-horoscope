@@ -26,16 +26,11 @@ class HoroscopeViewController: UIViewController {
        createSaveImageButton()
        saveImageButtonTapped()
         
-        
-
-        
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({
-           
             self.imageView.image = spaceImage
             self.view.addSubview(self.imageView)
-            
             self.imageView.translatesAutoresizingMaskIntoConstraints = false
             self.imageView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
             self.imageView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
@@ -44,15 +39,12 @@ class HoroscopeViewController: UIViewController {
                 
                 self.view.sendSubviewToBack(self.imageView)
              })
-
         }
         
         guard let unwrappedPassedHoroscopeString = passedHoroscopeString else {return}
         HoroscopeAPIClient.getDailyHoroscope(unwrappedPassedHoroscopeString) { (zodiacDictionary) in
             print(zodiacDictionary)
         }
-
-
     }
 
     
@@ -69,7 +61,7 @@ class HoroscopeViewController: UIViewController {
         
         self.saveNASAImageToCameraRollButton.translatesAutoresizingMaskIntoConstraints = false
         self.saveNASAImageToCameraRollButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor, constant: 0).active = true
-        self.saveNASAImageToCameraRollButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: 0).active = true 
+        self.saveNASAImageToCameraRollButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: 0).active = true
  
     }
     
