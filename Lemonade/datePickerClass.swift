@@ -156,4 +156,5 @@ class datePickerClass
         return horoscopeFromDate
     }
 
+
 }

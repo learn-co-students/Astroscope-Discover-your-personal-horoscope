@@ -11,7 +11,7 @@ import CoreData
 
 class DataStore {
     
-    var individual: Users?
+    var individual: Users!
     
 static let sharedDataStore = DataStore()
     
@@ -30,8 +30,9 @@ static let sharedDataStore = DataStore()
         }
     }
     
-    func fetchData () {
-        var error:NSError? = nil
+    func fetchData()->Int32
+    {
+        //var error:NSError? = nil
         
         let userRequest = NSFetchRequest(entityName: "Users")
         
@@ -41,6 +42,9 @@ static let sharedDataStore = DataStore()
             if object?.count > 0{
                 if let object = object{
                     individual = object[0]
+                    print(individual.birthdate)
+                    return (individual.birthdate)
+                    
                 }
             }
             
@@ -52,14 +56,30 @@ static let sharedDataStore = DataStore()
             generateTestData()
             
         }
+        return 0
     }
-
+    
+    func updateData()
+    {
+        let fetchRequest = NSFetchRequest(entityName: Users.entityName)
+        
+        // Create Batch Delete Request
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try managedObjectContext.executeRequest(batchDeleteRequest)
+            
+        } catch {
+            print("Error")
+        }
+    }
     func generateTestData () {
         
         let person = NSEntityDescription.insertNewObjectForEntityForName("Users", inManagedObjectContext: managedObjectContext) as! Users
         
        person.username = "New User"
        person.birthdate = 227
+        print("\(person.birthdate)")
         
         saveContext()
         fetchData()  

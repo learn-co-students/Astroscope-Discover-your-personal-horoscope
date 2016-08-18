@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w5w-ff-CwY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hy1-7Z-jZ6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -29,20 +29,35 @@
                                     <action selector="datePickerAction:" destination="w5w-ff-CwY" eventType="valueChanged" id="6I8-A0-8Cn"/>
                                 </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
-                                <rect key="frame" x="157" y="585" width="61" height="20"/>
-                                <state key="normal" title="Submit"/>
-                                <connections>
-                                    <action selector="submitButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="kwI-w1-Hhy"/>
-                                    <segue destination="Y2o-QF-WI1" kind="show" id="PNL-dC-RC6"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
                                 <rect key="frame" x="49" y="153" width="277" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3z-7x-abb">
+                                <rect key="frame" x="78" y="561" width="219" height="30"/>
+                                <state key="normal" title="Go to your Horoscope of Today!"/>
+                                <connections>
+                                    <action selector="goToHoroscopeButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="cbQ-pc-NcZ"/>
+                                    <segue destination="Y2o-QF-WI1" kind="show" identifier="goToYourHoroscopeSegue" id="idD-F0-IaV"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB3-nq-jVU">
+                                <rect key="frame" x="168" y="599" width="30" height="30"/>
+                                <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="YpK-6a-HOc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
+                                <rect key="frame" x="157" y="566" width="61" height="20"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submitButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="kwI-w1-Hhy"/>
+                                    <segue destination="Y2o-QF-WI1" kind="show" identifier="submitButtonSegue" id="PNL-dC-RC6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -53,15 +68,19 @@
                             <constraint firstItem="jyl-hJ-cD8" firstAttribute="top" secondItem="rc0-1O-Gfd" secondAttribute="bottom" constant="133" id="sTB-hH-Ye9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="23e-vo-v95"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="datePicker" destination="74g-XH-wrq" id="UNt-Vx-xAt"/>
+                        <outlet property="editButtonLabel" destination="MB3-nq-jVU" id="11P-C8-Tkc"/>
+                        <outlet property="goToHoroscopeButtonLabel" destination="l3z-7x-abb" id="Mir-Bk-ObB"/>
                         <outlet property="selectBirthdayLabel" destination="jyl-hJ-cD8" id="F1r-ge-y4D"/>
+                        <outlet property="submitButtonLabel" destination="jnp-5g-m8O" id="QdA-o3-tgN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6n-CP-5yP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204.5" y="349.5"/>
+            <point key="canvasLocation" x="1016.5" y="349.5"/>
         </scene>
         <!--Horoscope-->
         <scene sceneID="sIy-QX-UQM">
@@ -69,7 +88,28 @@
                 <viewControllerPlaceholder storyboardName="Horoscope" id="Y2o-QF-WI1" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPa-oy-hAR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654.5" y="369"/>
+            <point key="canvasLocation" x="1466" y="369"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="joy-vy-fHK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hy1-7Z-jZ6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hsB-wr-fxq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w5w-ff-CwY" kind="relationship" relationship="rootViewController" id="xzE-jO-caZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ldz-JG-mY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="349"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="PNL-dC-RC6"/>
+    </inferredMetricsTieBreakers>
 </document>
