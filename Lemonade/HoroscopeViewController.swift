@@ -24,6 +24,9 @@ class HoroscopeViewController: UIViewController {
         super.viewDidLoad()
         
        createSaveImageButton()
+        saveImageButtonTapped()
+        
+       
         
         
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
@@ -41,56 +44,48 @@ class HoroscopeViewController: UIViewController {
                 
                 self.view.sendSubviewToBack(self.imageView)
              })
-            
-            
+
         }
         
         guard let unwrappedPassedHoroscopeString = passedHoroscopeString else {return}
         HoroscopeAPIClient.getDailyHoroscope(unwrappedPassedHoroscopeString) { (zodiacDictionary) in
             print(zodiacDictionary)
         }
-        
-           
-        // Do any additional setup after loading the view, typically from a nib.
+
 
     }
-    
-    
+
     
     func createSaveImageButton () {
+        
         saveNASAImageToCameraRollButton.backgroundColor = UIColor.greenColor()
         saveNASAImageToCameraRollButton.setTitle("Save Image To Camera Roll", forState: UIControlState.Normal)
         saveNASAImageToCameraRollButton.frame = CGRectMake(100, 100, 100, 50)
         saveNASAImageToCameraRollButton.addTarget(self, action: #selector (saveImageButtonTapped), forControlEvents: UIControlEvents.TouchUpInside)
         
         self.view.addSubview(saveNASAImageToCameraRollButton)
+       
 
         
     }
     
     func saveImageButtonTapped () {
-        
-        
-        
+
         if let unwrappedImage = imageView.image {
 
-        UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
-            
-    
+            UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
+            let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
+            savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(savedAlertController, animated: true, completion: nil)
+        }
+        
+        else {
+            let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
+            savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(savedAlertControllerError, animated: true, completion: nil)
         }
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
-        if error == nil {
-            let ac = UIAlertController(title: "Saved!", message: "Your altered image has been saved to your photos.", preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
-        } else {
-            let ac = UIAlertController(title: "Save error", message: error?.localizedDescription, preferredStyle: .Alert)
-            ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(ac, animated: true, completion: nil)
-        }
-    }
 
     override func didReceiveMemoryWarning()
     {
@@ -98,10 +93,6 @@ class HoroscopeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-  
-    
-    
- 
 
 
 }
