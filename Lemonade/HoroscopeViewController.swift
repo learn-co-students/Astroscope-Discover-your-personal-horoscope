@@ -24,10 +24,10 @@ class HoroscopeViewController: UIViewController {
     
     let tapRecStackView = UITapGestureRecognizer()
     let returnTapRec = UITapGestureRecognizer()
-    var isBlurred: Bool = false
-    
+
     var iconTapRec = UITapGestureRecognizer()
     var isIconTapped: Bool = false
+    var isBlurred: Bool = false
     
     var horoStackView = UIStackView()
     let stackViewBackgroundView = UIView()
@@ -38,8 +38,11 @@ class HoroscopeViewController: UIViewController {
         //self.getSignIconName()
         //self.addStackView()
         
+        isSignIconTapped(isIconTapped)
+       // self.iconTapRec.addTarget(self, action: #selector(HoroscopeViewController.isSignIconTapped))
+        self.tapRecStackView.addTarget(self, action: #selector(HoroscopeViewController.stackViewTapped))
         
-        
+       
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
             
             NSOperationQueue.mainQueue().addOperationWithBlock({
@@ -77,12 +80,10 @@ class HoroscopeViewController: UIViewController {
                         self.signIcon.tintColor = UIColor.whiteColor()
                         
                         
-                       
                         
-                        self.iconTapRec = UITapGestureRecognizer(target: self, action: #selector(HoroscopeViewController.isSignIconTapped))
                         self.signIcon.userInteractionEnabled = true
                         self.signIcon.addGestureRecognizer(self.iconTapRec)
-                        //                self.signIcon.translatesAutoresizingMaskIntoConstraints = false
+                        self.signIcon.translatesAutoresizingMaskIntoConstraints = false
                         //                self.signIcon.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
                         //                self.signIcon.topAnchor.constraintEqualToAnchor(self.view.topAnchor, constant: 20).active = true
                         //               self.signIcon.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.20).active = true
@@ -93,11 +94,12 @@ class HoroscopeViewController: UIViewController {
                         
                         self.signName = UILabel()
                         //self.signName = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 5))
-                       // self.signName.intrinsicContentSize().width
-                       // self.signName.backgroundColor = UIColor.redColor()
+                        // self.signName.intrinsicContentSize().width
+                        // self.signName.backgroundColor = UIColor.redColor()
                         guard self.signName != nil else {return}
                         self.signName.text = unwrappedSignName
                         self.signName.textAlignment = NSTextAlignment.Center
+                        self.signName.textColor = UIColor.whiteColor()
                         self.signName.font = UIFont(name: "BradleyHandITCTT-Bold", size: 35.0)
                         //              self.horoStackView.addSubview(self.signName)
                         //                self.signName.translatesAutoresizingMaskIntoConstraints = false
@@ -111,11 +113,12 @@ class HoroscopeViewController: UIViewController {
                         
                         guard let unwrappedTodaysDate = unwrappedZodiac["date"] as? String else {return}
                         self.todaysDate = UILabel()
-                      //  self.todaysDate.backgroundColor = UIColor.blueColor()
+                        //  self.todaysDate.backgroundColor = UIColor.blueColor()
                         guard self.todaysDate != nil else {return}
                         self.todaysDate.text = unwrappedTodaysDate
                         self.todaysDate.textAlignment = NSTextAlignment.Center
-                        self.todaysDate.font = UIFont(name: "Arial", size: 18.0)
+                        self.todaysDate.textColor = UIColor.whiteColor()
+                        self.todaysDate.font = UIFont(name: "BradleyHandITCTT-Bold", size: 18.0)
                         //                self.horoStackView.addSubview(self.todaysDate)
                         //                self.todaysDate.translatesAutoresizingMaskIntoConstraints = false
                         //                self.todaysDate.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
@@ -129,10 +132,11 @@ class HoroscopeViewController: UIViewController {
                         guard let unwrappedHoroscopeValue = unwrappedZodiac["horoscope"] as? String else {return}
                         self.dailyHoroscopeTextView = UITextView()
                         self.dailyHoroscopeTextView.backgroundColor = UIColor.clearColor()
-                       // self.dailyHoroscopeTextView.backgroundColor = UIColor(white: 0.0, alpha: 0.0)
+                        // self.dailyHoroscopeTextView.backgroundColor = UIColor(white: 0.0, alpha: 0.0)
                         guard self.dailyHoroscopeTextView != nil else {return}
                         self.dailyHoroscopeTextView.text = unwrappedHoroscopeValue
-                        self.dailyHoroscopeTextView.font = UIFont(name: "Arial", size: 18.0)
+                        self.dailyHoroscopeTextView.textColor = UIColor.whiteColor()
+                        self.dailyHoroscopeTextView.font = UIFont(name: "BradleyHandITCTT-Bold", size: 18.0)
                         //                self.horoStackView.addSubview(self.dailyHoroscopeTextView)
                         
                         //                self.dailyHoroscopeTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -171,13 +175,15 @@ class HoroscopeViewController: UIViewController {
                         self.signIcon.widthAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.widthAnchor, multiplier: 0.65).active = true
                         self.signIcon.heightAnchor.constraintEqualToAnchor(self.signIcon.widthAnchor).active = true
                         
-                       
+                        self.signName.widthAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.widthAnchor).active = true
+                        self.signName.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
+                        self.todaysDate.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
+                        
                         self.dailyHoroscopeTextView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
                         self.dailyHoroscopeTextView.widthAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.widthAnchor, multiplier: 0.90).active = true
                         self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.dailyHoroscopeTextView.widthAnchor).active = true
                         
-                        self.todaysDate.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
-                    
+                        
                         self.horoStackView.translatesAutoresizingMaskIntoConstraints = false
                         self.horoStackView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
                         self.horoStackView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
@@ -186,7 +192,7 @@ class HoroscopeViewController: UIViewController {
                         self.horoStackView.userInteractionEnabled = true
                         
                         self.tapRecStackView.addTarget(self, action: #selector(HoroscopeViewController.stackViewTapped))
-                   
+                        
                         self.stackViewBackgroundView.addGestureRecognizer(self.tapRecStackView)
                         self.horoStackView.addGestureRecognizer(self.tapRecStackView)
                         
@@ -205,7 +211,7 @@ class HoroscopeViewController: UIViewController {
     
     
     func stackViewTapped(isBool: Bool){
-        
+        print("A")
         
         
         //        let tapRecTextField = UITapGestureRecognizer()
@@ -213,15 +219,15 @@ class HoroscopeViewController: UIViewController {
         //        var isBlurred: Bool = false
         //
         //        var horoStackView = UIStackView()
-        //        
+        //
         if !UIAccessibilityIsReduceTransparencyEnabled(){
             print("hi")
             let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             
             if isBlurred == false {
-            print("bye")
-            
+                print("bye")
+                
                 blurEffectView.frame = self.view.bounds
                 blurEffectView.autoresizingMask = .FlexibleWidth
                 blurEffectView.autoresizingMask = .FlexibleHeight
@@ -235,7 +241,7 @@ class HoroscopeViewController: UIViewController {
                 
                 isBlurred = true
                 
-            } else if returnTapRec.enabled == true{
+            } else if returnTapRec.enabled == true {
                 print("tapped")
                 
                 if isBlurred == true {
@@ -249,9 +255,9 @@ class HoroscopeViewController: UIViewController {
                         if subview is UIVisualEffectView{
                             subview.removeFromSuperview()
                         }
-                    
+                        
                     }
-                
+                    
                 }
             }
         }
@@ -260,16 +266,19 @@ class HoroscopeViewController: UIViewController {
     
     
     func isSignIconTapped(isBool : Bool){
-    
+        
+        self.iconTapRec.addTarget(self, action: #selector(HoroscopeViewController.isSignIconTapped))
+        
+  
         if isIconTapped == true {
             
             horoStackView.tintColor = UIColor.whiteColor()
         } else {
-             horoStackView.tintColor = UIColor.blackColor()
-        
+            horoStackView.tintColor = UIColor.blackColor()
+            
         }
         
-    
+        
     }
     
     
@@ -340,10 +349,10 @@ class HoroscopeViewController: UIViewController {
     //        dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(dailyHoroscopeTextView.widthAnchor).active = true
     //
     //        self.horoStackView.translatesAutoresizingMaskIntoConstraints = false
-    //        
+    //
     //        self.horoStackView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
     //        self.horoStackView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
-    //        
+    //
     //
     //
     //
@@ -351,7 +360,7 @@ class HoroscopeViewController: UIViewController {
     //    }
     
     
-
+    
     
     override func didReceiveMemoryWarning()
     {
