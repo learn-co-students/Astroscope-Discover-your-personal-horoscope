@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5375881D6749FA00B9702A /* gifFramework.swift */; };
+		1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758A1D674A7D00B9702A /* giphy (1).gif */; };
+		1B53758D1D67550600B9702A /* giphy (2).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758C1D67550600B9702A /* giphy (2).gif */; };
+		1B53758F1D67567600B9702A /* giphy (3).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758E1D67567600B9702A /* giphy (3).gif */; };
 		1B9B24A01D5E647600E10D58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B249F1D5E647600E10D58 /* AppDelegate.swift */; };
 		1B9B24A51D5E647600E10D58 /* Horoscope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */; };
 		1B9B24AA1D5E647600E10D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24A91D5E647600E10D58 /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 
 /* Begin PBXFileReference section */
 		139238EF116A873FAE18CB02 /* Pods-Lemonade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemonade/Pods-Lemonade.debug.xcconfig"; sourceTree = "<group>"; };
+		1B5375881D6749FA00B9702A /* gifFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFramework.swift; sourceTree = "<group>"; };
+		1B53758A1D674A7D00B9702A /* giphy (1).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (1).gif"; sourceTree = "<group>"; };
+		1B53758C1D67550600B9702A /* giphy (2).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (2).gif"; sourceTree = "<group>"; };
+		1B53758E1D67567600B9702A /* giphy (3).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (3).gif"; sourceTree = "<group>"; };
 		1B9B249C1D5E647600E10D58 /* Lemonade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemonade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9B249F1D5E647600E10D58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B9B24A41D5E647600E10D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Horoscope.storyboard; sourceTree = "<group>"; };
@@ -102,7 +110,11 @@
 				1BE63D781D61FFF100066410 /* datePickerClass.swift */,
 				1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */,
 				1BE83D131D63989B00A95FA4 /* Secrets.swift */,
+				1B5375881D6749FA00B9702A /* gifFramework.swift */,
 				1B9B24A91D5E647600E10D58 /* Assets.xcassets */,
+				1B53758A1D674A7D00B9702A /* giphy (1).gif */,
+				1B53758C1D67550600B9702A /* giphy (2).gif */,
+				1B53758E1D67567600B9702A /* giphy (3).gif */,
 				1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */,
 				1B9B24AE1D5E647600E10D58 /* Info.plist */,
 			);
@@ -179,6 +191,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */,
+				1B53758D1D67550600B9702A /* giphy (2).gif in Resources */,
+				1B53758F1D67567600B9702A /* giphy (3).gif in Resources */,
 				1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */,
 				1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */,
 				1B9B24AA1D5E647600E10D58 /* Assets.xcassets in Resources */,
@@ -242,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
+				1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */,
 				DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */,
 				43D35FA61D624E430017C4D6 /* UsersAndDate.xcdatamodeld in Sources */,
 				43D35FB81D6358F70017C4D6 /* Users+CoreDataProperties.swift in Sources */,

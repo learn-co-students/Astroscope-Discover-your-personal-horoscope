@@ -27,25 +27,29 @@ class DatePickerViewController: UIViewController
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var selectBirthdayLabel: UILabel!
+    @IBOutlet weak var bDayLabel: UILabel!
     @IBOutlet weak var submitButtonLabel: UIButton!
     @IBOutlet weak var goToHoroscopeButtonLabel: UIButton!
     @IBOutlet weak var editButtonLabel: UIButton!
-   
-    @IBOutlet weak var bDayLabel: UILabel!
-   
+    
     
     override func viewDidLoad()
     {
 
         super.viewDidLoad()
+    
         
+        let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (3)", withExtension: "gif")!)
+        let imageGif = UIImage.gifWithData(imageData!)
+        let imageView = UIImageView(image: imageGif)
+       
+        imageView.frame = self.view.frame
+        view.addSubview(imageView)
+        view.sendSubviewToBack(imageView)
         
-        //print(dateClass.gettingHoroscopeString(284))
-        self.view.backgroundColor = UIColor.blackColor()
         self.datePicker.backgroundColor = UIColor.clearColor()
         self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         self.datePicker.setValue(false, forKey: "highlightsToday")
-        
         
         checkforData()
         
@@ -204,9 +208,7 @@ class DatePickerViewController: UIViewController
         updateAlert.addAction(noAction)
         updateAlert.addAction(yesAction)
         
-        self.presentViewController(updateAlert, animated: true)
-        {
-           
+        self.presentViewController(updateAlert, animated: true){
         }
         
     }
@@ -229,7 +231,6 @@ class DatePickerViewController: UIViewController
         
         if segue.identifier == "goToYourHoroscopeSegue"
         {
-        
             let destVC = segue.destinationViewController as! HoroscopeViewController
             
             if let unwrappedBirthdayFromStore = birthdayFromStore
@@ -237,8 +238,6 @@ class DatePickerViewController: UIViewController
                 let savedUserBirthday = dateClass.gettingHoroscopeString(unwrappedBirthdayFromStore)
                 destVC.passedHoroscopeString = savedUserBirthday
             }
-            
-        
  
         }
         

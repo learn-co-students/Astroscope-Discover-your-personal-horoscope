@@ -16,6 +16,6 @@ extension Users {
 
     @NSManaged var birthdate: Int32
     @NSManaged var username: String?
-   // @NSManaged var year: Int32
+
 
 }

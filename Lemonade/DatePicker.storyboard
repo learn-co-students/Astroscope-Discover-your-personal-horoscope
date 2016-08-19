@@ -41,8 +41,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB3-nq-jVU">
-                                <rect key="frame" x="168" y="599" width="30" height="30"/>
-                                <state key="normal" title="Edit"/>
+                                <rect key="frame" x="155" y="599" width="57" height="30"/>
+                                <state key="normal" title="Edit Info"/>
                                 <connections>
                                     <action selector="editButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="YpK-6a-HOc"/>
                                 </connections>
