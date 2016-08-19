@@ -37,9 +37,8 @@ static let sharedDataStore = DataStore()
     
     func fetchData()
     {
-        //var error:NSError? = nil
         
-        let userRequest = NSFetchRequest(entityName: "Users")
+        let userRequest = NSFetchRequest(entityName: Users.entityName)
         
         do{
             let object = try managedObjectContext.executeFetchRequest(userRequest) as? [Users]

@@ -173,7 +173,6 @@ class datePickerClass
     //Func that returns string
     func passingTheHoroscope(startDate: NSDate, endDate: NSDate)->String
     {
-        
         let difference = daysBetweenDates(startDate, endDate: endDate)
         let horoscopeFromDate = gettingHoroscopeString(difference)
         

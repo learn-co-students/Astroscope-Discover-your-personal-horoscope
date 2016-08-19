@@ -59,7 +59,7 @@ class DatePickerViewController: UIViewController
     func checkforData()
     {
         let context = store.managedObjectContext
-        let userRequest = NSFetchRequest(entityName: "Users")
+        let userRequest = NSFetchRequest(entityName: Users.entityName)
         
         do{
             let object = try context.executeFetchRequest(userRequest) as? [Users]
@@ -68,12 +68,12 @@ class DatePickerViewController: UIViewController
             {
                 if object != nil // if theres data in it
                 {
-                    selectBirthdayLabel.text = "Welcome back"
-                    submitButtonLabel.hidden = true
-                    goToHoroscopeButtonLabel.hidden = false
-                    editButtonLabel.hidden = false
-                    datePicker.hidden = true
-                    bDayLabel.hidden = false
+                    self.selectBirthdayLabel.text = "Welcome back"
+                    self.submitButtonLabel.hidden = true
+                    self.goToHoroscopeButtonLabel.hidden = false
+                    self.editButtonLabel.hidden = false
+                    self.datePicker.hidden = true
+                    self.bDayLabel.hidden = false
                     
                     
                     store.fetchData()
@@ -86,8 +86,8 @@ class DatePickerViewController: UIViewController
                         
                         self.datePicker.setDate(setDate, animated: true)
                         
-                        let meh = dateClass.userBirthDayString(setDate)
-                        self.bDayLabel.text = meh
+                        let labelWithBdayString = dateClass.userBirthDayString(setDate)
+                        self.bDayLabel.text = labelWithBdayString
                         
                     }
                     
@@ -96,13 +96,13 @@ class DatePickerViewController: UIViewController
             }
             else if object?.count == 0 // if none
             {
-                startDate = dateClass.setStartingDate()
-                selectBirthdayLabel.text = "Please select your birthday"
-                submitButtonLabel.hidden = false
-                goToHoroscopeButtonLabel.hidden = true
-                editButtonLabel.hidden = true
-                datePicker.hidden = false
-                bDayLabel.hidden = true
+                self.startDate = dateClass.setStartingDate()
+                self.selectBirthdayLabel.text = "Please select your birthday"
+                self.submitButtonLabel.hidden = false
+                self.goToHoroscopeButtonLabel.hidden = true
+                self.editButtonLabel.hidden = true
+                self.datePicker.hidden = false
+                self.bDayLabel.hidden = true
             
             }
             
@@ -122,7 +122,7 @@ class DatePickerViewController: UIViewController
         let endDate = dateClass.setEndDate(datePicker.date)
         let difference = dateClass.daysBetweenDates(startDate, endDate: endDate)
         
-        dateFromPickerString = dateClass.userBirthDayString(datePicker.date)
+        self.dateFromPickerString = dateClass.userBirthDayString(datePicker.date)
         
         print("Date picked: \(endDate)")
         print("Julian date: \(difference)")
@@ -150,8 +150,6 @@ class DatePickerViewController: UIViewController
         person.birthdate = birthDateInt
                 
         store.saveContext()
-        print("SubmitButton Pressed")
-        print("Horoscope when using datepicker:\(dateClass.gettingHoroscopeString(Int(birthDateInt)))")
                 
         self.goToHoroscopeButtonLabel.hidden = false
         self.editButtonLabel.hidden = false
@@ -165,6 +163,8 @@ class DatePickerViewController: UIViewController
             self.bDayLabel.text = unwrappedString
         }
         
+        print("Submit Button Pressed")
+        print("Horoscope when using datepicker:\(dateClass.gettingHoroscopeString(Int(birthDateInt)))")
         
     }
     
@@ -173,10 +173,11 @@ class DatePickerViewController: UIViewController
     @IBAction func goToHoroscopeButton(sender: AnyObject)
     {
         store.fetchData()
+        
         birthdayFromStore = Int(store.individual!.birthdate)
         if let unwrappedBirthdayFromStore = birthdayFromStore
         {
-            savedString = dateClass.gettingHoroscopeString(unwrappedBirthdayFromStore)
+            self.savedString = dateClass.gettingHoroscopeString(unwrappedBirthdayFromStore)
         }
         
         print("goToHoroscopeButton Pressed")
@@ -188,7 +189,7 @@ class DatePickerViewController: UIViewController
     @IBAction func editButton(sender: AnyObject)
     {
 
-        let updateAlert = UIAlertController.init(title: "Edit Birthday?", message: "Are you sure that you want to edit your birthday?", preferredStyle: .Alert)
+        let editAlert = UIAlertController.init(title: "Edit Birthday?", message: "Are you sure that you want to edit your birthday?", preferredStyle: .Alert)
         
         let noAction = UIAlertAction.init(title: "No, cancel", style: .Cancel) { (action) in
         }
@@ -205,10 +206,10 @@ class DatePickerViewController: UIViewController
             print("Update Pressed")
             
         }
-        updateAlert.addAction(noAction)
-        updateAlert.addAction(yesAction)
+        editAlert.addAction(noAction)
+        editAlert.addAction(yesAction)
         
-        self.presentViewController(updateAlert, animated: true){
+        self.presentViewController(editAlert, animated: true){
         }
         
     }
