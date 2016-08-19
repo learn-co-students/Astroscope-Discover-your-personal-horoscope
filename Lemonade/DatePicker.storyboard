@@ -17,13 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
+                            <datePicker contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="74g-XH-wrq">
                                 <rect key="frame" x="0.0" y="269" width="375" height="210"/>
                                 <date key="date" timeIntervalSinceReferenceDate="492725575.798774">
                                     <!--2016-08-12 20:12:55 +0000-->
-                                </date>
-                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
-                                    <!--1970-01-01 11:00:00 +0000-->
                                 </date>
                                 <connections>
                                     <action selector="datePickerAction:" destination="w5w-ff-CwY" eventType="valueChanged" id="6I8-A0-8Cn"/>
@@ -31,7 +28,7 @@
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
                                 <rect key="frame" x="49" y="153" width="277" height="21"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -58,6 +55,12 @@
                                     <segue destination="Y2o-QF-WI1" kind="show" identifier="submitButtonSegue" id="PNL-dC-RC6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gt-z4-rpw">
+                                <rect key="frame" x="0.0" y="335" width="375" height="77"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -71,6 +74,7 @@
                     <navigationItem key="navigationItem" id="23e-vo-v95"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="bDayLabel" destination="7gt-z4-rpw" id="v0s-F7-geN"/>
                         <outlet property="datePicker" destination="74g-XH-wrq" id="UNt-Vx-xAt"/>
                         <outlet property="editButtonLabel" destination="MB3-nq-jVU" id="11P-C8-Tkc"/>
                         <outlet property="goToHoroscopeButtonLabel" destination="l3z-7x-abb" id="Mir-Bk-ObB"/>

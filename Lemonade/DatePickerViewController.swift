@@ -13,41 +13,39 @@ import CoreData
 class DatePickerViewController: UIViewController
 {
     
-    let store = DataStore()
-    var birthdayFromStore: Int = 0
+    let store = DataStore.sharedDataStore
+    var birthdayFromStore: Int?
     var savedString = ""
+    var dateFromPickerString :String?
     
-
-    @IBOutlet weak var datePicker: UIDatePicker!
     
-    var startDate : NSDate!
-    var userBirthday : NSDate!
+    var startDate : NSDate?
+    var userBirthday : NSDate?
+    
     
     var dateClass = datePickerClass()
     
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var selectBirthdayLabel: UILabel!
     @IBOutlet weak var submitButtonLabel: UIButton!
     @IBOutlet weak var goToHoroscopeButtonLabel: UIButton!
     @IBOutlet weak var editButtonLabel: UIButton!
+   
+    @IBOutlet weak var bDayLabel: UILabel!
    
     
     override func viewDidLoad()
     {
 
         super.viewDidLoad()
-
+        
+        
         //print(dateClass.gettingHoroscopeString(284))
         self.view.backgroundColor = UIColor.blackColor()
         self.datePicker.backgroundColor = UIColor.clearColor()
         self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         self.datePicker.setValue(false, forKey: "highlightsToday")
         
-        
-        startDate = dateClass.setStartingDate()
-        userBirthday = dateClass.setEndDate(datePicker.date)
-        
-        print("Starting Date: \(startDate)")
-        print("Today's Date: \(userBirthday)")
         
         checkforData()
         
@@ -70,15 +68,38 @@ class DatePickerViewController: UIViewController
                     submitButtonLabel.hidden = true
                     goToHoroscopeButtonLabel.hidden = false
                     editButtonLabel.hidden = false
+                    datePicker.hidden = true
+                    bDayLabel.hidden = false
+                    
+                    
+                    store.fetchData()
+                    
+                    let birthDate = store.individual?.birthdate
+                    if let unwrappedBirthDate = birthDate
+                    {
+                        let start = dateClass.setStartingDate()
+                        let setDate = (dateClass.setDateForPicker(start, day: Int(unwrappedBirthDate)))
+                        
+                        self.datePicker.setDate(setDate, animated: true)
+                        
+                        let meh = dateClass.userBirthDayString(setDate)
+                        self.bDayLabel.text = meh
+                        
+                    }
+                    
                 }
                 
             }
             else if object?.count == 0 // if none
             {
+                startDate = dateClass.setStartingDate()
                 selectBirthdayLabel.text = "Please select your birthday"
                 submitButtonLabel.hidden = false
                 goToHoroscopeButtonLabel.hidden = true
                 editButtonLabel.hidden = true
+                datePicker.hidden = false
+                bDayLabel.hidden = true
+            
             }
             
         }
@@ -93,10 +114,15 @@ class DatePickerViewController: UIViewController
     //Gets user's input from date picker
     @IBAction func datePickerAction(sender: AnyObject)
     {
-        let difference = dateClass.daysBetweenDates(self.startDate, endDate: self.userBirthday)
-        self.userBirthday = dateClass.setEndDate(datePicker.date)
-        print("Date picked: \(self.userBirthday)")
+        let startDate = dateClass.setStartingDate()
+        let endDate = dateClass.setEndDate(datePicker.date)
+        let difference = dateClass.daysBetweenDates(startDate, endDate: endDate)
+        
+        dateFromPickerString = dateClass.userBirthDayString(datePicker.date)
+        
+        print("Date picked: \(endDate)")
         print("Julian date: \(difference)")
+        print("Date String: \(dateFromPickerString)")
     
     }
     
@@ -104,42 +130,53 @@ class DatePickerViewController: UIViewController
     //Will save the user's input
     @IBAction func submitButton(sender: AnyObject)
     {
-        submitButtonLabel.hidden = true
-        selectBirthdayLabel.text = "Welcome Back"
-        self.userBirthday = dateClass.setEndDate(datePicker.date)
+        self.submitButtonLabel.hidden = true
+        self.selectBirthdayLabel.text = "Welcome Back"
+        self.userBirthday = self.dateClass.setEndDate(self.datePicker.date)
         
-        let context = store.managedObjectContext
+                
+        let context = self.store.managedObjectContext
+                
+        let person = NSEntityDescription.insertNewObjectForEntityForName(Users.entityName, inManagedObjectContext: context) as! Users
         
-        let birthDate = NSEntityDescription.insertNewObjectForEntityForName(Users.entityName, inManagedObjectContext: context) as NSManagedObject
+        let start = dateClass.setStartingDate()
+        let userBday = dateClass.setEndDate(datePicker.date)
+        let birthDateInt = Int32(self.dateClass.daysBetweenDates(start, endDate: userBday))
         
-        birthDate.setValue(dateClass.daysBetweenDates(self.startDate, endDate: self.userBirthday), forKey: "birthdate")
-        
-        do  {
-            try context.save()
-        }
-        catch
-        {
-            print("Error")
-        }
-        
+        person.birthdate = birthDateInt
+                
         store.saveContext()
         print("SubmitButton Pressed")
+        print("Horoscope when using datepicker:\(dateClass.gettingHoroscopeString(Int(birthDateInt)))")
+                
+        self.goToHoroscopeButtonLabel.hidden = false
+        self.editButtonLabel.hidden = false
+        self.datePicker.hidden = true
+        self.bDayLabel.hidden = false
         
-        goToHoroscopeButtonLabel.hidden = false
-        editButtonLabel.hidden = false
+        dateFromPickerString = dateClass.userBirthDayString(datePicker.date)
+        
+        if let unwrappedString = dateFromPickerString
+        {
+            self.bDayLabel.text = unwrappedString
+        }
+        
+        
     }
+    
     
     //goes straight to their horoscope based on the data saved
     @IBAction func goToHoroscopeButton(sender: AnyObject)
     {
-        
-        birthdayFromStore = Int(store.fetchData())
-        
-        savedString = dateClass.gettingHoroscopeString(birthdayFromStore)
+        store.fetchData()
+        birthdayFromStore = Int(store.individual!.birthdate)
+        if let unwrappedBirthdayFromStore = birthdayFromStore
+        {
+            savedString = dateClass.gettingHoroscopeString(unwrappedBirthdayFromStore)
+        }
         
         print("goToHoroscopeButton Pressed")
         print(savedString)
-        
         
     }
     
@@ -147,34 +184,33 @@ class DatePickerViewController: UIViewController
     @IBAction func editButton(sender: AnyObject)
     {
 
-        let updateAlert = UIAlertController.init(title: "Update", message: "Are you sure you want to edit your birthday?", preferredStyle: .Alert)
+        let updateAlert = UIAlertController.init(title: "Edit Birthday?", message: "Are you sure that you want to edit your birthday?", preferredStyle: .Alert)
         
         let noAction = UIAlertAction.init(title: "No, cancel", style: .Cancel) { (action) in
         }
         
         let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
+        
             self.store.updateData()
             self.submitButtonLabel.hidden = false
             self.goToHoroscopeButtonLabel.hidden = true
             self.editButtonLabel.hidden = true
             self.selectBirthdayLabel.text = "Please select your birthday"
+            self.datePicker.hidden = false
+            self.bDayLabel.hidden = true
             print("Update Pressed")
+            
         }
         updateAlert.addAction(noAction)
         updateAlert.addAction(yesAction)
         
         self.presentViewController(updateAlert, animated: true)
         {
-            print("hello")
+           
         }
         
     }
     
-    //haven't used this yet
-    func alertControllerBackgroundTapped()
-    {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
 
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -183,31 +219,26 @@ class DatePickerViewController: UIViewController
         {
             let destinationVC = segue.destinationViewController as? HoroscopeViewController
         
-            let horoToBeSegued = dateClass.passingTheHoroscope(startDate, endDate: userBirthday)
+            let startDate = dateClass.setStartingDate()
+            let userBirthdayDate = dateClass.setEndDate(datePicker.date)
+            let horoToBeSegued = dateClass.passingTheHoroscope(startDate, endDate:userBirthdayDate)
         
             destinationVC?.passedHoroscopeString = horoToBeSegued
-            
-            /**
-            let submitAlert = UIAlertController.init(title: "Welcome!", message: "You are a \(horoToBeSegued)", preferredStyle: .Alert)
-            
-            self.presentViewController(submitAlert, animated: true, completion:
-            {
-                submitAlert.view.superview?.userInteractionEnabled = true
-                submitAlert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.alertControllerBackgroundTapped)))
-            })
-            */
             
         }
         
         if segue.identifier == "goToYourHoroscopeSegue"
         {
         
-            let destVC = segue.destinationViewController as? HoroscopeViewController
+            let destVC = segue.destinationViewController as! HoroscopeViewController
             
-            let savedUserBirthday = dateClass.gettingHoroscopeString(birthdayFromStore)
+            if let unwrappedBirthdayFromStore = birthdayFromStore
+            {
+                let savedUserBirthday = dateClass.gettingHoroscopeString(unwrappedBirthdayFromStore)
+                destVC.passedHoroscopeString = savedUserBirthday
+            }
             
-            destVC?.passedHoroscopeString = savedUserBirthday
-            
+        
  
         }
         

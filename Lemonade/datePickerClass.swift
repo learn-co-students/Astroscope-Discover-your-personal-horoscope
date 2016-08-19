@@ -50,6 +50,7 @@ class datePickerClass
         endDateFormatter.dateFormat = "MMMM-dd"
         datePickerEndDate = endDateFormatter.dateFromString(endDateString)
         
+        
         //if the user basically doesn't touch the datePicker, which is already set to "today"
         if datePickerEndDate != datePickerEndDate //if the endDate is not equal to itself
         {
@@ -71,6 +72,16 @@ class datePickerClass
         return datePickerEndDate
     }
     
+    
+    func userBirthDayString(date: NSDate)->String
+    {
+        let format = NSDateFormatter()
+        format.dateFormat = "MMMM dd"
+        
+        let bdString = format.stringFromDate(date)
+        
+        return bdString
+    }
     
     //Function that takes the difference between startDate and user's birthday
     func daysBetweenDates(startDate: NSDate, endDate: NSDate) -> Int
@@ -146,7 +157,20 @@ class datePickerClass
         return horoscopeString
     }
     
-    
+    func setDateForPicker(startDate: NSDate, day: Int)->NSDate
+    {
+        var setDate = NSDate()
+        let calendar = NSCalendar.currentCalendar().dateByAddingUnit(.Day, value: day, toDate: startDate, options: [])
+        
+        if let unwrappedDate = calendar
+        {
+            setDate = unwrappedDate
+        }
+        return setDate
+    }
+
+ 
+    //Func that returns string
     func passingTheHoroscope(startDate: NSDate, endDate: NSDate)->String
     {
         
