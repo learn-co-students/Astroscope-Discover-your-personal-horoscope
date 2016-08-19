@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SnapKit
+import AssetsLibrary
 
 class HoroscopeViewController: UIViewController {
     
@@ -32,15 +33,21 @@ class HoroscopeViewController: UIViewController {
     var horoStackView = UIStackView()
     let stackViewBackgroundView = UIView()
     
+    @IBOutlet weak var testview: UIButton!
+    var imageView = UIImageView()
+    
+    let saveNASAImageToCameraRollButton = UIButton()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.getSignIconName()
         //self.addStackView()
         
-        isSignIconTapped(isIconTapped)
+
+        //isSignIconTapped(isIconTapped)
        // self.iconTapRec.addTarget(self, action: #selector(HoroscopeViewController.isSignIconTapped))
-        self.tapRecStackView.addTarget(self, action: #selector(HoroscopeViewController.stackViewTapped))
+       // self.tapRecStackView.addTarget(self, action: #selector(HoroscopeViewController.stackViewTapped))
         
        
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
@@ -57,12 +64,13 @@ class HoroscopeViewController: UIViewController {
                 self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
                 self.view.sendSubviewToBack(self.imageNASAView)
             })
-        }
+
+       self.createSaveImageButton()
+       self.saveImageButtonTapped()
         
         
         
-        
-        guard let unwrappedPassedHoroscopeString = passedHoroscopeString else {return}
+        guard let unwrappedPassedHoroscopeString = self.passedHoroscopeString else {return}
         
         HoroscopeAPIClient.getDailyHoroscope(unwrappedPassedHoroscopeString) { (unwrappedZodiac) in
             
@@ -191,7 +199,7 @@ class HoroscopeViewController: UIViewController {
                         self.stackViewBackgroundView.userInteractionEnabled = true
                         self.horoStackView.userInteractionEnabled = true
                         
-                        self.tapRecStackView.addTarget(self, action: #selector(HoroscopeViewController.stackViewTapped))
+                        //self.tapRecStackView.addTarget(self, action: #selector(HoroscopeViewController.stackViewTapped))
                         
                         self.stackViewBackgroundView.addGestureRecognizer(self.tapRecStackView)
                         self.horoStackView.addGestureRecognizer(self.tapRecStackView)
@@ -206,6 +214,7 @@ class HoroscopeViewController: UIViewController {
             })
             
         }
+
         
     }
     
@@ -267,7 +276,7 @@ class HoroscopeViewController: UIViewController {
     
     func isSignIconTapped(isBool : Bool){
         
-        self.iconTapRec.addTarget(self, action: #selector(HoroscopeViewController.isSignIconTapped))
+      //  self.iconTapRec.addTarget(self, action: #selector(HoroscopeViewController.isSignIconTapped))
         
   
         if isIconTapped == true {
@@ -361,14 +370,53 @@ class HoroscopeViewController: UIViewController {
     
     
     
+
+    }
+
     
-    override func didReceiveMemoryWarning()
+    func createSaveImageButton () {
+        
+        self.view.addSubview(saveNASAImageToCameraRollButton)
+        self.saveNASAImageToCameraRollButton.translatesAutoresizingMaskIntoConstraints = false
+        self.saveNASAImageToCameraRollButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor, constant: 0).active = true
+        self.saveNASAImageToCameraRollButton.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor, constant: 0).active = true
+        saveNASAImageToCameraRollButton.backgroundColor = UIColor.whiteColor()
+        saveNASAImageToCameraRollButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        saveNASAImageToCameraRollButton.setTitle("Save Image To Camera Roll", forState: UIControlState.Normal)
+        saveNASAImageToCameraRollButton.frame = CGRectMake(100, 100, 100, 50)
+        saveNASAImageToCameraRollButton.layer.cornerRadius = 5
+        saveNASAImageToCameraRollButton.layer.borderWidth = 1
+        saveNASAImageToCameraRollButton.layer.borderColor = UIColor.blueColor().CGColor
+        saveNASAImageToCameraRollButton.addTarget(self, action: #selector (saveImageButtonTapped), forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func saveImageButtonTapped () {
+
+        if let unwrappedImage = imageView.image {
+
+            UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
+            let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
+            savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(savedAlertController, animated: true, completion: nil)
+            savedAlertController.view.backgroundColor = UIColor.blackColor()
+            savedAlertController.view.tintColor = UIColor.blackColor()
+            
+            
+
+        }
+        
+        else {
+            let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
+            savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            presentViewController(savedAlertControllerError, animated: true, completion: nil)
+        }
+    }
+ override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
+
     
 }
 
