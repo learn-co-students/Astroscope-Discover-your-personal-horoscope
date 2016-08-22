@@ -25,11 +25,6 @@
 		43D35FA61D624E430017C4D6 /* UsersAndDate.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43D35FA41D624E430017C4D6 /* UsersAndDate.xcdatamodeld */; };
 		43D35FB41D6357780017C4D6 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D35FB31D6357780017C4D6 /* Users.swift */; };
 		43D35FB81D6358F70017C4D6 /* Users+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D35FB71D6358F70017C4D6 /* Users+CoreDataProperties.swift */; };
-
-		43DB44211D649D61001F4AA2 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB44201D649D61001F4AA2 /* HoroscopeViewController.swift */; };
-		43DB44231D649E62001F4AA2 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DB44221D649E62001F4AA2 /* DatePickerViewController.swift */; };
-		DEDBEE821D5E72AB00208782 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE811D5E72AB00208782 /* Secrets.swift */; };
-
 		DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */; };
 		DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFEEF411D637AF900383A56 /* NASAAPIClient.swift */; };
 /* End PBXBuildFile section */
@@ -47,23 +42,14 @@
 		1B9B24AC1D5E647600E10D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B9B24AE1D5E647600E10D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
-
-		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
-
 		1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		1BB768F51D63C951009D3737 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
 		1BE83D131D63989B00A95FA4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
-
 		43D35F7D1D62364B0017C4D6 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		43D35FA51D624E430017C4D6 /* UsersAndDate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UsersAndDate.xcdatamodel; sourceTree = "<group>"; };
 		43D35FB31D6357780017C4D6 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = SOURCE_ROOT; };
 		43D35FB71D6358F70017C4D6 /* Users+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Users+CoreDataProperties.swift"; path = "../Users+CoreDataProperties.swift"; sourceTree = "<group>"; };
-
-		43DB44201D649D61001F4AA2 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
-		43DB44221D649E62001F4AA2 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
-
-
 		AEFDADAF976DB5FE8EEF2799 /* Pods-Lemonade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade.release.xcconfig"; path = "Pods/Target Support Files/Pods-Lemonade/Pods-Lemonade.release.xcconfig"; sourceTree = "<group>"; };
 		B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Lemonade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeAPIClient.swift; sourceTree = "<group>"; };
@@ -111,20 +97,15 @@
 		1B9B249E1D5E647600E10D58 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
-				43DB44201D649D61001F4AA2 /* HoroscopeViewController.swift */,
 				43D35F7D1D62364B0017C4D6 /* DataStore.swift */,
 				43D35FA41D624E430017C4D6 /* UsersAndDate.xcdatamodeld */,
-
 				1BB768F51D63C951009D3737 /* DatePickerViewController.swift */,
-
 				43D35FB71D6358F70017C4D6 /* Users+CoreDataProperties.swift */,
 				43D35FB31D6357780017C4D6 /* Users.swift */,
 				1B9B249F1D5E647600E10D58 /* AppDelegate.swift */,
 				DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */,
 				DEFEEF411D637AF900383A56 /* NASAAPIClient.swift */,
-
 				1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */,
-
 				1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */,
 				1BE63D781D61FFF100066410 /* datePickerClass.swift */,
 				1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */,
@@ -276,18 +257,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
-
-
-
 				1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */,
-
 				DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */,
 				43D35FA61D624E430017C4D6 /* UsersAndDate.xcdatamodeld in Sources */,
 				43D35FB81D6358F70017C4D6 /* Users+CoreDataProperties.swift in Sources */,
 				1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */,
 				43D35FB41D6357780017C4D6 /* Users.swift in Sources */,
 				1BB768F41D63C8A7009D3737 /* HoroscopeViewController.swift in Sources */,
-
 				DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */,
 				1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */,
 				1B9B24A01D5E647600E10D58 /* AppDelegate.swift in Sources */,

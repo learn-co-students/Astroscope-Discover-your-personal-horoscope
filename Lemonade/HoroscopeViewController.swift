@@ -209,27 +209,15 @@ class HoroscopeViewController: UIViewController {
             }
             
         }
-        
-        
         func isSignIconTapped(isBool : Bool){
-            
-            
-            
+
             if isIconTapped == true {
                 
                 horoStackView.tintColor = UIColor.whiteColor()
             } else {
                 horoStackView.tintColor = UIColor.blackColor()
-                
             }
-            
-            
         }
-        
-        
-        
-        
-        
     }
     
     func createSaveImageButton () {
