@@ -7,5 +7,7 @@ target 'Lemonade' do
 
   pod 'SnapKit'
   # Pods for Lemonade
+    pod 'KCFloatingActionButton', '~> 1.4'
+
 
 end

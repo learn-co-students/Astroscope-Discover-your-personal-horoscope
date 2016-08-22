@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import SnapKit
 import AssetsLibrary
+import KCFloatingActionButton
 
 class HoroscopeViewController: UIViewController {
     
@@ -38,6 +39,10 @@ class HoroscopeViewController: UIViewController {
         NASAPic()
         self.createSaveImageButton()
         horoscopeStackViewsAndTextViewsAndImageViews()
+        
+        
+        KCFABManager.defaultInstance().getButton().addItem(title: "Save Background Photo!")
+        KCFABManager.defaultInstance().show()
     }
     
     func NASAPic () {
