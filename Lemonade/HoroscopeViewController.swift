@@ -41,11 +41,9 @@ class HoroscopeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        NASAPic()
         
         self.createSaveImageButton()
-        NASAPic()
         horoscopeStackViewsAndTextViewsAndImageViews()
         
     }
@@ -264,6 +262,7 @@ class HoroscopeViewController: UIViewController {
     
     func createSaveImageButton () {
         
+        
         saveNASAImageToCameraRollButton.backgroundColor = UIColor.whiteColor()
         saveNASAImageToCameraRollButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         saveNASAImageToCameraRollButton.setTitle("Save Image To Camera Roll", forState: UIControlState.Normal)
@@ -284,7 +283,7 @@ class HoroscopeViewController: UIViewController {
     
     func saveImageButtonTapped () {
         
-        if let unwrappedImage = imageView.image {
+        if let unwrappedImage = imageNASAView.image {
             
             UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
             let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
@@ -295,6 +294,7 @@ class HoroscopeViewController: UIViewController {
         }
             
         else {
+            
             let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
             savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             presentViewController(savedAlertControllerError, animated: true, completion: nil)
