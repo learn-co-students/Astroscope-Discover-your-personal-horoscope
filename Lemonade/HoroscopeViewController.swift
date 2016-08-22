@@ -21,31 +21,23 @@ class HoroscopeViewController: UIViewController {
     var todaysDate: UILabel!
     var signName: UILabel!
     var iconsDictionary: [String: String] = ["Capricorn": "capricorn_black_parkjisun.png", "Aquarius":"aquarius_black_parkjisun.png", "Pisces" : "pisces_black_parkjisun.png", "Aries" : "aries_black_parkjisun.png", "Taurus" : "taurus_black_parkjisun.png", "Gemini" : "gemini_black_parkjisun.png", "Cancer" : "cancer_black_parkjisun.png", "Leo" : "leo_black_parkjisun.png", "Virgo" : "virgo_black_parkjisun.png", "Libra" : "libra_black_parkjisun.png", "Scorpio" : "scorpio_black_parkjisun.png", "Sagittarius" : "sagittarius_black_parkjisun.png"]
-    
-    
     let tapRecStackView = UITapGestureRecognizer()
     let returnTapRec = UITapGestureRecognizer()
-    
     var iconTapRec = UITapGestureRecognizer()
     var isIconTapped: Bool = false
     var isBlurred: Bool = false
-    
     var horoStackView = UIStackView()
     let stackViewBackgroundView = UIView()
-    
     @IBOutlet weak var testview: UIButton!
     var imageView = UIImageView()
-    
     let saveNASAImageToCameraRollButton = UIButton()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NASAPic()
-        
         self.createSaveImageButton()
         horoscopeStackViewsAndTextViewsAndImageViews()
-        
     }
     
     func NASAPic () {
@@ -63,22 +55,15 @@ class HoroscopeViewController: UIViewController {
                 self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
                 self.view.sendSubviewToBack(self.imageNASAView)
             })
-            
-            
         }
-        
     }
     
     func horoscopeStackViewsAndTextViewsAndImageViews () {
-        guard let unwrappedPassedHoroscopeString = self.passedHoroscopeString else {return}
         
+        guard let unwrappedPassedHoroscopeString = self.passedHoroscopeString else {return}
         HoroscopeAPIClient.getDailyHoroscope(unwrappedPassedHoroscopeString) { (unwrappedZodiac) in
-            
-            
             NSOperationQueue.mainQueue().addOperationWithBlock({
-                print(unwrappedZodiac)
-                
-                
+ 
                 for iconKey in self.iconsDictionary.keys {
                     
                     if iconKey == unwrappedPassedHoroscopeString {
@@ -86,9 +71,6 @@ class HoroscopeViewController: UIViewController {
                         self.signIcon.clipsToBounds = true
                         self.signIcon.image = UIImage(named: self.iconsDictionary[iconKey]!)
                         self.signIcon.tintColor = UIColor.whiteColor()
-                        
-                        
-                        
                         self.signIcon.userInteractionEnabled = true
                         self.signIcon.addGestureRecognizer(self.iconTapRec)
                         self.signIcon.translatesAutoresizingMaskIntoConstraints = false
@@ -96,21 +78,16 @@ class HoroscopeViewController: UIViewController {
                         guard let unwrappedSignName = unwrappedZodiac["sunsign"] as? String else {return}
                         
                         self.signName = UILabel()
-                        
                         guard self.signName != nil else {return}
                         self.signName.text = unwrappedSignName
                         self.signName.textAlignment = NSTextAlignment.Center
                         self.signName.textColor = UIColor.whiteColor()
                         self.signName.font = UIFont(name: "BradleyHandITCTT-Bold", size: 35.0)
-                        
-                        
-                        print(unwrappedSignName)
-                        
-                        
                         guard let unwrappedTodaysDate = unwrappedZodiac["date"] as? String else {return}
                         self.todaysDate = UILabel()
                         
                         guard self.todaysDate != nil else {return}
+                        
                         self.todaysDate.text = unwrappedTodaysDate
                         self.todaysDate.textAlignment = NSTextAlignment.Center
                         self.todaysDate.textColor = UIColor.whiteColor()
@@ -120,6 +97,7 @@ class HoroscopeViewController: UIViewController {
                         
                         
                         guard let unwrappedHoroscopeValue = unwrappedZodiac["horoscope"] as? String else {return}
+                        
                         self.dailyHoroscopeTextView = UITextView()
                         self.dailyHoroscopeTextView.backgroundColor = UIColor.clearColor()
                         // self.dailyHoroscopeTextView.backgroundColor = UIColor(white: 0.0, alpha: 0.0)
@@ -127,13 +105,7 @@ class HoroscopeViewController: UIViewController {
                         self.dailyHoroscopeTextView.text = unwrappedHoroscopeValue
                         self.dailyHoroscopeTextView.textColor = UIColor.whiteColor()
                         self.dailyHoroscopeTextView.font = UIFont(name: "BradleyHandITCTT-Bold", size: 18.0)
-                        
-                        print(unwrappedHoroscopeValue)
-                        
-                        print("Running")
-                        
-                        
-                        
+                
                         self.stackViewBackgroundView.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
                         self.view.addSubview(self.stackViewBackgroundView)
                         self.stackViewBackgroundView.translatesAutoresizingMaskIntoConstraints = false
