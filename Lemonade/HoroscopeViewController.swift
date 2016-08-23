@@ -30,13 +30,9 @@ class HoroscopeViewController: UIViewController {
     var isBlurred: Bool = false
     var horoStackView = UIStackView()
     let stackViewBackgroundView = UIView()
-    @IBOutlet weak var testview: UIButton!
-    var imageView = UIImageView()
     var saveNASAImageToCameraRollButton = UIButton()
-    
     var menuButton = KCFloatingActionButton()
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,7 +76,7 @@ class HoroscopeViewController: UIViewController {
         menuButton.addItem("Save Background Image To Camera Roll", icon: savePhotoImage) { (action) in
             if let unwrappedImage = self.imageNASAView.image {
                 print("button pressed")
-                
+             
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
                 let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
                 savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
