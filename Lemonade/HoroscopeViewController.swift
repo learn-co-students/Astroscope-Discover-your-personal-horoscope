@@ -71,14 +71,15 @@ class HoroscopeViewController: UIViewController {
     
     
     func menuBarButtons() {
-        let menuButton = KCFloatingActionButton()
         
-        menuButton.addItem(title: "Save Background Image To Camera Roll") { (action) in
-            
-           
-            
+        let menuButton = KCFloatingActionButton()
+        menuButton.buttonColor = UIColor.whiteColor()
+        let savePhotoImage = UIImage.init(named: "savephotobuttonimage.png")
+        
+        
+        menuButton.addItem("Save Background Image To Camera Roll", icon: savePhotoImage) { (action) in
             if let unwrappedImage = self.imageNASAView.image {
-                 print("button pressed")
+                print("button pressed")
                 
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
                 let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
@@ -96,6 +97,7 @@ class HoroscopeViewController: UIViewController {
             }
             
         }
+        
         self.view.addSubview(menuButton)
     }
 
