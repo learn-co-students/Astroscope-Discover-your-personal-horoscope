@@ -31,19 +31,36 @@ class HoroscopeViewController: UIViewController {
     let stackViewBackgroundView = UIView()
     @IBOutlet weak var testview: UIButton!
     var imageView = UIImageView()
-    let saveNASAImageToCameraRollButton = UIButton()
+    var saveNASAImageToCameraRollButton = UIButton()
+    let newButton = UIButton()
+    var menuButton = KCFloatingActionButton()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NASAPic()
-        self.createSaveImageButton()
+   
         horoscopeStackViewsAndTextViewsAndImageViews()
         
+        menuBarButtons()
         
-        KCFABManager.defaultInstance().getButton().addItem(title: "Save Background Photo!")
-        KCFABManager.defaultInstance().show()
+
+        
+
+        
     }
+    
+    func menuBarButtons() {
+        let menuButton = KCFloatingActionButton()
+        
+        menuButton.addItem(title: "Save Background Image") { (action) in
+            print("button pressed")
+            
+        }
+        self.view.addSubview(menuButton)
+    }
+
+
     
     func NASAPic () {
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
@@ -247,26 +264,35 @@ class HoroscopeViewController: UIViewController {
     }
     
     func saveImageButtonTapped () {
+        let menuButton = KCFloatingActionButton()
         
-        if let unwrappedImage = imageNASAView.image {
+        menuButton.addItem(title: "Save Background Image") { (action) in
             
-            UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
-            let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
-            savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(savedAlertController, animated: true, completion: nil)
-            savedAlertController.view.backgroundColor = UIColor.blackColor()
-            savedAlertController.view.tintColor = UIColor.blackColor()
-        }
-            
-        else {
-            
-            let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
-            savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            presentViewController(savedAlertControllerError, animated: true, completion: nil)
-        }
+           
+                if let unwrappedImage = self.imageNASAView.image {
+                    print("button pressed")
+                    
+                    UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
+                    let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
+                    savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    self.presentViewController(savedAlertController, animated: true, completion: nil)
+                    savedAlertController.view.backgroundColor = UIColor.blackColor()
+                    savedAlertController.view.tintColor = UIColor.blackColor()
+
+                }
+                    
+                else {
+                    print("bloop")
+                    let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
+                    savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                    self.presentViewController(savedAlertControllerError, animated: true, completion: nil)
+
+            }
+        self.view.addSubview(menuButton)
     }
     
     
+    }
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
