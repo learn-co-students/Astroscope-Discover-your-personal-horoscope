@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import SnapKit
 import AssetsLibrary
 import KCFloatingActionButton
 import SystemConfiguration
@@ -36,17 +35,11 @@ class HoroscopeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        noInternetConnectionAlert()
-
+       noInternetConnectionAlert()
         NASAPic()
-   
         horoscopeStackViewsAndTextViewsAndImageViews()
+        pressedMenuBarButtons()
         
-        menuBarButtons()
-        
- 
     }
     
     
@@ -66,19 +59,29 @@ class HoroscopeViewController: UIViewController {
 
     
     
-    func menuBarButtons() {
+    func pressedMenuBarButtons() {
+        
+        
         
         let menuButton = KCFloatingActionButton()
+        
         menuButton.buttonColor = UIColor.whiteColor()
+     
+   
+        
         let savePhotoImage = UIImage.init(named: "savephotobuttonimage.png")
         
         
         menuButton.addItem("Save Background Image To Camera Roll", icon: savePhotoImage) { (action) in
+            
             if let unwrappedImage = self.imageNASAView.image {
                 print("button pressed")
-             
+                
+                
+            
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
                 let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
+               
                 savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(savedAlertController, animated: true, completion: nil)
                 savedAlertController.view.backgroundColor = UIColor.blackColor()
@@ -97,6 +100,7 @@ class HoroscopeViewController: UIViewController {
         self.view.addSubview(menuButton)
     }
 
+    
 
     
     func NASAPic () {
