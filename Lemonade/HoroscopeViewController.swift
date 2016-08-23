@@ -66,7 +66,7 @@ class HoroscopeViewController: UIViewController {
             })
 
        self.createSaveImageButton()
-       self.saveImageButtonTapped()
+       //self.saveImageButtonTapped()
         
         
         
