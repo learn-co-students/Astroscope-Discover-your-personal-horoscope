@@ -124,10 +124,10 @@ class DatePickerViewController: UIViewController
         
         self.dateFromPickerString = dateClass.userBirthDayString(datePicker.date)
         
-//        print("Date picked: \(endDate)")
-//        print("Julian date: \(difference)")
-//        print("Date String: \(dateFromPickerString)")
-//    
+        print("Date picked: \(endDate)")
+        print("Julian date: \(difference)")
+        print("Date String: \(dateFromPickerString)")
+    
     }
     
     
@@ -163,9 +163,9 @@ class DatePickerViewController: UIViewController
             self.bDayLabel.text = unwrappedString
         }
         
-//        print("Submit Button Pressed")
-//        print("Horoscope when using datepicker:\(dateClass.gettingHoroscopeString(Int(birthDateInt)))")
-//        
+        print("Submit Button Pressed")
+        print("Horoscope when using datepicker:\(dateClass.gettingHoroscopeString(Int(birthDateInt)))")
+        
     }
     
     
@@ -179,10 +179,10 @@ class DatePickerViewController: UIViewController
         {
             self.savedString = dateClass.gettingHoroscopeString(unwrappedBirthdayFromStore)
         }
-//        
-//        print("goToHoroscopeButton Pressed")
-//        print(savedString)
-//        
+        
+        print("goToHoroscopeButton Pressed")
+        print(savedString)
+        
     }
     
     //deletes the old data

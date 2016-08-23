@@ -46,4 +46,39 @@ class HoroscopeAPIClient {
         
     }
     
+    
+    class func getAnyDayHoroscope(day: String, sign: String, completion: NSDictionary ->()) {
+        
+        
+        let urlString = "https://theastrologer-api.herokuapp.com/api/horoscope/\(sign)/\(day)"
+        
+        let url = NSURL(string: urlString)
+        
+        let session = NSURLSession.sharedSession()
+        
+        
+        guard let unwrappedURL = url else { return }
+        
+        
+        let dataTask = session.dataTaskWithURL(unwrappedURL) { (data, response, error) in
+            
+            guard let unwrappedData = data else {return}
+            
+            do {
+                let zodiacTodayDictionary = try NSJSONSerialization.JSONObjectWithData(unwrappedData, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary
+                
+                
+                guard let unwrappedZodiac = zodiacTodayDictionary else {return}
+                completion(unwrappedZodiac)
+                
+            } catch {
+                print(error)
+            }
+          }
+        
+        dataTask.resume()
+        
+    }
+
+    
 }
