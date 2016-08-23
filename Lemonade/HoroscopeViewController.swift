@@ -38,23 +38,37 @@ class HoroscopeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         NASAPic()
    
         horoscopeStackViewsAndTextViewsAndImageViews()
         
         menuBarButtons()
-        
-
-        
-
-        
+ 
     }
     
     func menuBarButtons() {
         let menuButton = KCFloatingActionButton()
         
         menuButton.addItem(title: "Save Background Image") { (action) in
+            
             print("button pressed")
+            
+            if let unwrappedImage = self.imageView.image {
+                
+                UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
+                let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
+                savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(savedAlertController, animated: true, completion: nil)
+                savedAlertController.view.backgroundColor = UIColor.blackColor()
+                savedAlertController.view.tintColor = UIColor.blackColor()
+            }
+                
+            else {
+                let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
+                savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(savedAlertControllerError, animated: true, completion: nil)
+            }
             
         }
         self.view.addSubview(menuButton)
