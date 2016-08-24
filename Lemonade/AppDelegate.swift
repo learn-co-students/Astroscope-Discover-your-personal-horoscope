@@ -16,10 +16,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var store = DataStore.sharedDataStore
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
+    {
         
+        
+        let userRequest = NSFetchRequest(entityName: Users.entityName)
+        
+        do{
+            let object = try store.managedObjectContext.executeFetchRequest(userRequest) as? [Users]
+            
+            if object?.count == 0
+            {
+                let storyBoard = UIStoryboard(name: "WelcomePage", bundle: nil)
+                
+                let initialViewController = storyBoard.instantiateViewControllerWithIdentifier("WelcomePage") as? WelcomePageViewController
+                
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+                
+                return true
+            }
+            else if object?.count > 0
+            {
+                
+                let storyboard = UIStoryboard(name: "DatePicker", bundle: nil)
+                
+                let nextViewController = storyboard.instantiateViewControllerWithIdentifier("navController") as? UINavigationController
+                
+                self.window?.rootViewController = nextViewController
+                self.window?.makeKeyAndVisible()
+                
+                return true
+            }
+            
+        }catch{
+            print("error")
+        }
+       
         return true
+    
     }
 
     func applicationWillResignActive(application: UIApplication) {

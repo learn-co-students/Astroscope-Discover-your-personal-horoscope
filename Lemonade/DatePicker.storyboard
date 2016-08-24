@@ -8,7 +8,7 @@
         <!--Date Picker View Controller-->
         <scene sceneID="FoZ-6v-bTS">
             <objects>
-                <viewController id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatePicker" id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rc0-1O-Gfd"/>
                         <viewControllerLayoutGuide type="bottom" id="iNb-lZ-yiP"/>
@@ -26,8 +26,8 @@
                                     <action selector="datePickerAction:" destination="w5w-ff-CwY" eventType="valueChanged" id="6I8-A0-8Cn"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
-                                <rect key="frame" x="49" y="153" width="277" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
+                                <rect key="frame" x="20" y="153" width="335" height="63"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -115,7 +115,7 @@
         <!--Navigation Controller-->
         <scene sceneID="joy-vy-fHK">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hy1-7Z-jZ6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="hy1-7Z-jZ6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hsB-wr-fxq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

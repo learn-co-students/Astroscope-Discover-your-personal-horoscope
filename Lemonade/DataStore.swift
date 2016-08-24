@@ -51,7 +51,8 @@ static let sharedDataStore = DataStore()
                     
                     if let unwrappedIndividual = individual
                     {
-                        print(unwrappedIndividual.birthdate)
+                        print("name: \(unwrappedIndividual.username)")
+                        print("birthday: \(unwrappedIndividual.birthdate)")
                     }
                     
                

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */; };
+		1B14C93F1D6CF8A500CEB6D0 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14C93E1D6CF8A500CEB6D0 /* WelcomePageViewController.swift */; };
 		1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5375881D6749FA00B9702A /* gifFramework.swift */; };
 		1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758A1D674A7D00B9702A /* giphy (1).gif */; };
 		1B53758D1D67550600B9702A /* giphy (2).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758C1D67550600B9702A /* giphy (2).gif */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		139238EF116A873FAE18CB02 /* Pods-Lemonade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemonade/Pods-Lemonade.debug.xcconfig"; sourceTree = "<group>"; };
+		1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomePage.storyboard; sourceTree = "<group>"; };
+		1B14C93E1D6CF8A500CEB6D0 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		1B5375881D6749FA00B9702A /* gifFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFramework.swift; sourceTree = "<group>"; };
 		1B53758A1D674A7D00B9702A /* giphy (1).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (1).gif"; sourceTree = "<group>"; };
 		1B53758C1D67550600B9702A /* giphy (2).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (2).gif"; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 				43D35F7D1D62364B0017C4D6 /* DataStore.swift */,
 				43D35FA41D624E430017C4D6 /* UsersAndDate.xcdatamodeld */,
 				1BB768F51D63C951009D3737 /* DatePickerViewController.swift */,
+				1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */,
+				1B14C93E1D6CF8A500CEB6D0 /* WelcomePageViewController.swift */,
 				43D35FB71D6358F70017C4D6 /* Users+CoreDataProperties.swift */,
 				43D35FB31D6357780017C4D6 /* Users.swift */,
 				1B9B249F1D5E647600E10D58 /* AppDelegate.swift */,
@@ -197,6 +203,7 @@
 				1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */,
 				1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */,
 				1B9B24AA1D5E647600E10D58 /* Assets.xcassets in Resources */,
+				1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */,
 				1B9B24A51D5E647600E10D58 /* Horoscope.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,6 +265,7 @@
 			files = (
 				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
 				1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */,
+				1B14C93F1D6CF8A500CEB6D0 /* WelcomePageViewController.swift in Sources */,
 				DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */,
 				43D35FA61D624E430017C4D6 /* UsersAndDate.xcdatamodeld in Sources */,
 				43D35FB81D6358F70017C4D6 /* Users+CoreDataProperties.swift in Sources */,
