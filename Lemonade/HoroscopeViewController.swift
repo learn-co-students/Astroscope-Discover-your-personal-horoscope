@@ -32,16 +32,13 @@ class HoroscopeViewController: UIViewController {
     var saveNASAImageToCameraRollButton = UIButton()
     var menuButton = KCFloatingActionButton()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         noInternetConnectionAlert()
         NASAPic()
         horoscopeStackViewsAndTextViewsAndImageViews()
         MenuBarButtons()
-        
     }
-    
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
@@ -50,7 +47,6 @@ class HoroscopeViewController: UIViewController {
             
             if let touch = touches.first {
                 if CGRectContainsPoint(menuButton.frame, touch.locationInView(self.view)){
-                    print("htting menu button")
                     self.stackViewBackgroundView.hidden = !self.stackViewBackgroundView.hidden
                 }
             }
@@ -61,9 +57,7 @@ class HoroscopeViewController: UIViewController {
     func noInternetConnectionAlert () {
         
         if Reachability.isConnectedToNetwork() == true {
-            print("Internet connection OK")
         } else {
-            print("Internet connection FAILED")
             let noInternetAlertController = UIAlertController(title: "", message: "No Internet Connection", preferredStyle: .Alert)
             noInternetAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(noInternetAlertController, animated: true, completion: nil)
@@ -220,16 +214,13 @@ class HoroscopeViewController: UIViewController {
         }
         
         func stackViewTapped(isBool: Bool){
-            print("A")
             
             
             if !UIAccessibilityIsReduceTransparencyEnabled(){
-                print("hi")
                 let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
                 let blurEffectView = UIVisualEffectView(effect: blurEffect)
                 
                 if isBlurred == false {
-                    print("bye")
                     
                     blurEffectView.frame = self.view.bounds
                     blurEffectView.autoresizingMask = .FlexibleWidth
@@ -245,16 +236,13 @@ class HoroscopeViewController: UIViewController {
                     isBlurred = true
                     
                 } else if returnTapRec.enabled == true {
-                    print("tapped")
                     
                     if isBlurred == true {
-                        print("nihao")
                         
                         horoStackView.hidden = true
                         self.stackViewBackgroundView.hidden = true
                         
                         for subview in view.subviews{
-                            print("hola")
                             if subview is UIVisualEffectView{
                                 subview.removeFromSuperview()
                             }
