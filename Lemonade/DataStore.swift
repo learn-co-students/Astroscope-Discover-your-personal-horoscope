@@ -51,7 +51,8 @@ static let sharedDataStore = DataStore()
                     
                     if let unwrappedIndividual = individual
                     {
-                        print(unwrappedIndividual.birthdate)
+                        print("name: \(unwrappedIndividual.username)")
+                        print("birthday: \(unwrappedIndividual.birthdate)")
                     }
                     
                
@@ -62,22 +63,6 @@ static let sharedDataStore = DataStore()
         catch
         {
             print(error)
-        }
-        
-    }
-
-    func updateData()
-    {
-        let fetchRequest = NSFetchRequest(entityName: Users.entityName)
-        
-        // Create Batch Delete Request
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try managedObjectContext.executeRequest(batchDeleteRequest)
-            }
-        catch {
-            print("Error")
         }
         
     }

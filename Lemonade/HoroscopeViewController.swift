@@ -113,10 +113,15 @@ class HoroscopeViewController: UIViewController {
                 self.view.sendSubviewToBack(self.imageNASAView)
                 
             })
+
         }
     }
     
     func horoscopeStackViewsAndTextViewsAndImageViews () {
+
+        
+        
+
         
         guard let unwrappedPassedHoroscopeString = self.passedHoroscopeString else {return}
         HoroscopeAPIClient.getDailyHoroscope(unwrappedPassedHoroscopeString) { (unwrappedZodiac) in
