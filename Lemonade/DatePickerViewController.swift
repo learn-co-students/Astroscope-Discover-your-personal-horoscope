@@ -43,8 +43,12 @@ class DatePickerViewController: UIViewController
         let imageGif = UIImage.gifWithData(imageData!)
         let imageView = UIImageView(image: imageGif)
        
-        imageView.frame = self.view.frame
         view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        imageView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+        imageView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
+        imageView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
         view.sendSubviewToBack(imageView)
         
         self.datePicker.backgroundColor = UIColor.clearColor()

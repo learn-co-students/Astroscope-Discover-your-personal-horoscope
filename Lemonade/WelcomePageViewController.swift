@@ -12,9 +12,9 @@ import CoreData
 class WelcomePageViewController: UIViewController, UITextFieldDelegate
 {
 
-    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var buttonLabel: UIButton!
+    var welcomeLabel = UILabel()
     
     
     let store = DataStore.sharedDataStore
@@ -23,9 +23,25 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     {
         super.viewDidLoad()
         
-        //self.nameTextField.resignFirstResponder()
         nameTextField.delegate = self
         checkForText()
+        welcomeLabelConstraints()
+        welcomeLabel.alpha = 0.0
+        welcomeLabelAnimation()
+        buttonConstraint()
+        
+        let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (4)", withExtension: "gif")!)
+        let imageGif = UIImage.gifWithData(imageData!)
+        let imageView = UIImageView(image: imageGif)
+        
+    
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        imageView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+        imageView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
+        imageView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
+        view.sendSubviewToBack(imageView)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WelcomePageViewController.tap(_:)))
         view.addGestureRecognizer(tapGesture)
@@ -48,6 +64,40 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         }
         
     }
+    
+    func welcomeLabelConstraints()
+    {
+        
+        self.welcomeLabel.text = "Welcome"
+        self.welcomeLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 50.0)
+        self.welcomeLabel.textColor = UIColor.whiteColor()
+        self.view.addSubview(self.welcomeLabel)
+        
+        
+        self.welcomeLabel.removeConstraints(self.welcomeLabel.constraints)
+        self.welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.welcomeLabel.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.welcomeLabel.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -130).active = true
+    }
+    
+    func buttonConstraint()
+    {
+        self.buttonLabel.titleLabel?.textColor = UIColor.whiteColor()
+        self.buttonLabel.layer.borderWidth = 1
+        self.buttonLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        self.buttonLabel.layer.cornerRadius = 10
+        self.buttonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+    }
+    func welcomeLabelAnimation()
+    {
+        UIView.animateWithDuration(2.0)
+        {
+            self.welcomeLabel.alpha = 1.0
+            
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     
     @IBAction func buttonAction(sender: AnyObject)
     {
