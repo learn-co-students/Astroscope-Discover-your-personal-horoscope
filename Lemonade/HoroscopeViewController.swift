@@ -45,22 +45,19 @@ class HoroscopeViewController: UIViewController {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-   
-        
-        
-        
-        if let touch = touches.first {
-            if CGRectContainsPoint(menuButton.frame, touch.locationInView(self.view)){
-                print("htting menu button")
-                self.stackViewBackgroundView.hidden = true
-                
-              
+        for obj in touches {
+            
+            
+            if let touch = touches.first {
+                if CGRectContainsPoint(menuButton.frame, touch.locationInView(self.view)){
+                    print("htting menu button")
+                    self.stackViewBackgroundView.hidden = !self.stackViewBackgroundView.hidden
+                }
             }
-           
+            super.touchesBegan(touches, withEvent:event)
         }
-        super.touchesBegan(touches, withEvent:event)
     }
-
+    
     func noInternetConnectionAlert () {
         
         if Reachability.isConnectedToNetwork() == true {
@@ -74,21 +71,18 @@ class HoroscopeViewController: UIViewController {
             noInternetAlertController.view.tintColor = UIColor.blackColor()
         }
     }
-  
-  
-    
     
     func MenuBarButtons() {
-  
+        
         menuButton.buttonColor = UIColor.whiteColor()
-       
+        
         let savePhotoImage = UIImage.init(named: "savephotobuttonimage.png")
-
+        
         menuButton.addItem("Save Background Image To Camera Roll", icon: savePhotoImage) { (action) in
             
             if let unwrappedImage = self.imageNASAView.image {
                 print("button pressed")
-
+                
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
                 
                 let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
@@ -110,9 +104,6 @@ class HoroscopeViewController: UIViewController {
         //self.stackViewBackgroundView.hidden = true
         self.view.addSubview(menuButton)
     }
-    
-    
-    
     
     func NASAPic () {
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
@@ -224,16 +215,10 @@ class HoroscopeViewController: UIViewController {
                         
                         self.stackViewBackgroundView.addGestureRecognizer(self.returnTapRec)
                         self.horoStackView.addGestureRecognizer(self.returnTapRec)
-                        
-                        
                     }
-                    
                 }
-                
             })
-            
         }
-        
         
         func stackViewTapped(isBool: Bool){
             print("A")
@@ -301,4 +286,3 @@ class HoroscopeViewController: UIViewController {
     
     
 }
-
