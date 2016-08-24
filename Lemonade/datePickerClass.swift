@@ -103,55 +103,55 @@ class datePickerClass
         
         if date >= 0 && date <= 19
         {
-            horoscopeString = "Capricorn"
+            horoscopeString = "capricorn"
         }
         else if date >= 20 && date <= 49
         {
-            horoscopeString = "Aquarius"
+            horoscopeString = "aquarius"
         }
         else if date >= 50 && date <= 79
         {
-            horoscopeString = "Pisces"
+            horoscopeString = "pisces"
         }
         else if date >= 80 && date <= 109
         {
-            horoscopeString = "Aries"
+            horoscopeString = "aries"
         }
         else if date >= 110 && date <= 140
         {
-            horoscopeString = "Taurus"
+            horoscopeString = "taurus"
         }
         else if date >= 141 && date <= 171
         {
-            horoscopeString = "Gemini"
+            horoscopeString = "gemini"
         }
         else if date >= 172 && date <= 203
         {
-            horoscopeString = "Cancer"
+            horoscopeString = "cancer"
         }
         else if date >= 204 && date <= 234
         {
-            horoscopeString = "Leo"
+            horoscopeString = "leo"
         }
         else if date >= 235 && date <= 265
         {
-            horoscopeString = "Virgo"
+            horoscopeString = "virgo"
         }
         else if date >= 266 && date <= 295
         {
-            horoscopeString = "Libra"
+            horoscopeString = "libra"
         }
         else if date >= 296 && date <= 325
         {
-            horoscopeString = "Scorpio"
+            horoscopeString = "scorpio"
         }
         else if date >= 326 && date <= 355
         {
-            horoscopeString = "Sagittarius"
+            horoscopeString = "sagittarius"
         }
         else if date >= 356 && date <= 365
         {
-            horoscopeString = "Capricorn"
+            horoscopeString = "capricorn"
         }
         
         return horoscopeString

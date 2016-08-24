@@ -43,91 +43,85 @@ class DatePickerViewController: UIViewController
         let imageGif = UIImage.gifWithData(imageData!)
         let imageView = UIImageView(image: imageGif)
        
-        imageView.frame = self.view.frame
         view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        imageView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+        imageView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
+        imageView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
         view.sendSubviewToBack(imageView)
         
         self.datePicker.backgroundColor = UIColor.clearColor()
         self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         self.datePicker.setValue(false, forKey: "highlightsToday")
         
-        checkforData()
+        store.fetchData()
+        checkforDataWhenOpeningApp()
+        
         
     }
     
     //Checks if theres any data in database when app is open
-    func checkforData()
+    func checkforDataWhenOpeningApp()
     {
-        let context = store.managedObjectContext
-        let userRequest = NSFetchRequest(entityName: Users.entityName)
+    
+       if store.individual?.birthdate != 0
+       {
         
-        do{
-            let object = try context.executeFetchRequest(userRequest) as? [Users]
+            self.selectBirthdayLabel.text = "Welcome back \(store.individual!.username)"
+            self.submitButtonLabel.hidden = true
+        
+            self.labelFormat()
             
-            if object?.count > 0
+            self.goToHoroscopeButtonLabel.hidden = false
+            
+            self.editButtonLabel.hidden = false
+            self.datePicker.hidden = true
+            self.bDayLabel.hidden = false
+            
+            
+        
+            let birthDate = store.individual?.birthdate
+            if let unwrappedBirthDate = birthDate
             {
-                if object != nil // if theres data in it
-                {
-                    self.selectBirthdayLabel.text = "Welcome back"
-                    self.submitButtonLabel.hidden = true
-                    self.goToHoroscopeButtonLabel.hidden = false
-                    self.editButtonLabel.hidden = false
-                    self.datePicker.hidden = true
-                    self.bDayLabel.hidden = false
-                    
-                    
-                    store.fetchData()
-                    
-                    let birthDate = store.individual?.birthdate
-                    if let unwrappedBirthDate = birthDate
-                    {
-                        let start = dateClass.setStartingDate()
-                        let setDate = (dateClass.setDateForPicker(start, day: Int(unwrappedBirthDate)))
-                        
-                        self.datePicker.setDate(setDate, animated: true)
-                        
-                        let labelWithBdayString = dateClass.userBirthDayString(setDate)
-                        self.bDayLabel.text = labelWithBdayString
-                        
-                    }
-                    
-                }
                 
+                let start = dateClass.setStartingDate()
+                let setDate = (dateClass.setDateForPicker(start, day: Int(unwrappedBirthDate)))
+                    
+                self.datePicker.setDate(setDate, animated: true)
+                    
+                let labelWithBdayString = dateClass.userBirthDayString(setDate)
+                self.bDayLabel.text = labelWithBdayString
+                    
             }
-            else if object?.count == 0 // if none
-            {
-                self.startDate = dateClass.setStartingDate()
-                self.selectBirthdayLabel.text = "Please select your birthday"
-                self.submitButtonLabel.hidden = false
-                self.goToHoroscopeButtonLabel.hidden = true
-                self.editButtonLabel.hidden = true
-                self.datePicker.hidden = false
-                self.bDayLabel.hidden = true
-            
-            }
-            
-        }
-        catch
-        {
-            print(error)
-        }
         
+            
+        }
+        else if store.individual?.birthdate == 0
+        {
+    
+            self.labelFormat()
+            self.startDate = dateClass.setStartingDate()
+            
+            self.submitButtonLabel.hidden = false
+            self.goToHoroscopeButtonLabel.hidden = true
+            self.editButtonLabel.hidden = true
+            self.datePicker.hidden = false
+            self.bDayLabel.hidden = true
+            
+            let name = store.individual?.username
+            self.selectBirthdayLabel.text = "Hello \(name!)\n, Please select your birthday"
+        }
+            
+    
+    
     }
 
 
     //Gets user's input from date picker
     @IBAction func datePickerAction(sender: AnyObject)
     {
-        let startDate = dateClass.setStartingDate()
-        let endDate = dateClass.setEndDate(datePicker.date)
-        let difference = dateClass.daysBetweenDates(startDate, endDate: endDate)
-        
         self.dateFromPickerString = dateClass.userBirthDayString(datePicker.date)
-        
-        print("Date picked: \(endDate)")
-        print("Julian date: \(difference)")
-        print("Date String: \(dateFromPickerString)")
-    
     }
     
     
@@ -135,20 +129,19 @@ class DatePickerViewController: UIViewController
     @IBAction func submitButton(sender: AnyObject)
     {
         self.submitButtonLabel.hidden = true
-        self.selectBirthdayLabel.text = "Welcome Back"
+        self.selectBirthdayLabel.text = "Welcome Back \(store.individual!.username)"
         self.userBirthday = self.dateClass.setEndDate(self.datePicker.date)
         
                 
-        let context = self.store.managedObjectContext
-                
-        let person = NSEntityDescription.insertNewObjectForEntityForName(Users.entityName, inManagedObjectContext: context) as! Users
+        let person = store.individual
         
         let start = dateClass.setStartingDate()
         let userBday = dateClass.setEndDate(datePicker.date)
+        
         let birthDateInt = Int32(self.dateClass.daysBetweenDates(start, endDate: userBday))
         
-        person.birthdate = birthDateInt
-                
+        person?.birthdate = birthDateInt
+       
         store.saveContext()
                 
         self.goToHoroscopeButtonLabel.hidden = false
@@ -163,8 +156,6 @@ class DatePickerViewController: UIViewController
             self.bDayLabel.text = unwrappedString
         }
         
-        print("Submit Button Pressed")
-        print("Horoscope when using datepicker:\(dateClass.gettingHoroscopeString(Int(birthDateInt)))")
         
     }
     
@@ -179,10 +170,7 @@ class DatePickerViewController: UIViewController
         {
             self.savedString = dateClass.gettingHoroscopeString(unwrappedBirthdayFromStore)
         }
-        
-        print("goToHoroscopeButton Pressed")
-        print(savedString)
-        
+
     }
     
     //deletes the old data
@@ -195,15 +183,14 @@ class DatePickerViewController: UIViewController
         }
         
         let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
-        
-            self.store.updateData()
+            
+            self.labelFormat()
             self.submitButtonLabel.hidden = false
             self.goToHoroscopeButtonLabel.hidden = true
             self.editButtonLabel.hidden = true
             self.selectBirthdayLabel.text = "Please select your birthday"
             self.datePicker.hidden = false
             self.bDayLabel.hidden = true
-            print("Update Pressed")
             
         }
         editAlert.addAction(noAction)
@@ -214,7 +201,25 @@ class DatePickerViewController: UIViewController
         
     }
     
-
+    
+    func labelFormat()
+    {
+        self.submitButtonLabel.layer.borderWidth = 1
+        self.submitButtonLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        self.submitButtonLabel.layer.cornerRadius = 10
+        self.submitButtonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+        
+        self.goToHoroscopeButtonLabel.layer.borderWidth = 1
+        self.goToHoroscopeButtonLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        self.goToHoroscopeButtonLabel.layer.cornerRadius = 10
+        self.goToHoroscopeButtonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+        
+        self.editButtonLabel.layer.borderWidth = 1
+        self.editButtonLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        self.editButtonLabel.layer.cornerRadius = 10
+        self.editButtonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+    }
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
