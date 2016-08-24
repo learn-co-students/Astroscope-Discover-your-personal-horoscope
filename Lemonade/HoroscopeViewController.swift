@@ -44,7 +44,6 @@ class HoroscopeViewController: UIViewController {
         
         for obj in touches {
             
-            
             if let touch = touches.first {
                 if CGRectContainsPoint(menuButton.frame, touch.locationInView(self.view)){
                     self.stackViewBackgroundView.hidden = !self.stackViewBackgroundView.hidden
