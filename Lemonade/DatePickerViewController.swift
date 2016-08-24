@@ -63,20 +63,20 @@ class DatePickerViewController: UIViewController
     
        if store.individual?.birthdate != 0
        {
-                //store.fetchData()
-                self.selectBirthdayLabel.text = "Welcome back \(store.individual!.username)"
-                self.submitButtonLabel.hidden = true
+        
+            self.selectBirthdayLabel.text = "Welcome back \(store.individual!.username)"
+            self.submitButtonLabel.hidden = true
+        
+            self.labelFormat()
             
-                self.labelFormat()
+            self.goToHoroscopeButtonLabel.hidden = false
             
-                self.goToHoroscopeButtonLabel.hidden = false
-            
-                self.editButtonLabel.hidden = false
-                self.datePicker.hidden = true
-                self.bDayLabel.hidden = false
+            self.editButtonLabel.hidden = false
+            self.datePicker.hidden = true
+            self.bDayLabel.hidden = false
             
             
-            //store.fetchData()
+        
             let birthDate = store.individual?.birthdate
             if let unwrappedBirthDate = birthDate
             {
@@ -104,9 +104,8 @@ class DatePickerViewController: UIViewController
             self.editButtonLabel.hidden = true
             self.datePicker.hidden = false
             self.bDayLabel.hidden = true
-           // self.store.fetchData()
             
-            var name = store.individual?.username
+            let name = store.individual?.username
             self.selectBirthdayLabel.text = "Hello \(name!)\n, Please select your birthday"
         }
             
@@ -118,29 +117,17 @@ class DatePickerViewController: UIViewController
     //Gets user's input from date picker
     @IBAction func datePickerAction(sender: AnyObject)
     {
-        let startDate = dateClass.setStartingDate()
-        let endDate = dateClass.setEndDate(datePicker.date)
-        let difference = dateClass.daysBetweenDates(startDate, endDate: endDate)
-        
         self.dateFromPickerString = dateClass.userBirthDayString(datePicker.date)
-        
-        print("Date picked: \(endDate)")
-        print("Julian date: \(difference)")
-        print("Date String: \(dateFromPickerString)")
-    
     }
     
     
     //Will save the user's input
     @IBAction func submitButton(sender: AnyObject)
     {
-       // self.labelFormat()
         self.submitButtonLabel.hidden = true
         self.selectBirthdayLabel.text = "Welcome Back \(store.individual!.username)"
         self.userBirthday = self.dateClass.setEndDate(self.datePicker.date)
         
-                
-        let context = self.store.managedObjectContext
                 
         let person = store.individual
         
@@ -150,7 +137,7 @@ class DatePickerViewController: UIViewController
         let birthDateInt = Int32(self.dateClass.daysBetweenDates(start, endDate: userBday))
         
         person?.birthdate = birthDateInt
-        print("mehmehmeh \(person?.birthdate)")
+       
         store.saveContext()
                 
         self.goToHoroscopeButtonLabel.hidden = false
@@ -194,7 +181,6 @@ class DatePickerViewController: UIViewController
         let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
             
             self.labelFormat()
-            self.store.updateData()
             self.submitButtonLabel.hidden = false
             self.goToHoroscopeButtonLabel.hidden = true
             self.editButtonLabel.hidden = true

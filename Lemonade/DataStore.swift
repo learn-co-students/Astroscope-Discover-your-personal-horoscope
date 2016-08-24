@@ -67,22 +67,6 @@ static let sharedDataStore = DataStore()
         
     }
 
-    func updateData()
-    {
-        let fetchRequest = NSFetchRequest(entityName: Users.entityName)
-        
-        // Create Batch Delete Request
-        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-        
-        do {
-            try managedObjectContext.executeRequest(batchDeleteRequest)
-            }
-        catch {
-            print("Error")
-        }
-        
-    }
-
     
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
