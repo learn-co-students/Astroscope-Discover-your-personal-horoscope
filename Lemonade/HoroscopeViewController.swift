@@ -37,24 +37,15 @@ class HoroscopeViewController: UIViewController {
     
     let saveNASAImageToCameraRollButton = UIButton()
     
-    let store = DataStore.sharedDataStore
-    let calendar = NSCalendar.currentCalendar()
-    
     var yesterdaysHoroscope: String?
     var todaysHoroscope: String?
     
-    //    var yesterdaysHoroDate: String?
-    //    var todaysHoroDate: String?
-    
-    var passedInDay: String?
-    
-    
+  
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.horoscopeToDisplay()
         
         let date = NSDate()
         let todaysDateFormat = NSDateFormatter()
@@ -172,14 +163,17 @@ class HoroscopeViewController: UIViewController {
             guard let unwrappedHoroscopeValue = unwrappedZodiac["horoscope"] as? String else {return}
             
             self.APIDate = unwrappedHoroscopeDate
-            if self.APIDate == self.todaysDate {                self.todaysHoroscope = unwrappedHoroscopeValue
+            
+            if self.APIDate == self.todaysDate {
+                
+                self.todaysHoroscope = unwrappedHoroscopeValue
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock{(
                     
                     self.dailyHoroscopeTextView.text = self.todaysHoroscope
                 )}
                 
-            } else if self.todaysDate != self.APIDate {
+            } else if self.APIDate != self.todaysDate {
                 
                 HoroscopeAPIClient.getAnyDayHoroscope(unwrappedPassedHoroscopeString, day: "yesterday") { (unwrappedZodiac) in
                     
