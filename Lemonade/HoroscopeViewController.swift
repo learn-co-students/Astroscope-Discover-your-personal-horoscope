@@ -23,12 +23,12 @@ class HoroscopeViewController: UIViewController {
     var todaysDate: String?
     var APIDate: String?
     var signName: UILabel!
-
+    
     var iconsDictionary: [String: String] = ["capricorn": "capricorn_black_parkjisun.png", "aquarius":"aquarius_black_parkjisun.png", "pisces" : "pisces_black_parkjisun.png", "aries" : "aries_black_parkjisun.png", "taurus" : "taurus_black_parkjisun.png", "gemini" : "gemini_black_parkjisun.png", "cancer" : "cancer_black_parkjisun.png", "leo" : "leo_black_parkjisun.png", "virgo" : "virgo_black_parkjisun.png", "libra" : "libra_black_parkjisun.png", "scorpio" : "scorpio_black_parkjisun.png", "sagittarius" : "sagittarius_black_parkjisun.png"]
     
     let tapRecStackView = UITapGestureRecognizer()
     let returnTapRec = UITapGestureRecognizer()
-
+    
     var iconTapRec = UITapGestureRecognizer()
     var isIconTapped: Bool = false
     var isBlurred: Bool = false
@@ -37,39 +37,26 @@ class HoroscopeViewController: UIViewController {
     
     var yesterdaysHoroscope: String?
     var todaysHoroscope: String?
-    
     var saveNASAImageToCameraRollButton = UIButton()
-    var menuButton = KCFloatingActionButton()  
+    var menuButton = KCFloatingActionButton()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         noInternetConnectionAlert()
         MenuBarButtons()
+        NASAApiPicture()
+        allConstraints()
+        horoscopeAPICall()
         
         let date = NSDate()
         let todaysDateFormat = NSDateFormatter()
         todaysDateFormat.dateFormat = "yyyy-MM-dd"
         todaysDate = todaysDateFormat.stringFromDate(date)
         
-        print(todaysDate)
-        
-        self.view.addSubview(self.imageNASAView)
-        self.imageNASAView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageNASAView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        self.imageNASAView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
-        self.imageNASAView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
-        self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
-        self.view.sendSubviewToBack(self.imageNASAView)
-
-        NASA_API_Client.getPhotoOfDay { (spaceImage) in
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock({
-                
-                self.imageNASAView.image = spaceImage
-            })
-
-        }
-        
+    }
+    
+    func allConstraints() {
         self.signIcon.clipsToBounds = true
         self.signIcon.tintColor = UIColor.whiteColor()
         self.signName = UILabel()
@@ -120,7 +107,7 @@ class HoroscopeViewController: UIViewController {
         self.horoStackView.removeConstraints(self.horoStackView.constraints)
         self.horoStackView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
         self.horoStackView.centerYAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerYAnchor).active = true
-            
+        
         self.signIcon.translatesAutoresizingMaskIntoConstraints = false
         self.signIcon.removeConstraints(self.signIcon.constraints)
         self.signIcon.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
@@ -143,8 +130,13 @@ class HoroscopeViewController: UIViewController {
         self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView
             .widthAnchor, multiplier: 0.90).active = true
         
+    }
+    
+    
+    func horoscopeAPICall(){
+        
         guard let unwrappedPassedHoroscopeString = self.passedHoroscopeString else {return}
-
+        
         self.signIcon.image = UIImage(named: self.iconsDictionary[unwrappedPassedHoroscopeString]!)
         self.signName.text = unwrappedPassedHoroscopeString.capitalizedString
         
@@ -163,10 +155,10 @@ class HoroscopeViewController: UIViewController {
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock{(
                     
-
-                self.dailyHoroscopeTextView.text = self.todaysHoroscope
-                
-                )}
+                    
+                    self.dailyHoroscopeTextView.text = self.todaysHoroscope
+                    
+                    )}
                 
             } else if self.APIDate != self.todaysDate {
                 
@@ -179,63 +171,72 @@ class HoroscopeViewController: UIViewController {
                     NSOperationQueue.mainQueue().addOperationWithBlock{(
                         
                         self.dailyHoroscopeTextView.text = self.yesterdaysHoroscope
-                    )}
+                        )}
                 }
             }
+        }
+    }
+    func NASAApiPicture () {
+        
+        self.view.addSubview(self.imageNASAView)
+        self.imageNASAView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageNASAView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.imageNASAView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+        self.imageNASAView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
+        self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
+        self.view.sendSubviewToBack(self.imageNASAView)
+        
+        NASA_API_Client.getPhotoOfDay { (spaceImage) in
             
-            
+            NSOperationQueue.mainQueue().addOperationWithBlock({
+                
+                self.imageNASAView.image = spaceImage
+            })
         }
         
     }
-
-
+    
     func stackViewTapped(isBool: Bool){
-                 
+        
+        
+        if !UIAccessibilityIsReduceTransparencyEnabled(){
+            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
+            let blurEffectView = UIVisualEffectView(effect: blurEffect)
             
-            if !UIAccessibilityIsReduceTransparencyEnabled(){
-                let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-                let blurEffectView = UIVisualEffectView(effect: blurEffect)
+            if isBlurred == false {
                 
-                if isBlurred == false {
+                blurEffectView.frame = self.view.bounds
+                blurEffectView.autoresizingMask = .FlexibleWidth
+                blurEffectView.autoresizingMask = .FlexibleHeight
+                
+                self.view.addSubview(blurEffectView)
+                
+                horoStackView.hidden = false
+                self.stackViewBackgroundView.hidden = false
+                
+                view.bringSubviewToFront(horoStackView)
+                
+                isBlurred = true
+                
+            } else if returnTapRec.enabled == true {
+                
+                if isBlurred == true {
                     
-                    blurEffectView.frame = self.view.bounds
-                    blurEffectView.autoresizingMask = .FlexibleWidth
-                    blurEffectView.autoresizingMask = .FlexibleHeight
+                    horoStackView.hidden = true
+                    self.stackViewBackgroundView.hidden = true
                     
-                    self.view.addSubview(blurEffectView)
-                    
-                    horoStackView.hidden = false
-                    self.stackViewBackgroundView.hidden = false
-                    
-                    view.bringSubviewToFront(horoStackView)
-                    
-                    isBlurred = true
-                    
-                } else if returnTapRec.enabled == true {
-                    
-                    if isBlurred == true {
-                        
-                        horoStackView.hidden = true
-                        self.stackViewBackgroundView.hidden = true
-                        
-                        for subview in view.subviews{
-                            if subview is UIVisualEffectView{
-                                subview.removeFromSuperview()
-                            }
-                            
+                    for subview in view.subviews{
+                        if subview is UIVisualEffectView{
+                            subview.removeFromSuperview()
                         }
                         
                     }
+                    
                 }
             }
-
-            
-    }
-
-    
+        }
         
-    
-    
+    }
     
     func isSignIconTapped(isBool : Bool){
         
@@ -247,11 +248,9 @@ class HoroscopeViewController: UIViewController {
             
         }
         
-        
     }
     
- 
-       override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for obj in touches {
             
@@ -265,7 +264,7 @@ class HoroscopeViewController: UIViewController {
         }
     }
     
-
+    
     func noInternetConnectionAlert () {
         
         if Reachability.isConnectedToNetwork() == true {
@@ -294,7 +293,7 @@ class HoroscopeViewController: UIViewController {
                 self.presentViewController(savedAlertController, animated: true, completion: nil)
                 savedAlertController.view.backgroundColor = UIColor.blackColor()
                 savedAlertController.view.tintColor = UIColor.blackColor()
-            
+                
             }
                 
             else {
@@ -306,16 +305,13 @@ class HoroscopeViewController: UIViewController {
             }
             
         }
-       
+        
         self.view.addSubview(menuButton)
     }
     
-
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    
 }
