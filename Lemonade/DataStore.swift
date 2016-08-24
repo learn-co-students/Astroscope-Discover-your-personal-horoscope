@@ -49,11 +49,13 @@ static let sharedDataStore = DataStore()
                 {
                     individual = object[0]
                     
+
                     if let unwrappedIndividual = individual
                     {
                         print("name: \(unwrappedIndividual.username)")
                         print("birthday: \(unwrappedIndividual.birthdate)")
                     }
+
                     
                
                 }
