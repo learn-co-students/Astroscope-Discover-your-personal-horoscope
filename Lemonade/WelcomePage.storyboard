@@ -32,8 +32,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-rg-Ufh">
-                                <rect key="frame" x="135" y="432" width="104" height="84"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="156" y="475" width="63" height="29"/>
+                                <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="buttonAction:" destination="ZjQ-qK-03L" eventType="touchUpInside" id="QOL-VD-Vs6"/>
                                     <segue destination="J5j-GN-Qzq" kind="show" id="azU-ym-2pB"/>

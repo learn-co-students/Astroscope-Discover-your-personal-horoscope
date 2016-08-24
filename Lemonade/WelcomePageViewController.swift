@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class WelcomePageViewController: UIViewController
+class WelcomePageViewController: UIViewController, UITextFieldDelegate
 {
 
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -23,7 +23,13 @@ class WelcomePageViewController: UIViewController
     {
         super.viewDidLoad()
         
-        //self.view.addSubview(self.welcomeLabel)
+        //self.nameTextField.resignFirstResponder()
+        nameTextField.delegate = self
+        checkForText()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WelcomePageViewController.tap(_:)))
+        view.addGestureRecognizer(tapGesture)
+        view.addSubview(buttonLabel)
 
     }
 
@@ -31,6 +37,16 @@ class WelcomePageViewController: UIViewController
     {
         super.didReceiveMemoryWarning()
      
+    }
+    
+    func checkForText()
+    {
+        if nameTextField.text?.characters.count == 0
+        {
+            buttonLabel.hidden = true
+            buttonLabel.alpha = 0.0
+        }
+        
     }
     
     @IBAction func buttonAction(sender: AnyObject)
@@ -49,8 +65,27 @@ class WelcomePageViewController: UIViewController
 
 
     }
- 
-
+    
+    func tap(gesture: UITapGestureRecognizer)
+    {
+        self.nameTextField.resignFirstResponder()
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField)
+    {
+        UIView.animateWithDuration(1.0)
+        {
+            self.buttonLabel.hidden = false
+            self.buttonLabel.alpha = 1.0
+        }
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool
+    {
+        self.nameTextField.resignFirstResponder()
+        return true
+    }
     
 
 

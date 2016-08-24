@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Lemonade
 //
-//  Created by Flatiron School on 8/12/16.
+//  Created by Susan Zheng on 8/12/16.
 //  Copyright © 2016 Flatiron School. All rights reserved.
 //
 
