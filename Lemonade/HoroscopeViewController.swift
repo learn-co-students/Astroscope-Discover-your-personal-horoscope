@@ -78,30 +78,29 @@ class HoroscopeViewController: UIViewController {
         
         let savePhotoImage = UIImage.init(named: "savephotobuttonimage.png")
         
-        menuButton.addItem("Save Background Image To Camera Roll", icon: savePhotoImage) { (action) in
+        menuButton.addItem("Save NASA Image", icon: savePhotoImage) { (action) in
             
             if let unwrappedImage = self.imageNASAView.image {
-                print("button pressed")
                 
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
-                
-                let savedAlertController = UIAlertController(title: "", message: "Saved Image!", preferredStyle: .Alert)
-                
+                let savedAlertController = UIAlertController(title: "", message: "Saved!", preferredStyle: .Alert)
                 savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(savedAlertController, animated: true, completion: nil)
                 savedAlertController.view.backgroundColor = UIColor.blackColor()
                 savedAlertController.view.tintColor = UIColor.blackColor()
+            
             }
                 
             else {
-                print("houston, we have a problem")
+                
                 let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
                 savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(savedAlertControllerError, animated: true, completion: nil)
+                
             }
             
         }
-        //self.stackViewBackgroundView.hidden = true
+       
         self.view.addSubview(menuButton)
     }
     
@@ -112,13 +111,13 @@ class HoroscopeViewController: UIViewController {
                 
                 self.imageNASAView.image = spaceImage
                 self.view.addSubview(self.imageNASAView)
-                
                 self.imageNASAView.translatesAutoresizingMaskIntoConstraints = false
                 self.imageNASAView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
                 self.imageNASAView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
                 self.imageNASAView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
                 self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
                 self.view.sendSubviewToBack(self.imageNASAView)
+                
             })
         }
     }
