@@ -5,7 +5,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Date Picker View Controller-->
+        <!--WelcomePage-->
+        <scene sceneID="1mW-Pr-Ba5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="WelcomePage" id="Lyi-Kw-hsY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Flg-59-Vah" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019.5" y="-168"/>
+        </scene>
+        <!--Astro Scope-->
         <scene sceneID="FoZ-6v-bTS">
             <objects>
                 <viewController storyboardIdentifier="DatePicker" id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
@@ -38,28 +46,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB3-nq-jVU">
-                                <rect key="frame" x="162" y="602" width="65" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="NHT-Zd-893"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Edit Info">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="editButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="YpK-6a-HOc"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnp-5g-m8O">
                                 <rect key="frame" x="139" y="584" width="88" height="33"/>
                                 <constraints>
@@ -89,8 +75,30 @@
                                     <segue destination="Y2o-QF-WI1" kind="show" identifier="goToYourHoroscopeSegue" id="idD-F0-IaV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB3-nq-jVU">
+                                <rect key="frame" x="101" y="599" width="165" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Lai-LI-j8N"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Edit Birthday">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="editButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="YpK-6a-HOc"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="74g-XH-wrq" firstAttribute="centerY" secondItem="R0T-nj-NVb" secondAttribute="centerY" constant="40.5" id="3DZ-yL-whQ"/>
                             <constraint firstItem="7gt-z4-rpw" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="CLO-dy-SN1"/>
@@ -106,7 +114,13 @@
                             <constraint firstItem="iNb-lZ-yiP" firstAttribute="top" secondItem="jnp-5g-m8O" secondAttribute="bottom" constant="50" id="yDm-LE-3Db"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="23e-vo-v95"/>
+                    <navigationItem key="navigationItem" title="Astro Scope" id="23e-vo-v95" colorLabel="IBBuiltInLabel-Red">
+                        <barButtonItem key="rightBarButtonItem" title="Edit Name" id="kfE-Fd-Upd">
+                            <connections>
+                                <action selector="editNameNavButton:" destination="w5w-ff-CwY" id="1aV-Zr-Cb1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="bDayLabel" destination="7gt-z4-rpw" id="v0s-F7-geN"/>
@@ -115,6 +129,7 @@
                         <outlet property="goToHoroscopeButtonLabel" destination="l3z-7x-abb" id="Mir-Bk-ObB"/>
                         <outlet property="selectBirthdayLabel" destination="jyl-hJ-cD8" id="F1r-ge-y4D"/>
                         <outlet property="submitButtonLabel" destination="jnp-5g-m8O" id="QdA-o3-tgN"/>
+                        <segue destination="Lyi-Kw-hsY" kind="show" identifier="WelcomePageSegue" id="0AU-Es-h1u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6n-CP-5yP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -134,9 +149,16 @@
             <objects>
                 <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="hy1-7Z-jZ6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hsB-wr-fxq">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" alpha="0.5" contentMode="scaleToFill" barStyle="blackTranslucent" shadowImage="leo_black_parkjisun" backIndicatorImage="leo_black_parkjisun" id="hsB-wr-fxq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.02965238131582737" green="0.0041608479805290699" blue="0.0037460881285369396" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="0.0"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -148,7 +170,11 @@
             <point key="canvasLocation" x="204" y="349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="leo_black_parkjisun" width="698" height="611"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="idD-F0-IaV"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

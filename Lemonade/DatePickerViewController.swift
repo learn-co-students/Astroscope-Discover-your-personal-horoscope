@@ -39,7 +39,7 @@ class DatePickerViewController: UIViewController
         super.viewDidLoad()
     
         
-        let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (3)", withExtension: "gif")!)
+        let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (5)", withExtension: "gif")!)
         let imageGif = UIImage.gifWithData(imageData!)
         let imageView = UIImageView(image: imageGif)
        
@@ -78,7 +78,7 @@ class DatePickerViewController: UIViewController
             self.editButtonLabel.hidden = false
             self.datePicker.hidden = true
             self.bDayLabel.hidden = false
-            
+            self.animation()
             
         
             let birthDate = store.individual?.birthdate
@@ -108,6 +108,7 @@ class DatePickerViewController: UIViewController
             self.editButtonLabel.hidden = true
             self.datePicker.hidden = false
             self.bDayLabel.hidden = true
+            self.animation()
             
             let name = store.individual?.username
             self.selectBirthdayLabel.text = "Hello \(name!)\n, Please select your birthday"
@@ -117,6 +118,24 @@ class DatePickerViewController: UIViewController
     
     }
 
+    @IBAction func editNameNavButton(sender: AnyObject)
+    {
+        let editNameAlert = UIAlertController.init(title: "Edit Name?", message: "Are you sure that you want to edit your name? This will reset the birth date.", preferredStyle: .Alert)
+        
+        let noAction = UIAlertAction.init(title: "No, cancel", style: .Cancel) { (action) in
+        }
+        
+        let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
+            
+            self.performSegueWithIdentifier("WelcomePageSegue", sender: self)
+            
+        }
+        editNameAlert.addAction(noAction)
+        editNameAlert.addAction(yesAction)
+        
+        self.presentViewController(editNameAlert, animated: true){
+        }
+    }
 
     //Gets user's input from date picker
     @IBAction func datePickerAction(sender: AnyObject)
@@ -131,7 +150,7 @@ class DatePickerViewController: UIViewController
         self.submitButtonLabel.hidden = true
         self.selectBirthdayLabel.text = "Welcome Back \(store.individual!.username)"
         self.userBirthday = self.dateClass.setEndDate(self.datePicker.date)
-        
+        self.animation()
                 
         let person = store.individual
         
@@ -191,7 +210,7 @@ class DatePickerViewController: UIViewController
             self.selectBirthdayLabel.text = "Please select your birthday"
             self.datePicker.hidden = false
             self.bDayLabel.hidden = true
-            
+            self.animation()
         }
         editAlert.addAction(noAction)
         editAlert.addAction(yesAction)
@@ -218,6 +237,18 @@ class DatePickerViewController: UIViewController
         self.editButtonLabel.layer.borderColor = UIColor.whiteColor().CGColor
         self.editButtonLabel.layer.cornerRadius = 10
         self.editButtonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+    }
+    
+    func animation()
+    {
+        self.selectBirthdayLabel.alpha = 0.0
+        
+        self.view.addSubview(self.selectBirthdayLabel)
+        
+        UIView.animateWithDuration(0.75)
+        {
+            self.selectBirthdayLabel.alpha = 1.0
+        }
     }
     
     // MARK: - Navigation

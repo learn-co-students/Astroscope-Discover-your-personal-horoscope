@@ -101,14 +101,13 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func buttonAction(sender: AnyObject)
     {
-        
-        let context = store.managedObjectContext
-        
-        let user = NSEntityDescription.insertNewObjectForEntityForName(Users.entityName, inManagedObjectContext: context) as! Users
-        
+                
         if let unwrappedText = nameTextField.text
         {
-            user.username = unwrappedText
+            let person = store.individual
+            
+            person?.username = unwrappedText
+            person?.birthdate = 0
             store.saveContext()
            
         }
