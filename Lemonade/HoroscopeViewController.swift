@@ -48,28 +48,29 @@ class HoroscopeViewController: UIViewController {
         NASAApiPicture()
         allConstraints()
         horoscopeAPICall()
+    
+    }
+    
+    func allConstraints() {
         
         let date = NSDate()
         let todaysDateFormat = NSDateFormatter()
         todaysDateFormat.dateFormat = "yyyy-MM-dd"
         todaysDate = todaysDateFormat.stringFromDate(date)
         
-    }
-    
-    func allConstraints() {
         self.signIcon.clipsToBounds = true
         self.signIcon.tintColor = UIColor.whiteColor()
         self.signName = UILabel()
         self.signName.textAlignment = NSTextAlignment.Center
         self.signName.textColor = UIColor.whiteColor()
-        self.signName.font = UIFont(name: "BradleyHandITCTT-Bold", size: 35.0)
+        self.signName.font = UIFont(name: "BradleyHandITCTT-Bold", size: 36.0)
         
         
         self.todaysDateLabel = UILabel()
         self.todaysDateLabel.text = self.todaysDate
         self.todaysDateLabel.textAlignment = NSTextAlignment.Center
         self.todaysDateLabel.textColor = UIColor.whiteColor()
-        self.todaysDateLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 18.0)
+        self.todaysDateLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 19.0)
         
         
         self.dailyHoroscopeTextView = UITextView()
@@ -77,23 +78,23 @@ class HoroscopeViewController: UIViewController {
         self.dailyHoroscopeTextView.backgroundColor = UIColor.clearColor()
         guard self.dailyHoroscopeTextView != nil else {return}
         self.dailyHoroscopeTextView.textColor = UIColor.whiteColor()
-        self.dailyHoroscopeTextView.font = UIFont(name: "BradleyHandITCTT-Bold", size: 18.0)
+        self.dailyHoroscopeTextView.font = UIFont(name: "HelveticaNeue-Light", size: 18.0)
         
         
         self.stackViewBackgroundView.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
         self.view.addSubview(self.stackViewBackgroundView)
         
         self.stackViewBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        self.stackViewBackgroundView.removeConstraints(self.stackViewBackgroundView.constraints)
+//        self.stackViewBackgroundView.removeConstraints(self.stackViewBackgroundView.constraints)
         self.stackViewBackgroundView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        self.stackViewBackgroundView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+        self.stackViewBackgroundView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: +6.0).active = true
         self.stackViewBackgroundView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.65).active = true
         self.stackViewBackgroundView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.75).active = true
         
         
         self.horoStackView.axis = .Vertical
         self.horoStackView.distribution = .Fill
-        self.horoStackView.alignment = .Fill
+        self.horoStackView.alignment = .Center
         self.horoStackView.spacing = 0
         
         self.horoStackView.addArrangedSubview(self.signIcon)
@@ -101,34 +102,42 @@ class HoroscopeViewController: UIViewController {
         self.horoStackView.addArrangedSubview(self.todaysDateLabel)
         self.horoStackView.addArrangedSubview(self.dailyHoroscopeTextView)
         
-        self.horoStackView.translatesAutoresizingMaskIntoConstraints = false
-        self.stackViewBackgroundView.addSubview(self.horoStackView)
         
-        self.horoStackView.removeConstraints(self.horoStackView.constraints)
+        self.stackViewBackgroundView.addSubview(self.horoStackView)
+        self.horoStackView.translatesAutoresizingMaskIntoConstraints = false
+//        self.horoStackView.removeConstraints(self.horoStackView.constraints)
         self.horoStackView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
         self.horoStackView.centerYAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerYAnchor).active = true
         
         self.signIcon.translatesAutoresizingMaskIntoConstraints = false
-        self.signIcon.removeConstraints(self.signIcon.constraints)
-        self.signIcon.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
-        self.signIcon.leadingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.leadingAnchor, constant: 10).active = true
-        self.signIcon.trailingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.trailingAnchor, constant: -10).active = true
+//        self.signIcon.removeConstraints(self.signIcon.constraints)
+//        self.signIcon.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
+//        self.signIcon.leadingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.leadingAnchor).active = true
+//        self.signIcon.trailingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.trailingAnchor).active = true
+//        self.signIcon.heightAnchor.constraintEqualToAnchor(self.signIcon.widthAnchor).active = true
+        
+        self.signIcon.widthAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.widthAnchor, multiplier: 0.65).active = true
         self.signIcon.heightAnchor.constraintEqualToAnchor(self.signIcon.widthAnchor).active = true
-        self.signIcon.bounds = CGRectInset(self.signIcon.frame, 0.0, -1.50)
+//        self.signIcon.image?.
+       // self.signIcon.bounds = CGRectInset(self.signIcon.frame, 0.0, -0.10)
+       // self.signIcon.frame.size = CGSize(width: 5.0, height: 5.0)
         
         self.signName.translatesAutoresizingMaskIntoConstraints = false
         self.signName.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
         
         
         self.todaysDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.todaysDateLabel.removeConstraints(self.todaysDateLabel.constraints)
+//        self.todaysDateLabel.removeConstraints(self.todaysDateLabel.constraints)
         self.todaysDateLabel.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
         
         self.dailyHoroscopeTextView.translatesAutoresizingMaskIntoConstraints = false
-        self.dailyHoroscopeTextView.removeConstraints(self.dailyHoroscopeTextView.constraints)
-        self.dailyHoroscopeTextView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
-        self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView
-            .widthAnchor, multiplier: 0.90).active = true
+//        self.dailyHoroscopeTextView.removeConstraints(self.dailyHoroscopeTextView.constraints)
+//        self.dailyHoroscopeTextView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
+//        self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView
+//            .widthAnchor, multiplier: 0.90).active = true
+        self.dailyHoroscopeTextView.widthAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.widthAnchor, multiplier: 0.90).active = true
+        self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.heightAnchor, multiplier: 0.50).active = true
+        
         
     }
     
@@ -142,8 +151,8 @@ class HoroscopeViewController: UIViewController {
         
         
         HoroscopeAPIClient.getAnyDayHoroscope(unwrappedPassedHoroscopeString, day: "today") { (unwrappedZodiac) in
-            guard let unwrappedHoroscopeDate = unwrappedZodiac["date"] as? String else {return}
             
+            guard let unwrappedHoroscopeDate = unwrappedZodiac["date"] as? String else {return}
             
             guard let unwrappedHoroscopeValue = unwrappedZodiac["horoscope"] as? String else {return}
             
