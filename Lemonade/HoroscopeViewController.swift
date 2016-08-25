@@ -328,7 +328,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
                 let savedAlertController = UIAlertController(title: "Saved!", message: "", preferredStyle: .Alert)
-              
+                
                 let okButton = UIAlertAction.init(title: "OK", style: .Default, handler: { (action) in
                 })
                 savedAlertController.addAction(okButton)
