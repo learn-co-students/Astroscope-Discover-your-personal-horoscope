@@ -16,6 +16,9 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var buttonLabel: UIButton!
     var welcomeLabel = UILabel()
     
+    var personUsername = ""
+    var personBirthdate : Int32 = 0
+    
     
     let store = DataStore.sharedDataStore
     
@@ -101,18 +104,44 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func buttonAction(sender: AnyObject)
     {
-        let person = store.individual
         
-        if let unwrappedText = nameTextField.text
-        {
-            person?.username = unwrappedText
-            person?.birthdate = 0
+        let userRequest = NSFetchRequest(entityName: Users.entityName)
+        
+        do{
+            let object = try store.managedObjectContext.executeFetchRequest(userRequest) as? [Users]
             
-            store.saveContext()
+            if object?.count == 0
+            {
+                let person = NSEntityDescription.insertNewObjectForEntityForName(Users.entityName, inManagedObjectContext: store.managedObjectContext) as! Users
+                
+                if let unwrappedText = nameTextField.text
+                {
+                    person.username = unwrappedText
+                    person.birthdate = 0
+                    
+                    store.saveContext()
+                }
+                
+            }
+                
+            else if object?.count != 0
+            {
+                let person = store.individual
+                
+                if let unwrappedText = nameTextField.text
+                {
+                    person?.username = unwrappedText
+                    
+                    store.saveContext()
+                }
+                
+            }
         }
-
-    }
+        catch{print("error")}
+        
+        }
     
+
     func tap(gesture: UITapGestureRecognizer)
     {
         self.nameTextField.resignFirstResponder()

@@ -67,7 +67,6 @@ class DatePickerViewController: UIViewController
     
        if store.individual?.birthdate != 0
        {
-        
             self.selectBirthdayLabel.text = "Welcome back \(store.individual!.username)"
             self.submitButtonLabel.hidden = true
         
@@ -177,12 +176,12 @@ class DatePickerViewController: UIViewController
     @IBAction func editButton(sender: AnyObject)
     {
 
-        let editAlert = UIAlertController.init(title: "Edit Birthday?", message: "Are you sure that you want to edit your birthday?", preferredStyle: .Alert)
+        let editAlert = UIAlertController.init(title: "Edit Info?", message: "Which of the following would you like to edit?", preferredStyle: .Alert)
         
         let noAction = UIAlertAction.init(title: "No, cancel", style: .Cancel) { (action) in
         }
         
-        let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
+        let birthdayAction = UIAlertAction.init(title: "Edit Birthday", style: .Default) { (action) in
             
             self.labelFormat()
             self.submitButtonLabel.hidden = false
@@ -193,32 +192,18 @@ class DatePickerViewController: UIViewController
             self.bDayLabel.hidden = true
             
         }
-        editAlert.addAction(noAction)
-        editAlert.addAction(yesAction)
         
-        self.presentViewController(editAlert, animated: true){
-        }
-        
-    }
-    @IBAction func editNameNavBarAction(sender: AnyObject)
-    {
-        let editAlert = UIAlertController.init(title: "Edit name?", message: "Are you sure that you want to edit the name?. This will delete the birth date as well", preferredStyle: .Alert)
-        
-        let noAction = UIAlertAction.init(title: "No, cancel", style: .Cancel) { (action) in
-        }
-        
-        let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
-            
+        let usernameAction = UIAlertAction.init(title: "Edit Name", style: .Default) { (action) in
             self.performSegueWithIdentifier("welcomePageSegue", sender: self)
-            
         }
         editAlert.addAction(noAction)
-        editAlert.addAction(yesAction)
+        editAlert.addAction(birthdayAction)
+        editAlert.addAction(usernameAction)
         
         self.presentViewController(editAlert, animated: true){
         }
-    }
-    
+        
+    }    
     
     func labelFormat()
     {

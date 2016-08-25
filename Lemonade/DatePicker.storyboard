@@ -36,7 +36,7 @@
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
                                 <rect key="frame" x="49" y="153" width="278" height="27"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="23"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="25"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -76,13 +76,13 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MB3-nq-jVU">
-                                <rect key="frame" x="123" y="614" width="130" height="25"/>
+                                <rect key="frame" x="143" y="608" width="93" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="NHT-Zd-893"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="93" id="08b-QX-4v7"/>
                                     <constraint firstAttribute="height" constant="25" id="atb-X7-3bj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Edit Birthday">
+                                <state key="normal" title="Edit Info">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -116,7 +116,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="23e-vo-v95">
-                        <barButtonItem key="rightBarButtonItem" title="Edit name" style="plain" id="uTV-Ft-awH">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="uTV-Ft-awH">
                             <connections>
                                 <action selector="editNameNavBarAction:" destination="w5w-ff-CwY" id="UAY-MF-Fte"/>
                             </connections>
@@ -131,7 +131,7 @@
                         <outlet property="goToHoroscopeButtonLabel" destination="l3z-7x-abb" id="Mir-Bk-ObB"/>
                         <outlet property="selectBirthdayLabel" destination="jyl-hJ-cD8" id="F1r-ge-y4D"/>
                         <outlet property="submitButtonLabel" destination="jnp-5g-m8O" id="QdA-o3-tgN"/>
-                        <segue destination="CNg-wI-ZN4" kind="show" identifier="welcomePageSegue" id="Vnz-lF-gjy"/>
+                        <segue destination="CNg-wI-ZN4" kind="presentation" identifier="welcomePageSegue" id="Vnz-lF-gjy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X6n-CP-5yP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -154,7 +154,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hsB-wr-fxq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.098655648529529572" green="0.028376946225762367" blue="0.026769679039716721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
