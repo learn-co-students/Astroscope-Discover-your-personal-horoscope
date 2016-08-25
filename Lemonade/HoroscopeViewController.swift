@@ -41,7 +41,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     
     var menuButton = KCFloatingActionButton()
     var stackViewDimed: Bool = false
-    let transparentView = UIView()
+    let transparentView = UIButton()
     
     
     
@@ -68,19 +68,15 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         view.userInteractionEnabled = true
         menuButton.userInteractionEnabled = true
         
-        
-        viewTapRec = UITapGestureRecognizer(target: self, action: Selector(johann()))
-        viewTapRec.delegate = self
-        transparentView.addGestureRecognizer(viewTapRec)
-        
-        
-        
-        
+
     }
     
-    func johann(){
-        print("TAPPING")
+    func toggleStackViewButtonView(sender: UIButton)
+    {
+        print("Button clicked")
     }
+    
+ 
     
     func allConstraints() {
         self.signIcon.clipsToBounds = true
@@ -271,12 +267,15 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     if stackViewDimed == false {
                         stackViewDimed = !stackViewDimed
                         view.addSubview(transparentView)
+                        
                         self.transparentView.translatesAutoresizingMaskIntoConstraints = false
                         self.transparentView.removeConstraints(self.transparentView.constraints)
                         self.transparentView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
                         self.transparentView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
                         self.transparentView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
                         self.transparentView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
+                        self.transparentView.addTarget(self, action: #selector(HoroscopeViewController.toggleStackViewButtonView(_:)), forControlEvents: .TouchUpInside)
+
                         
                         UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                             self.stackViewBackgroundView.alpha = 0.0
@@ -284,13 +283,16 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                         
                         
                     }
-                    else {
-                        stackViewDimed = true
+                    else if stackViewDimed == true {
+                        
                             stackViewDimed = !stackViewDimed
+                        
                         
                         UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                             self.stackViewBackgroundView.alpha = 1.0}, completion: nil)
-                        transparentView.removeFromSuperview()
+                        
+                        
+                        stackViewDimed = false
                         
                     }
                     print(stackViewDimed)
