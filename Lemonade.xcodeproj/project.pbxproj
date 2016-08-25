@@ -51,16 +51,12 @@
 		1B9B24AC1D5E647600E10D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B9B24AE1D5E647600E10D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
-
+		1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		1BB768F51D63C951009D3737 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
 		1BE83D131D63989B00A95FA4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		4306720C1D6C983900EE31E9 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		430672121D6CD8FD00EE31E9 /* savephotobuttonimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = savephotobuttonimage.png; sourceTree = "<group>"; };
-
-		1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
-		
-
 		43D35F7D1D62364B0017C4D6 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		43D35FA51D624E430017C4D6 /* UsersAndDate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UsersAndDate.xcdatamodel; sourceTree = "<group>"; };
 		43D35FB31D6357780017C4D6 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = SOURCE_ROOT; };
@@ -112,27 +108,18 @@
 		1B9B249E1D5E647600E10D58 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
-
 				1B0F70021D6E362400605742 /* HoroscopeViewController.swift */,
 				43D35F7D1D62364B0017C4D6 /* DataStore.swift */,
 				43D35FA41D624E430017C4D6 /* UsersAndDate.xcdatamodeld */,
-				1BB768F51D63C951009D3737 /* DatePickerViewController.swift */,
 				1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */,
 				1B14C93E1D6CF8A500CEB6D0 /* WelcomePageViewController.swift */,
-
 				1B9B249F1D5E647600E10D58 /* AppDelegate.swift */,
-				
-			
-
 				43D35FB71D6358F70017C4D6 /* Users+CoreDataProperties.swift */,
 				43D35FB31D6357780017C4D6 /* Users.swift */,
 				DEFEEF411D637AF900383A56 /* NASAAPIClient.swift */,
-
 				4306720C1D6C983900EE31E9 /* Reachability.swift */,
-
 				DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */,
 				1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */,
-
 				1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */,
 				1BB768F51D63C951009D3737 /* DatePickerViewController.swift */,
 				1BE63D781D61FFF100066410 /* datePickerClass.swift */,
@@ -195,6 +182,7 @@
 				TargetAttributes = {
 					1B9B249B1D5E647600E10D58 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = YX6E9KFC93;
 					};
 				};
 			};
@@ -290,21 +278,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
-
 				1B0F70031D6E362400605742 /* HoroscopeViewController.swift in Sources */,
 				1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */,
 				1B14C93F1D6CF8A500CEB6D0 /* WelcomePageViewController.swift in Sources */,
-
-	
-
 				DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */,
 				43D35FA61D624E430017C4D6 /* UsersAndDate.xcdatamodeld in Sources */,
 				43D35FB81D6358F70017C4D6 /* Users+CoreDataProperties.swift in Sources */,
 				1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */,
 				43D35FB41D6357780017C4D6 /* Users.swift in Sources */,
-
-				1BB768F41D63C8A7009D3737 /* HoroscopeViewController.swift in Sources */,
-
 				DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */,
 				4306720D1D6C983900EE31E9 /* Reachability.swift in Sources */,
 				1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */,
@@ -423,10 +404,13 @@
 			baseConfigurationReference = 139238EF116A873FAE18CB02 /* Pods-Lemonade.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Lemonade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FlatironSchool.com.Lemonade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -435,10 +419,13 @@
 			baseConfigurationReference = AEFDADAF976DB5FE8EEF2799 /* Pods-Lemonade.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Lemonade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FlatironSchool.com.Lemonade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

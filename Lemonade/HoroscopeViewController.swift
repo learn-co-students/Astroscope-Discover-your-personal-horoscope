@@ -39,7 +39,6 @@ class HoroscopeViewController: UIViewController {
     var todaysHoroscope: String?
     var saveNASAImageToCameraRollButton = UIButton()
     var menuButton = KCFloatingActionButton()
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -268,7 +267,7 @@ class HoroscopeViewController: UIViewController {
         
         if Reachability.isConnectedToNetwork() == true {
         } else {
-            let noInternetAlertController = UIAlertController(title: "", message: "No Internet Connection", preferredStyle: .Alert)
+            let noInternetAlertController = UIAlertController(title: "", message: "No Wifi Connection", preferredStyle: .Alert)
             noInternetAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(noInternetAlertController, animated: true, completion: nil)
             noInternetAlertController.view.backgroundColor = UIColor.blackColor()
