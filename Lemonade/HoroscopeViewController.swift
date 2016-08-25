@@ -12,7 +12,7 @@ import AssetsLibrary
 import KCFloatingActionButton
 import SystemConfiguration
 
-class HoroscopeViewController: UIViewController {
+class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate {
     
     var imageNASAView = UIImageView()
     var passedHoroscopeString: String?
@@ -28,10 +28,11 @@ class HoroscopeViewController: UIViewController {
     
     let tapRecStackView = UITapGestureRecognizer()
     let returnTapRec = UITapGestureRecognizer()
+    let viewTapRec = UITapGestureRecognizer()
+
     
     var iconTapRec = UITapGestureRecognizer()
     var isIconTapped: Bool = false
-    var isBlurred: Bool = false
     var horoStackView = UIStackView()
     let stackViewBackgroundView = UIView()
     
@@ -39,6 +40,12 @@ class HoroscopeViewController: UIViewController {
     var todaysHoroscope: String?
     var saveNASAImageToCameraRollButton = UIButton()
     var menuButton = KCFloatingActionButton()
+        var stackViewDimed: Bool = false
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -52,6 +59,16 @@ class HoroscopeViewController: UIViewController {
         let todaysDateFormat = NSDateFormatter()
         todaysDateFormat.dateFormat = "yyyy-MM-dd"
         todaysDate = todaysDateFormat.stringFromDate(date)
+        
+        self.stackViewBackgroundView.alpha = 1.0
+        view.addSubview(self.stackViewBackgroundView)
+        menuButton.fabDelegate = self
+        
+        view.userInteractionEnabled = true
+        menuButton.userInteractionEnabled = true
+        
+        
+        
         
     }
     
@@ -195,47 +212,6 @@ class HoroscopeViewController: UIViewController {
         
     }
     
-    func stackViewTapped(isBool: Bool){
-        
-        
-        if !UIAccessibilityIsReduceTransparencyEnabled(){
-            let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.Dark)
-            let blurEffectView = UIVisualEffectView(effect: blurEffect)
-            
-            if isBlurred == false {
-                
-                blurEffectView.frame = self.view.bounds
-                blurEffectView.autoresizingMask = .FlexibleWidth
-                blurEffectView.autoresizingMask = .FlexibleHeight
-                
-                self.view.addSubview(blurEffectView)
-                
-                horoStackView.hidden = false
-                self.stackViewBackgroundView.hidden = false
-                
-                view.bringSubviewToFront(horoStackView)
-                
-                isBlurred = true
-                
-            } else if returnTapRec.enabled == true {
-                
-                if isBlurred == true {
-                    
-                    horoStackView.hidden = true
-                    self.stackViewBackgroundView.hidden = true
-                    
-                    for subview in view.subviews{
-                        if subview is UIVisualEffectView{
-                            subview.removeFromSuperview()
-                        }
-                        
-                    }
-                    
-                }
-            }
-        }
-        
-    }
     
     func isSignIconTapped(isBool : Bool){
         
@@ -249,25 +225,51 @@ class HoroscopeViewController: UIViewController {
         
     }
     
+    
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
-        for obj in touches {
+        for _ in touches {
             
             if let touch = touches.first {
                 if CGRectContainsPoint(menuButton.frame, touch.locationInView(self.view)){
-                    self.stackViewBackgroundView.hidden = !self.stackViewBackgroundView.hidden
+                    stackViewDimed = !stackViewDimed
+                    
+                    if stackViewDimed == true {
+                        
+                        UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                            self.stackViewBackgroundView.alpha = 0.0
+                            }, completion: nil)
+                    }
+                    else {
+                      stackViewDimed = false
+                        
+                        UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                            self.stackViewBackgroundView.alpha = 1.0}, completion: nil)
+                        
+                    }
+                    
+                    
                 }
+                
+                
+                
             }
             super.touchesBegan(touches, withEvent:event)
         }
+        
+        
+        
     }
+
+    
     
     
     func noInternetConnectionAlert () {
         
         if Reachability.isConnectedToNetwork() == true {
         } else {
-            let noInternetAlertController = UIAlertController(title: "", message: "No Wifi Connection", preferredStyle: .Alert)
+            let noInternetAlertController = UIAlertController(title: "No Wifi Connection", message: "Just so you know", preferredStyle: .Alert)
             noInternetAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
             self.presentViewController(noInternetAlertController, animated: true, completion: nil)
             noInternetAlertController.view.backgroundColor = UIColor.blackColor()
@@ -275,7 +277,11 @@ class HoroscopeViewController: UIViewController {
         }
     }
     
+    
     func MenuBarButtons() {
+        
+        
+        
         
         menuButton.buttonColor = UIColor.whiteColor()
         
@@ -286,11 +292,22 @@ class HoroscopeViewController: UIViewController {
             if let unwrappedImage = self.imageNASAView.image {
                 
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
-                let savedAlertController = UIAlertController(title: "", message: "Saved!", preferredStyle: .Alert)
-                savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                let savedAlertController = UIAlertController(title: "Saved!", message: "", preferredStyle: .Alert)
+                //savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                let okButton = UIAlertAction.init(title: "OK", style: .Default, handler: { (action) in
+                    
+                    //self.stackViewBackgroundView.hidden = !self.stackViewBackgroundView.hidden
+                })
+                savedAlertController.addAction(okButton)
+                
                 self.presentViewController(savedAlertController, animated: true, completion: nil)
                 savedAlertController.view.backgroundColor = UIColor.blackColor()
                 savedAlertController.view.tintColor = UIColor.blackColor()
+                
+                UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                    self.stackViewBackgroundView.alpha = 1.0
+                    }, completion: nil)
+                self.stackViewDimed = false
                 
             }
                 
@@ -307,9 +324,5 @@ class HoroscopeViewController: UIViewController {
         self.view.addSubview(menuButton)
     }
     
-    override func didReceiveMemoryWarning()
-    {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
 }
