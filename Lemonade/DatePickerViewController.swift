@@ -78,7 +78,7 @@ class DatePickerViewController: UIViewController
             self.datePicker.hidden = true
             self.bDayLabel.hidden = false
             
-            
+        
             let birthDate = store.individual?.birthdate
             if let unwrappedBirthDate = birthDate
             {
