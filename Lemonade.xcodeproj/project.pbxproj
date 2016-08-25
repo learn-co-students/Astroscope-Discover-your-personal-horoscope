@@ -10,7 +10,6 @@
 		1B0F70011D6E1ACE00605742 /* giphy (4).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F70001D6E1ACE00605742 /* giphy (4).gif */; };
 		1B0F70031D6E362400605742 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F70021D6E362400605742 /* HoroscopeViewController.swift */; };
 		1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */; };
-		1B14C93F1D6CF8A500CEB6D0 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B14C93E1D6CF8A500CEB6D0 /* WelcomePageViewController.swift */; };
 		1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5375881D6749FA00B9702A /* gifFramework.swift */; };
 		1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758A1D674A7D00B9702A /* giphy (1).gif */; };
 		1B53758D1D67550600B9702A /* giphy (2).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758C1D67550600B9702A /* giphy (2).gif */; };
@@ -21,6 +20,7 @@
 		1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */; };
 		1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */; };
 		1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB768F51D63C951009D3737 /* DatePickerViewController.swift */; };
+		1BD7EC5B1D6F7C4300A47514 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */; };
 		1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE63D781D61FFF100066410 /* datePickerClass.swift */; };
 		1BE83D141D63989B00A95FA4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE83D131D63989B00A95FA4 /* Secrets.swift */; };
 		237A0C0B41A4CB60C871B44B /* Pods_Lemonade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */; };
@@ -39,7 +39,6 @@
 		1B0F70001D6E1ACE00605742 /* giphy (4).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (4).gif"; sourceTree = "<group>"; };
 		1B0F70021D6E362400605742 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomePage.storyboard; sourceTree = "<group>"; };
-		1B14C93E1D6CF8A500CEB6D0 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		1B5375881D6749FA00B9702A /* gifFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFramework.swift; sourceTree = "<group>"; };
 		1B53758A1D674A7D00B9702A /* giphy (1).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (1).gif"; sourceTree = "<group>"; };
 		1B53758C1D67550600B9702A /* giphy (2).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (2).gif"; sourceTree = "<group>"; };
@@ -51,16 +50,13 @@
 		1B9B24AC1D5E647600E10D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B9B24AE1D5E647600E10D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
-
+		1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		1BB768F51D63C951009D3737 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
 		1BE83D131D63989B00A95FA4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		4306720C1D6C983900EE31E9 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		430672121D6CD8FD00EE31E9 /* savephotobuttonimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = savephotobuttonimage.png; sourceTree = "<group>"; };
-
-		1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
-		
-
 		43D35F7D1D62364B0017C4D6 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		43D35FA51D624E430017C4D6 /* UsersAndDate.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UsersAndDate.xcdatamodel; sourceTree = "<group>"; };
 		43D35FB31D6357780017C4D6 /* Users.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = SOURCE_ROOT; };
@@ -112,27 +108,18 @@
 		1B9B249E1D5E647600E10D58 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
-
+				1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */,
 				1B0F70021D6E362400605742 /* HoroscopeViewController.swift */,
 				43D35F7D1D62364B0017C4D6 /* DataStore.swift */,
 				43D35FA41D624E430017C4D6 /* UsersAndDate.xcdatamodeld */,
-				1BB768F51D63C951009D3737 /* DatePickerViewController.swift */,
 				1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */,
-				1B14C93E1D6CF8A500CEB6D0 /* WelcomePageViewController.swift */,
-
 				1B9B249F1D5E647600E10D58 /* AppDelegate.swift */,
-				
-			
-
 				43D35FB71D6358F70017C4D6 /* Users+CoreDataProperties.swift */,
 				43D35FB31D6357780017C4D6 /* Users.swift */,
 				DEFEEF411D637AF900383A56 /* NASAAPIClient.swift */,
-
 				4306720C1D6C983900EE31E9 /* Reachability.swift */,
-
 				DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */,
 				1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */,
-
 				1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */,
 				1BB768F51D63C951009D3737 /* DatePickerViewController.swift */,
 				1BE63D781D61FFF100066410 /* datePickerClass.swift */,
@@ -290,21 +277,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
-
 				1B0F70031D6E362400605742 /* HoroscopeViewController.swift in Sources */,
 				1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */,
-				1B14C93F1D6CF8A500CEB6D0 /* WelcomePageViewController.swift in Sources */,
-
-	
-
 				DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */,
 				43D35FA61D624E430017C4D6 /* UsersAndDate.xcdatamodeld in Sources */,
 				43D35FB81D6358F70017C4D6 /* Users+CoreDataProperties.swift in Sources */,
 				1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */,
 				43D35FB41D6357780017C4D6 /* Users.swift in Sources */,
-
-				1BB768F41D63C8A7009D3737 /* HoroscopeViewController.swift in Sources */,
-
+				1BD7EC5B1D6F7C4300A47514 /* WelcomePageViewController.swift in Sources */,
 				DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */,
 				4306720D1D6C983900EE31E9 /* Reachability.swift in Sources */,
 				1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */,

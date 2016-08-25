@@ -1,9 +1,9 @@
 //
 //  DatePickerViewController.swift
-//  Lemonade
+//  Team Lemonade
 //
 //  Created by Susan Zheng on 8/12/16.
-//  Copyright © 2016 Flatiron School. All rights reserved.
+//
 //
 
 import UIKit
@@ -67,7 +67,7 @@ class DatePickerViewController: UIViewController
     
        if store.individual?.birthdate != 0
        {
-            self.selectBirthdayLabel.text = "Welcome back \(store.individual!.username)"
+            self.selectBirthdayLabel.text = "Welcome back \n \(store.individual!.username)"
             self.submitButtonLabel.hidden = true
         
             self.labelFormat()
@@ -79,7 +79,6 @@ class DatePickerViewController: UIViewController
             self.bDayLabel.hidden = false
             
             
-        
             let birthDate = store.individual?.birthdate
             if let unwrappedBirthDate = birthDate
             {
@@ -128,7 +127,7 @@ class DatePickerViewController: UIViewController
     @IBAction func submitButton(sender: AnyObject)
     {
         self.submitButtonLabel.hidden = true
-        self.selectBirthdayLabel.text = "Welcome Back \(store.individual!.username)"
+        self.selectBirthdayLabel.text = "Welcome Back \n \(store.individual!.username)"
         self.userBirthday = self.dateClass.setEndDate(self.datePicker.date)
         
                 
@@ -187,7 +186,7 @@ class DatePickerViewController: UIViewController
             self.submitButtonLabel.hidden = false
             self.goToHoroscopeButtonLabel.hidden = true
             self.editButtonLabel.hidden = true
-            self.selectBirthdayLabel.text = "Please select your birthday"
+            self.selectBirthdayLabel.text = "Edit Birthday"
             self.datePicker.hidden = false
             self.bDayLabel.hidden = true
             

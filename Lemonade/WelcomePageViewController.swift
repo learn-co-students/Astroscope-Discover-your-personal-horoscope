@@ -1,9 +1,9 @@
 //
 //  WelcomePageViewController.swift
-//  Lemonade
+//  Team Lemonade
 //
-//  Created by Flatiron School on 8/23/16.
-//  Copyright © 2016 Flatiron School. All rights reserved.
+//  Created by Susan Zheng on 8/23/16.
+//
 //
 
 import UIKit
@@ -15,11 +15,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var buttonLabel: UIButton!
     var welcomeLabel = UILabel()
-    
-    var personUsername = ""
-    var personBirthdate : Int32 = 0
-    
-    
+    var pleaseEnterNameLabel = UILabel()
     let store = DataStore.sharedDataStore
     
     override func viewDidLoad()
@@ -28,9 +24,9 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         
         nameTextField.delegate = self
         checkForText()
-        welcomeLabelConstraints()
-        welcomeLabel.alpha = 0.0
-        welcomeLabelAnimation()
+        checkForDataForWelcomeLabel()
+        //welcomeLabel.alpha = 0.0
+        //pleaseEnterNameConstraints()
         buttonConstraint()
         
         let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (4)", withExtension: "gif")!)
@@ -56,7 +52,36 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     {
         super.didReceiveMemoryWarning()
     }
+
     
+    func checkForDataForWelcomeLabel()
+    {
+        let userRequest = NSFetchRequest(entityName: Users.entityName)
+        
+        do{
+            let object = try store.managedObjectContext.executeFetchRequest(userRequest) as? [Users]
+            
+            if object?.count == 0
+            {
+                self.welcomeLabel.text = "Welcome"
+                welcomeLabel.alpha = 0.0
+                welcomeLabelConstraints()
+                pleaseEnterNameLabel.alpha = 0.0
+                pleaseEnterNameLabel.text = "Please enter your name"
+                pleaseEnterNameConstraints()
+                welcomeLabelAnimation()
+                
+            }
+            else if object?.count != 0
+            {
+                self.welcomeLabel.text = "Edit Name"
+                welcomeLabelConstraints()
+            }
+        }
+        catch{print("Error")}
+        }
+    
+
     func checkForText()
     {
         if nameTextField.text?.characters.count == 0
@@ -69,19 +94,26 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     
     func welcomeLabelConstraints()
     {
-        
-        self.welcomeLabel.text = "Welcome"
+        self.view.addSubview(self.welcomeLabel)
         self.welcomeLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 50.0)
         self.welcomeLabel.textColor = UIColor.whiteColor()
-        self.view.addSubview(self.welcomeLabel)
-        
-        
         self.welcomeLabel.removeConstraints(self.welcomeLabel.constraints)
         self.welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.welcomeLabel.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
         self.welcomeLabel.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -130).active = true
     }
     
+    func pleaseEnterNameConstraints()
+    {
+        self.view.addSubview(self.pleaseEnterNameLabel)
+        self.pleaseEnterNameLabel.removeConstraints(self.pleaseEnterNameLabel.constraints)
+        self.pleaseEnterNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.pleaseEnterNameLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 20.0)
+        self.pleaseEnterNameLabel.textColor = UIColor.whiteColor()
+        //self.pleaseEnterNameLabel.text = ""
+        self.pleaseEnterNameLabel.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.pleaseEnterNameLabel.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -50).active = true
+    }
     func buttonConstraint()
     {
         self.buttonLabel.titleLabel?.textColor = UIColor.whiteColor()
@@ -93,15 +125,17 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     
     func welcomeLabelAnimation()
     {
-        UIView.animateWithDuration(2.0)
+        UIView.animateWithDuration(1.5, animations:
         {
             self.welcomeLabel.alpha = 1.0
+        }) { (true) in
             
-            self.view.layoutIfNeeded()
+            UIView.animateWithDuration(1.0, animations:
+                {
+                self.pleaseEnterNameLabel.alpha = 1.0
+            })
         }
     }
-    
-    
     @IBAction func buttonAction(sender: AnyObject)
     {
         
@@ -126,6 +160,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
                 
             else if object?.count != 0
             {
+    
                 let person = store.individual
                 
                 if let unwrappedText = nameTextField.text
