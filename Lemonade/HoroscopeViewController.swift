@@ -12,7 +12,7 @@ import AssetsLibrary
 import KCFloatingActionButton
 import SystemConfiguration
 
-class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate {
+class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate, UIGestureRecognizerDelegate {
     
     var imageNASAView = UIImageView()
     var passedHoroscopeString: String?
@@ -28,8 +28,8 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate 
     
     let tapRecStackView = UITapGestureRecognizer()
     let returnTapRec = UITapGestureRecognizer()
-    let viewTapRec = UITapGestureRecognizer()
-
+    var viewTapRec = UITapGestureRecognizer()
+    
     
     var iconTapRec = UITapGestureRecognizer()
     var isIconTapped: Bool = false
@@ -38,9 +38,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate 
     
     var yesterdaysHoroscope: String?
     var todaysHoroscope: String?
-    var saveNASAImageToCameraRollButton = UIButton()
+    
     var menuButton = KCFloatingActionButton()
-        var stackViewDimed: Bool = false
+    var stackViewDimed: Bool = false
+    let transparentView = UIView()
     
     
     
@@ -68,8 +69,17 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate 
         menuButton.userInteractionEnabled = true
         
         
+        viewTapRec = UITapGestureRecognizer(target: self, action: Selector(johann()))
+        viewTapRec.delegate = self
+        transparentView.addGestureRecognizer(viewTapRec)
         
         
+        
+        
+    }
+    
+    func johann(){
+        print("TAPPING")
     }
     
     func allConstraints() {
@@ -224,6 +234,27 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate 
         }
         
     }
+    func toggleStackView () {
+        
+        if stackViewDimed == true {
+            
+            UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.stackViewBackgroundView.alpha = 0.0
+                }, completion: nil)
+            
+            stackViewDimed = false
+            
+        }
+        else if stackViewDimed == false {
+            
+            
+            UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.stackViewBackgroundView.alpha = 1.0}, completion: nil)
+            
+            stackViewDimed = true
+            
+        }
+    }
     
     
     
@@ -233,35 +264,69 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate 
             
             if let touch = touches.first {
                 if CGRectContainsPoint(menuButton.frame, touch.locationInView(self.view)){
-                    stackViewDimed = !stackViewDimed
+                    print(stackViewDimed)
                     
-                    if stackViewDimed == true {
+                    
+                    
+                    if stackViewDimed == false {
+                        stackViewDimed = !stackViewDimed
+                        view.addSubview(transparentView)
+                        self.transparentView.translatesAutoresizingMaskIntoConstraints = false
+                        self.transparentView.removeConstraints(self.transparentView.constraints)
+                        self.transparentView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+                        self.transparentView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+                        self.transparentView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
+                        self.transparentView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
                         
                         UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                             self.stackViewBackgroundView.alpha = 0.0
                             }, completion: nil)
+                        
+                        
                     }
                     else {
-                      stackViewDimed = false
+                        stackViewDimed = true
+                            stackViewDimed = !stackViewDimed
                         
                         UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                             self.stackViewBackgroundView.alpha = 1.0}, completion: nil)
+                        transparentView.removeFromSuperview()
                         
                     }
+                    print(stackViewDimed)
                     
+               
                     
                 }
                 
                 
-                
             }
-            super.touchesBegan(touches, withEvent:event)
+            
+            
+            
+        }
+        super.touchesBegan(touches, withEvent:event)
+    }
+    
+    
+    
+    
+    
+    
+    func bringBackStackViewIfStackViewIsGone (touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        if stackViewDimed == true {
+            if let touch = touches.first {
+                if CGRectContainsPoint(UIViewController.accessibilityFrame(), touch.locationInView(self.view)){
+                    stackViewDimed = false
+                    view.bringSubviewToFront(imageNASAView)
+                }
+            }
+            
         }
         
-        
-        
     }
-
+    
     
     
     
@@ -278,10 +343,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate 
     }
     
     
+    
+    
+    
     func MenuBarButtons() {
-        
-        
-        
         
         menuButton.buttonColor = UIColor.whiteColor()
         
