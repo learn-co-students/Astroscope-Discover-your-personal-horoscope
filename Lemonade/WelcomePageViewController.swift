@@ -52,7 +52,6 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-     
     }
     
     func checkForText()
@@ -88,6 +87,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         self.buttonLabel.layer.cornerRadius = 10
         self.buttonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
     }
+    
     func welcomeLabelAnimation()
     {
         UIView.animateWithDuration(2.0)
@@ -101,18 +101,15 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     
     @IBAction func buttonAction(sender: AnyObject)
     {
-        
-        let context = store.managedObjectContext
-        
-        let user = NSEntityDescription.insertNewObjectForEntityForName(Users.entityName, inManagedObjectContext: context) as! Users
+        let person = store.individual
         
         if let unwrappedText = nameTextField.text
         {
-            user.username = unwrappedText
+            person?.username = unwrappedText
+            person?.birthdate = 0
+            
             store.saveContext()
-           
         }
-
 
     }
     
@@ -137,16 +134,4 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         return true
     }
     
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

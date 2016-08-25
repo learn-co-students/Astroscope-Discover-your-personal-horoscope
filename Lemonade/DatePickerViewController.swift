@@ -31,7 +31,7 @@ class DatePickerViewController: UIViewController
     @IBOutlet weak var submitButtonLabel: UIButton!
     @IBOutlet weak var goToHoroscopeButtonLabel: UIButton!
     @IBOutlet weak var editButtonLabel: UIButton!
-    
+    @IBOutlet weak var editNameNavBarLabel: UIBarButtonItem!
     
     override func viewDidLoad()
     {
@@ -199,6 +199,24 @@ class DatePickerViewController: UIViewController
         self.presentViewController(editAlert, animated: true){
         }
         
+    }
+    @IBAction func editNameNavBarAction(sender: AnyObject)
+    {
+        let editAlert = UIAlertController.init(title: "Edit name?", message: "Are you sure that you want to edit the name?. This will delete the birth date as well", preferredStyle: .Alert)
+        
+        let noAction = UIAlertAction.init(title: "No, cancel", style: .Cancel) { (action) in
+        }
+        
+        let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
+            
+            self.performSegueWithIdentifier("welcomePageSegue", sender: self)
+            
+        }
+        editAlert.addAction(noAction)
+        editAlert.addAction(yesAction)
+        
+        self.presentViewController(editAlert, animated: true){
+        }
     }
     
     
