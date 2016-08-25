@@ -310,28 +310,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         super.touchesBegan(touches, withEvent:event)
     }
     
-    
-    
-    
-    
-    
-    func bringBackStackViewIfStackViewIsGone (touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        if stackViewDimed == true {
-            if let touch = touches.first {
-                if CGRectContainsPoint(UIViewController.accessibilityFrame(), touch.locationInView(self.view)){
-                    stackViewDimed = false
-                    view.bringSubviewToFront(imageNASAView)
-                }
-            }
-            
-        }
-        
-    }
-    
-    
-    
-    
     func noInternetConnectionAlert () {
         
         if Reachability.isConnectedToNetwork() == true {
