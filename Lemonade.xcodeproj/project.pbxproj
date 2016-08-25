@@ -10,6 +10,7 @@
 		1B0F70011D6E1ACE00605742 /* giphy (4).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F70001D6E1ACE00605742 /* giphy (4).gif */; };
 		1B0F70031D6E362400605742 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F70021D6E362400605742 /* HoroscopeViewController.swift */; };
 		1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */; };
+		1B3A58211D6F95C800546D95 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */; };
 		1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5375881D6749FA00B9702A /* gifFramework.swift */; };
 		1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758A1D674A7D00B9702A /* giphy (1).gif */; };
 		1B53758D1D67550600B9702A /* giphy (2).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758C1D67550600B9702A /* giphy (2).gif */; };
@@ -20,7 +21,6 @@
 		1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */; };
 		1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */; };
 		1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB768F51D63C951009D3737 /* DatePickerViewController.swift */; };
-		1BD7EC5B1D6F7C4300A47514 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */; };
 		1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE63D781D61FFF100066410 /* datePickerClass.swift */; };
 		1BE83D141D63989B00A95FA4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE83D131D63989B00A95FA4 /* Secrets.swift */; };
 		237A0C0B41A4CB60C871B44B /* Pods_Lemonade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */; };
@@ -182,6 +182,7 @@
 				TargetAttributes = {
 					1B9B249B1D5E647600E10D58 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = YX6E9KFC93;
 					};
 				};
 			};
@@ -276,15 +277,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
+				1B3A58211D6F95C800546D95 /* WelcomePageViewController.swift in Sources */,
 				1B0F70031D6E362400605742 /* HoroscopeViewController.swift in Sources */,
+				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
 				1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */,
 				DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */,
 				43D35FA61D624E430017C4D6 /* UsersAndDate.xcdatamodeld in Sources */,
 				43D35FB81D6358F70017C4D6 /* Users+CoreDataProperties.swift in Sources */,
 				1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */,
 				43D35FB41D6357780017C4D6 /* Users.swift in Sources */,
-				1BD7EC5B1D6F7C4300A47514 /* WelcomePageViewController.swift in Sources */,
 				DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */,
 				4306720D1D6C983900EE31E9 /* Reachability.swift in Sources */,
 				1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */,
@@ -403,10 +404,13 @@
 			baseConfigurationReference = 139238EF116A873FAE18CB02 /* Pods-Lemonade.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Lemonade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FlatironSchool.com.Lemonade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -415,10 +419,13 @@
 			baseConfigurationReference = AEFDADAF976DB5FE8EEF2799 /* Pods-Lemonade.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Lemonade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FlatironSchool.com.Lemonade;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
