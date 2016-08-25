@@ -1,9 +1,9 @@
 //
 //  DatePickerViewController.swift
-//  Lemonade
+//  Team Lemonade
 //
 //  Created by Susan Zheng on 8/12/16.
-//  Copyright © 2016 Flatiron School. All rights reserved.
+//
 //
 
 import UIKit
@@ -31,7 +31,7 @@ class DatePickerViewController: UIViewController
     @IBOutlet weak var submitButtonLabel: UIButton!
     @IBOutlet weak var goToHoroscopeButtonLabel: UIButton!
     @IBOutlet weak var editButtonLabel: UIButton!
-    
+    @IBOutlet weak var editNameNavBarLabel: UIBarButtonItem!
     
     override func viewDidLoad()
     {
@@ -67,8 +67,7 @@ class DatePickerViewController: UIViewController
     
        if store.individual?.birthdate != 0
        {
-        
-            self.selectBirthdayLabel.text = "Welcome back \(store.individual!.username)"
+            self.selectBirthdayLabel.text = "Welcome back \n \(store.individual!.username)"
             self.submitButtonLabel.hidden = true
         
             self.labelFormat()
@@ -78,7 +77,6 @@ class DatePickerViewController: UIViewController
             self.editButtonLabel.hidden = false
             self.datePicker.hidden = true
             self.bDayLabel.hidden = false
-            
             
         
             let birthDate = store.individual?.birthdate
@@ -129,7 +127,7 @@ class DatePickerViewController: UIViewController
     @IBAction func submitButton(sender: AnyObject)
     {
         self.submitButtonLabel.hidden = true
-        self.selectBirthdayLabel.text = "Welcome Back \(store.individual!.username)"
+        self.selectBirthdayLabel.text = "Welcome Back \n \(store.individual!.username)"
         self.userBirthday = self.dateClass.setEndDate(self.datePicker.date)
         
                 
@@ -177,30 +175,34 @@ class DatePickerViewController: UIViewController
     @IBAction func editButton(sender: AnyObject)
     {
 
-        let editAlert = UIAlertController.init(title: "Edit Birthday?", message: "Are you sure that you want to edit your birthday?", preferredStyle: .Alert)
+        let editAlert = UIAlertController.init(title: "Edit Info?", message: "Which of the following would you like to edit?", preferredStyle: .Alert)
         
         let noAction = UIAlertAction.init(title: "No, cancel", style: .Cancel) { (action) in
         }
         
-        let yesAction = UIAlertAction.init(title: "Yes, Edit", style: .Default) { (action) in
+        let birthdayAction = UIAlertAction.init(title: "Edit Birthday", style: .Default) { (action) in
             
             self.labelFormat()
             self.submitButtonLabel.hidden = false
             self.goToHoroscopeButtonLabel.hidden = true
             self.editButtonLabel.hidden = true
-            self.selectBirthdayLabel.text = "Please select your birthday"
+            self.selectBirthdayLabel.text = "Edit Birthday"
             self.datePicker.hidden = false
             self.bDayLabel.hidden = true
             
         }
+        
+        let usernameAction = UIAlertAction.init(title: "Edit Name", style: .Default) { (action) in
+            self.performSegueWithIdentifier("welcomePageSegue", sender: self)
+        }
         editAlert.addAction(noAction)
-        editAlert.addAction(yesAction)
+        editAlert.addAction(birthdayAction)
+        editAlert.addAction(usernameAction)
         
         self.presentViewController(editAlert, animated: true){
         }
         
-    }
-    
+    }    
     
     func labelFormat()
     {
