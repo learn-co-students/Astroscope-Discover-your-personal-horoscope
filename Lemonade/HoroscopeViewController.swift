@@ -41,7 +41,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     
     var menuButton = KCFloatingActionButton()
     var stackViewDimed: Bool = false
-    let transparentView = UIButton()
+    let transparentViewButton = UIButton()
     
     
     
@@ -68,15 +68,17 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         view.userInteractionEnabled = true
         menuButton.userInteractionEnabled = true
         
-
+        
     }
     
     func toggleStackViewButtonView(sender: UIButton)
     {
+        toggleStackView()
         print("Button clicked")
+        print(stackViewDimed)
     }
     
- 
+    
     
     func allConstraints() {
         self.signIcon.clipsToBounds = true
@@ -251,9 +253,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             
         }
     }
-    
-    
-    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for _ in touches {
@@ -266,16 +265,16 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     
                     if stackViewDimed == false {
                         stackViewDimed = !stackViewDimed
-                        view.addSubview(transparentView)
+                        view.addSubview(transparentViewButton)
                         
-                        self.transparentView.translatesAutoresizingMaskIntoConstraints = false
-                        self.transparentView.removeConstraints(self.transparentView.constraints)
-                        self.transparentView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-                        self.transparentView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
-                        self.transparentView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
-                        self.transparentView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
-                        self.transparentView.addTarget(self, action: #selector(HoroscopeViewController.toggleStackViewButtonView(_:)), forControlEvents: .TouchUpInside)
-
+                        self.transparentViewButton.translatesAutoresizingMaskIntoConstraints = false
+                        self.transparentViewButton.removeConstraints(self.transparentViewButton.constraints)
+                        self.transparentViewButton.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+                        self.transparentViewButton.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
+                        self.transparentViewButton.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
+                        self.transparentViewButton.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
+                        self.transparentViewButton.addTarget(self, action: #selector(HoroscopeViewController.toggleStackViewButtonView(_:)), forControlEvents: .TouchUpInside)
+                        
                         
                         UIView.animateWithDuration(0.75, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                             self.stackViewBackgroundView.alpha = 0.0
@@ -285,7 +284,9 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     }
                     else if stackViewDimed == true {
                         
-                            stackViewDimed = !stackViewDimed
+                        
+                        
+                        stackViewDimed = !stackViewDimed
                         
                         
                         UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
@@ -297,15 +298,8 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     }
                     print(stackViewDimed)
                     
-               
-                    
                 }
-                
-                
             }
-            
-            
-            
         }
         super.touchesBegan(touches, withEvent:event)
     }
@@ -322,10 +316,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         }
     }
     
-    
-    
-    
-    
     func MenuBarButtons() {
         
         menuButton.buttonColor = UIColor.whiteColor()
@@ -338,10 +328,8 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
                 let savedAlertController = UIAlertController(title: "Saved!", message: "", preferredStyle: .Alert)
-                //savedAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+              
                 let okButton = UIAlertAction.init(title: "OK", style: .Default, handler: { (action) in
-                    
-                    //self.stackViewBackgroundView.hidden = !self.stackViewBackgroundView.hidden
                 })
                 savedAlertController.addAction(okButton)
                 
@@ -352,6 +340,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                     self.stackViewBackgroundView.alpha = 1.0
                     }, completion: nil)
+                self.view.addSubview(self.stackViewBackgroundView)
                 self.stackViewDimed = false
                 
             }
@@ -361,13 +350,8 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 let savedAlertControllerError = UIAlertController(title: "Save error", message: "error", preferredStyle: .Alert)
                 savedAlertControllerError.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
                 self.presentViewController(savedAlertControllerError, animated: true, completion: nil)
-                
             }
-            
         }
-        
         self.view.addSubview(menuButton)
     }
-    
-    
 }
