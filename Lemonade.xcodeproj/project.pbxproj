@@ -50,7 +50,6 @@
 		1B9B24AC1D5E647600E10D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B9B24AE1D5E647600E10D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
-		1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		1BB768F51D63C951009D3737 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
@@ -119,7 +118,6 @@
 				DEFEEF411D637AF900383A56 /* NASAAPIClient.swift */,
 				4306720C1D6C983900EE31E9 /* Reachability.swift */,
 				DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */,
-				1BB768F31D63C8A7009D3737 /* HoroscopeViewController.swift */,
 				1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */,
 				1BB768F51D63C951009D3737 /* DatePickerViewController.swift */,
 				1BE63D781D61FFF100066410 /* datePickerClass.swift */,
