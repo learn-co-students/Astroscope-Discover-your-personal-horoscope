@@ -49,6 +49,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         noInternetConnectionAlert()
         MenuBarButtons()
         NASAApiPicture()
