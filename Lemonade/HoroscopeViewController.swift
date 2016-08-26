@@ -259,9 +259,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             if let touch = touches.first {
                 if CGRectContainsPoint(menuButton.frame, touch.locationInView(self.view)){
                     print(stackViewDimed)
-                    
-                    
-                    
+
                     if stackViewDimed == false {
                         stackViewDimed = !stackViewDimed
                         view.addSubview(transparentViewButton)
@@ -288,7 +286,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                         stackViewDimed = !stackViewDimed
                         
                         
-                        UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                             self.stackViewBackgroundView.alpha = 1.0}, completion: nil)
                         
                         
@@ -336,7 +334,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 savedAlertController.view.backgroundColor = UIColor.blackColor()
                 savedAlertController.view.tintColor = UIColor.blackColor()
                 
-                UIView.animateWithDuration(1.0, delay: 0.5, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
                     self.stackViewBackgroundView.alpha = 1.0
                     }, completion: nil)
                 self.view.addSubview(self.stackViewBackgroundView)
