@@ -16,6 +16,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     @IBOutlet weak var buttonLabel: UIButton!
     
     var welcomeLabel = UILabel()
+    var logo = UIImageView()
     var pleaseEnterNameLabel = UILabel()
     let store = DataStore.sharedDataStore
     
@@ -63,13 +64,14 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
             
             if object?.count == 0
             {
-                self.welcomeLabel.text = "Welcome"
-                welcomeLabel.alpha = 0.0
-                welcomeLabelConstraints()
+                
+                logo.image = UIImage.init(named: "logo2.png")
+                logoConstraints()
+                logo.alpha = 0.0
                 pleaseEnterNameLabel.alpha = 0.0
                 pleaseEnterNameLabel.text = "Please enter your name"
                 pleaseEnterNameConstraints()
-                welcomeLabelAnimation()
+                logoAnimation()
                 
             }
             else if object?.count != 0
@@ -103,6 +105,17 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         self.welcomeLabel.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -130).active = true
     }
     
+    func logoConstraints()
+    {
+        self.view.addSubview(self.logo)
+        self.logo.removeConstraints(self.logo.constraints)
+        self.logo.translatesAutoresizingMaskIntoConstraints = false
+        self.logo.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.logo.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -130).active = true
+        self.logo.heightAnchor.constraintEqualToConstant(60.0).active = true
+        self.logo.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, constant: -70).active = true
+        view.bringSubviewToFront(self.logo)
+    }
     func pleaseEnterNameConstraints()
     {
         self.view.addSubview(self.pleaseEnterNameLabel)
@@ -122,11 +135,11 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         self.buttonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
     }
     
-    func welcomeLabelAnimation()
+    func logoAnimation()
     {
         UIView.animateWithDuration(1.5, animations:
         {
-            self.welcomeLabel.alpha = 1.0
+            self.logo.alpha = 1.0
             
         }) { (true) in
             
