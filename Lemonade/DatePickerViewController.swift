@@ -17,10 +17,9 @@ class DatePickerViewController: UIViewController
     var birthdayFromStore: Int?
     var savedString = ""
     var dateFromPickerString :String?
-    
-    
     var startDate : NSDate?
     var userBirthday : NSDate?
+    
     
     
     var dateClass = datePickerClass()
@@ -32,6 +31,7 @@ class DatePickerViewController: UIViewController
     @IBOutlet weak var goToHoroscopeButtonLabel: UIButton!
     @IBOutlet weak var editButtonLabel: UIButton!
     @IBOutlet weak var editNameNavBarLabel: UIBarButtonItem!
+    @IBOutlet weak var pleaseSelectYourBirthdayLabel: UILabel!
     
     override func viewDidLoad()
     {
@@ -77,6 +77,7 @@ class DatePickerViewController: UIViewController
             self.editButtonLabel.hidden = false
             self.datePicker.hidden = true
             self.bDayLabel.hidden = false
+            self.pleaseSelectYourBirthdayLabel.hidden = true
             
         
             let birthDate = store.individual?.birthdate
@@ -108,7 +109,8 @@ class DatePickerViewController: UIViewController
             self.bDayLabel.hidden = true
             
             let name = store.individual?.username
-            self.selectBirthdayLabel.text = "Hello \(name!)\n, Please select your birthday"
+            self.selectBirthdayLabel.text = "Hello \(name!)"
+            self.pleaseSelectYourBirthdayLabel.hidden = false
         }
             
     
@@ -129,6 +131,7 @@ class DatePickerViewController: UIViewController
         self.submitButtonLabel.hidden = true
         self.selectBirthdayLabel.text = "Welcome Back \n \(store.individual!.username)"
         self.userBirthday = self.dateClass.setEndDate(self.datePicker.date)
+        self.pleaseSelectYourBirthdayLabel.hidden = true
         
                 
         let person = store.individual

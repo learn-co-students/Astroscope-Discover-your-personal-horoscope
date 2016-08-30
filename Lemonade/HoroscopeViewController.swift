@@ -68,6 +68,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         view.userInteractionEnabled = true
         menuButton.userInteractionEnabled = true
         
+        dailyHoroscopeTextView.editable = false
+        dailyHoroscopeTextView.selectable = true
+        dailyHoroscopeTextView.dataDetectorTypes = UIDataDetectorTypes.All
+        
         
     }
     
@@ -179,10 +183,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 
                 NSOperationQueue.mainQueue().addOperationWithBlock{(
                     
-                    
                     self.dailyHoroscopeTextView.text = self.todaysHoroscope
                     
                     )}
+                //print(self.todaysHoroscope)
                 
             } else if self.APIDate != self.todaysDate {
                 
@@ -215,6 +219,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             NSOperationQueue.mainQueue().addOperationWithBlock({
                 
                 self.imageNASAView.image = spaceImage
+    
             })
         }
         

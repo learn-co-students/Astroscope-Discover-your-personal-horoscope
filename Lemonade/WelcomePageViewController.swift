@@ -14,6 +14,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var buttonLabel: UIButton!
+    
     var welcomeLabel = UILabel()
     var pleaseEnterNameLabel = UILabel()
     let store = DataStore.sharedDataStore
@@ -23,10 +24,9 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         super.viewDidLoad()
         
         nameTextField.delegate = self
+        
         checkForText()
         checkForDataForWelcomeLabel()
-        //welcomeLabel.alpha = 0.0
-        //pleaseEnterNameConstraints()
         buttonConstraint()
         
         let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (4)", withExtension: "gif")!)
@@ -110,7 +110,6 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         self.pleaseEnterNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.pleaseEnterNameLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 20.0)
         self.pleaseEnterNameLabel.textColor = UIColor.whiteColor()
-        //self.pleaseEnterNameLabel.text = ""
         self.pleaseEnterNameLabel.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
         self.pleaseEnterNameLabel.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -50).active = true
     }
@@ -128,10 +127,11 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         UIView.animateWithDuration(1.5, animations:
         {
             self.welcomeLabel.alpha = 1.0
+            
         }) { (true) in
             
             UIView.animateWithDuration(1.0, animations:
-                {
+            {
                 self.pleaseEnterNameLabel.alpha = 1.0
             })
         }

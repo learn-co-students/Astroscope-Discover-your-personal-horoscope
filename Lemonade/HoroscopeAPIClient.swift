@@ -34,6 +34,7 @@ class HoroscopeAPIClient {
     
                     guard let unwrappedZodiac = zodiacTodayDictionary else {return}
                     completion(unwrappedZodiac)
+                    print(unwrappedZodiac)
     
                 } catch {
                     print(error)
