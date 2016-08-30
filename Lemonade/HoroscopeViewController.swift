@@ -39,6 +39,7 @@ class HoroscopeViewController: UIViewController {
     var todaysHoroscope: String?
     var saveNASAImageToCameraRollButton = UIButton()
     var menuButton = KCFloatingActionButton()
+    //    var zodiacsButton = UIButton()
     
     override func viewDidLoad() {
         
@@ -48,7 +49,7 @@ class HoroscopeViewController: UIViewController {
         NASAApiPicture()
         allConstraints()
         horoscopeAPICall()
-    
+        
     }
     
     func allConstraints() {
@@ -85,7 +86,7 @@ class HoroscopeViewController: UIViewController {
         self.view.addSubview(self.stackViewBackgroundView)
         
         self.stackViewBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-//        self.stackViewBackgroundView.removeConstraints(self.stackViewBackgroundView.constraints)
+        //        self.stackViewBackgroundView.removeConstraints(self.stackViewBackgroundView.constraints)
         self.stackViewBackgroundView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
         self.stackViewBackgroundView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: +6.0).active = true
         self.stackViewBackgroundView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.65).active = true
@@ -105,38 +106,38 @@ class HoroscopeViewController: UIViewController {
         
         self.stackViewBackgroundView.addSubview(self.horoStackView)
         self.horoStackView.translatesAutoresizingMaskIntoConstraints = false
-//        self.horoStackView.removeConstraints(self.horoStackView.constraints)
+        //        self.horoStackView.removeConstraints(self.horoStackView.constraints)
         self.horoStackView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
         self.horoStackView.centerYAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerYAnchor).active = true
         
         self.signIcon.translatesAutoresizingMaskIntoConstraints = false
-//        self.signIcon.removeConstraints(self.signIcon.constraints)
-//        self.signIcon.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
-//        self.signIcon.leadingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.leadingAnchor).active = true
-//        self.signIcon.trailingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.trailingAnchor).active = true
-//        self.signIcon.heightAnchor.constraintEqualToAnchor(self.signIcon.widthAnchor).active = true
+        //        self.signIcon.removeConstraints(self.signIcon.constraints)
+        //        self.signIcon.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
+        //        self.signIcon.leadingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.leadingAnchor).active = true
+        //        self.signIcon.trailingAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.trailingAnchor).active = true
+        //        self.signIcon.heightAnchor.constraintEqualToAnchor(self.signIcon.widthAnchor).active = true
         
         self.signIcon.widthAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.widthAnchor, multiplier: 0.65).active = true
         self.signIcon.heightAnchor.constraintEqualToAnchor(self.signIcon.widthAnchor).active = true
-//        self.signIcon.image?.
-       // self.signIcon.bounds = CGRectInset(self.signIcon.frame, 0.0, -0.10)
-       // self.signIcon.frame.size = CGSize(width: 5.0, height: 5.0)
+        //        self.signIcon.image?.
+        // self.signIcon.bounds = CGRectInset(self.signIcon.frame, 0.0, -0.10)
+        // self.signIcon.frame.size = CGSize(width: 5.0, height: 5.0)
         
         self.signName.translatesAutoresizingMaskIntoConstraints = false
         self.signName.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
         
         
         self.todaysDateLabel.translatesAutoresizingMaskIntoConstraints = false
-//        self.todaysDateLabel.removeConstraints(self.todaysDateLabel.constraints)
+        //        self.todaysDateLabel.removeConstraints(self.todaysDateLabel.constraints)
         self.todaysDateLabel.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
         
         self.dailyHoroscopeTextView.translatesAutoresizingMaskIntoConstraints = false
-//        self.dailyHoroscopeTextView.removeConstraints(self.dailyHoroscopeTextView.constraints)
-//        self.dailyHoroscopeTextView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
-//        self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView
-//            .widthAnchor, multiplier: 0.90).active = true
+        //        self.dailyHoroscopeTextView.removeConstraints(self.dailyHoroscopeTextView.constraints)
+        //        self.dailyHoroscopeTextView.centerXAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.centerXAnchor).active = true
+        //        self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView
+        //            .widthAnchor, multiplier: 0.90).active = true
         self.dailyHoroscopeTextView.widthAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.widthAnchor, multiplier: 0.90).active = true
-        self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.heightAnchor, multiplier: 0.50).active = true
+        self.dailyHoroscopeTextView.heightAnchor.constraintEqualToAnchor(self.stackViewBackgroundView.heightAnchor, multiplier: 0.45).active = true
         
         
     }
@@ -291,6 +292,19 @@ class HoroscopeViewController: UIViewController {
         menuButton.buttonColor = UIColor.whiteColor()
         
         let savePhotoImage = UIImage.init(named: "savephotobuttonimage.png")
+        let goToOtherHoroscopes = UIImage.init(named: "StarOfBethlehem-50.png")
+        
+        menuButton.addItem("Go See Other Horoscopes", icon: goToOtherHoroscopes) { (action) in
+            
+            self.performSegueWithIdentifier("horoscopeToOthers", sender: self)
+            
+            
+        }
+        
+        
+        
+        
+        
         
         menuButton.addItem("Save NASA Image", icon: savePhotoImage) { (action) in
             

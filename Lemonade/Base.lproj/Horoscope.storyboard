@@ -19,10 +19,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="9aq-eK-ujn" kind="show" identifier="horoscopeToOthers" id="kRg-Pu-NVb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103.5" y="101.5"/>
+            <point key="canvasLocation" x="102.5" y="98.5"/>
+        </scene>
+        <!--ZodiacCollection-->
+        <scene sceneID="eM5-wc-Vjj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ZodiacCollection" id="9aq-eK-ujn" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kVz-fY-gCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="442.5" y="131"/>
         </scene>
     </scenes>
 </document>
