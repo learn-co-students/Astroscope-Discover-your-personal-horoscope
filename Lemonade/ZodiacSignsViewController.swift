@@ -21,11 +21,9 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
     
     let iconsDictionary: [String: String] = [ "capricorn_black_parkjisun" : "capricorn", "aquarius_black_parkjisun" : "aquarius", "pisces_black_parkjisun": "pisces", "aries_black_parkjisun" : "aries", "taurus_black_parkjisun": "taurus", "gemini_black_parkjisun" : "gemini", "cancer_black_parkjisun": "cancer", "leo_black_parkjisun": "leo","virgo_black_parkjisun" : "virgo", "libra_black_parkjisun" : "libra", "scorpio_black_parkjisun" : "scorpio", "sagittarius_black_parkjisun" : "sagittarius"]
     
-    var signIconView = UIImageView()
-    var signNameLabel: UILabel!
+    
     var passedHoroscopeString: String?
     var imageNASAView = UIImageView()
-    var zodiacName = UILabel()
     
     
     override func viewDidLoad() {
@@ -83,7 +81,13 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath)
         
+       print("cell \(indexPath.row) is getting created")
+            
         cell.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
+        
+        var zodiacName = UILabel()
+        var signIconView = UIImageView()
+        var signNameLabel: UILabel!
         
         signIconView.contentMode = .ScaleAspectFit
         signIconView.clipsToBounds = true
@@ -93,6 +97,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         zodiacName.textAlignment = NSTextAlignment.Center
         zodiacName.textColor = UIColor.whiteColor()
         zodiacName.font = UIFont(name: "BradleyHandITCTT-Bold", size: 16.0)
+        zodiacName.adjustsFontSizeToFitWidth = true
         
         
         cell.addSubview(signIconView)
@@ -100,23 +105,27 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
         signIconView.translatesAutoresizingMaskIntoConstraints = false
         signIconView.widthAnchor.constraintEqualToAnchor(cell.widthAnchor).active = true
-        signIconView.heightAnchor.constraintEqualToAnchor(cell.heightAnchor).active = true
+        signIconView.heightAnchor.constraintEqualToAnchor(cell.heightAnchor, multiplier: 0.75).active = true
         signIconView.topAnchor.constraintEqualToAnchor(cell.topAnchor).active = true
         signIconView.leadingAnchor.constraintEqualToAnchor(cell.leadingAnchor).active = true
         
         zodiacName.translatesAutoresizingMaskIntoConstraints = false
         zodiacName.centerXAnchor.constraintEqualToAnchor(signIconView.centerXAnchor).active = true
         zodiacName.topAnchor.constraintEqualToAnchor(signIconView.bottomAnchor).active = true
+        zodiacName.widthAnchor.constraintEqualToAnchor(cell.widthAnchor).active = true
         //zodiacName.topAnchor.constraintEqualToAnchor(signIconView.bottomAnchor).active = true
         
+        
+//        for icon in iconsArray {
         let icon = iconsArray[indexPath.row]
         signIconView.image = UIImage(named: icon)
         
         zodiacName.text = iconsDictionary[icon]?.capitalizedString
         
+//        }
         return cell
     
-    
+       
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -126,9 +135,11 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
         
     }
+        
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         self.performSegueWithIdentifier("dailyHoroscope", sender: iconsArray[indexPath.item])
+        print(iconsArray[indexPath.row])
     }
     
     
@@ -136,20 +147,20 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         print("prepare for segue")
         
-      
+       print("\(sender) we're in the prepare for segue")
         //let selectedCell = sender as! UICollectionViewCell
         let indexPath = NSIndexPath()
         
-        let iconImage = iconsArray[indexPath.row]
+        //let  = iconsArray[indexPath.row]
         
-        let iconName = iconsDictionary[iconImage]
+       // let iconName = iconsDictionary[sender] as? String
         
         
         if segue.identifier == "dailyHoroscope" {
          
             let destinationHoroscopeVC: HoroscopeViewController = segue.destinationViewController as! HoroscopeViewController
             
-            destinationHoroscopeVC.passedHoroscopeString = iconName
+//            destinationHoroscopeVC.passedHoroscopeString = iconName
             
         print("segue is  == dailyHoro")
             

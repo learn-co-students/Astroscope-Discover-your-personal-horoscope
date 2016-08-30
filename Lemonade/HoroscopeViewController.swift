@@ -44,13 +44,19 @@ class HoroscopeViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        noInternetConnectionAlert()
-        MenuBarButtons()
-        NASAApiPicture()
-        allConstraints()
-        horoscopeAPICall()
-        
+      
+            noInternetConnectionAlert()
+            MenuBarButtons()
+            NASAApiPicture()
+            allConstraints()
+            horoscopeAPICall()
+
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.stackViewBackgroundView.hidden = false
+    }
+  
     
     func allConstraints() {
         
