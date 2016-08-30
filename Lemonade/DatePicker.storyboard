@@ -16,7 +16,7 @@
         <!--Date Picker View Controller-->
         <scene sceneID="FoZ-6v-bTS">
             <objects>
-                <viewController storyboardIdentifier="DatePicker" id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatePicker" id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Astroscope" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rc0-1O-Gfd"/>
                         <viewControllerLayoutGuide type="bottom" id="iNb-lZ-yiP"/>
@@ -37,14 +37,8 @@
                                     <action selector="datePickerAction:" destination="w5w-ff-CwY" eventType="valueChanged" id="6I8-A0-8Cn"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
-                                <rect key="frame" x="49" y="112" width="278" height="131"/>
-                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="29"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gt-z4-rpw">
-                                <rect key="frame" x="136" y="346" width="104" height="55"/>
+                                <rect key="frame" x="136" y="306" width="104" height="55"/>
                                 <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="44"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -111,6 +105,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select your birthday" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jyl-hJ-cD8">
+                                <rect key="frame" x="48" y="78" width="278" height="140"/>
+                                <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -118,17 +118,17 @@
                             <constraint firstItem="7gt-z4-rpw" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="CLO-dy-SN1"/>
                             <constraint firstItem="iNb-lZ-yiP" firstAttribute="top" secondItem="MB3-nq-jVU" secondAttribute="bottom" constant="40" id="CqY-1k-P34"/>
                             <constraint firstItem="l3z-7x-abb" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="Prv-33-slP"/>
-                            <constraint firstItem="baU-F4-EY4" firstAttribute="centerX" secondItem="jyl-hJ-cD8" secondAttribute="centerX" id="UJx-hs-ERh"/>
+                            <constraint firstItem="baU-F4-EY4" firstAttribute="centerX" secondItem="jyl-hJ-cD8" secondAttribute="centerX" constant="1.5" id="UJx-hs-ERh"/>
                             <constraint firstItem="iNb-lZ-yiP" firstAttribute="top" secondItem="l3z-7x-abb" secondAttribute="bottom" constant="79" id="VQL-9p-hSg"/>
                             <constraint firstItem="baU-F4-EY4" firstAttribute="top" secondItem="74g-XH-wrq" secondAttribute="top" id="ZSD-uo-HKG"/>
                             <constraint firstItem="jnp-5g-m8O" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" constant="-4.5" id="bAk-0c-de2"/>
                             <constraint firstItem="74g-XH-wrq" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="bfb-pE-PFH"/>
                             <constraint firstItem="MB3-nq-jVU" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" constant="7" id="bgg-fL-Fja"/>
-                            <constraint firstItem="jyl-hJ-cD8" firstAttribute="top" secondItem="rc0-1O-Gfd" secondAttribute="bottom" constant="48" id="gzI-o6-ldW"/>
+                            <constraint firstItem="7gt-z4-rpw" firstAttribute="centerY" secondItem="R0T-nj-NVb" secondAttribute="centerY" id="fsM-kQ-G3u"/>
+                            <constraint firstItem="jyl-hJ-cD8" firstAttribute="top" secondItem="rc0-1O-Gfd" secondAttribute="bottom" constant="14" id="gzI-o6-ldW"/>
                             <constraint firstItem="jyl-hJ-cD8" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="loQ-ek-563"/>
-                            <constraint firstItem="baU-F4-EY4" firstAttribute="top" secondItem="jyl-hJ-cD8" secondAttribute="bottom" constant="23" id="vbn-dn-pXL"/>
+                            <constraint firstItem="baU-F4-EY4" firstAttribute="top" secondItem="jyl-hJ-cD8" secondAttribute="bottom" constant="48" id="vbn-dn-pXL"/>
                             <constraint firstItem="jyl-hJ-cD8" firstAttribute="width" secondItem="R0T-nj-NVb" secondAttribute="width" constant="-97" id="vxj-nZ-DbE"/>
-                            <constraint firstItem="7gt-z4-rpw" firstAttribute="centerY" secondItem="R0T-nj-NVb" secondAttribute="centerY" constant="40" id="xXB-Tv-v1d"/>
                             <constraint firstItem="iNb-lZ-yiP" firstAttribute="top" secondItem="jnp-5g-m8O" secondAttribute="bottom" constant="50" id="yDm-LE-3Db"/>
                         </constraints>
                     </view>
@@ -188,6 +188,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="idD-F0-IaV"/>
+        <segue reference="PNL-dC-RC6"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,7 +8,7 @@
         <!--Welcome Page View Controller-->
         <scene sceneID="Gpd-4H-gdz">
             <objects>
-                <viewController storyboardIdentifier="WelcomePage" id="ZjQ-qK-03L" customClass="WelcomePageViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomePage" id="ZjQ-qK-03L" customClass="WelcomePageViewController" customModule="Astroscope" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zKy-DR-ML0"/>
                         <viewControllerLayoutGuide type="bottom" id="ON2-No-xp2"/>

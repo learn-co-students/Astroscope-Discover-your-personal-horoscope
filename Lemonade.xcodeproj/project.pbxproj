@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1B0F70011D6E1ACE00605742 /* giphy (4).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F70001D6E1ACE00605742 /* giphy (4).gif */; };
-		1B0F70031D6E362400605742 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0F70021D6E362400605742 /* HoroscopeViewController.swift */; };
 		1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */; };
-		1B3971FD1D760E05008E1233 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3971FC1D760E05008E1233 /* logo.png */; };
-		1B3971FF1D7612EC008E1233 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3971FE1D7612EC008E1233 /* logo1.png */; };
 		1B3972011D7613C2008E1233 /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B3972001D7613C2008E1233 /* logo2.png */; };
+		1B3972031D761663008E1233 /* OURICONZ in Resources */ = {isa = PBXBuildFile; fileRef = 1B3972021D761663008E1233 /* OURICONZ */; };
+		1B3972051D761A0A008E1233 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3972041D761A0A008E1233 /* HoroscopeViewController.swift */; };
 		1B3A58211D6F95C800546D95 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */; };
 		1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5375881D6749FA00B9702A /* gifFramework.swift */; };
 		1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758A1D674A7D00B9702A /* giphy (1).gif */; };
@@ -40,16 +39,15 @@
 /* Begin PBXFileReference section */
 		139238EF116A873FAE18CB02 /* Pods-Lemonade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemonade/Pods-Lemonade.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0F70001D6E1ACE00605742 /* giphy (4).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (4).gif"; sourceTree = "<group>"; };
-		1B0F70021D6E362400605742 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomePage.storyboard; sourceTree = "<group>"; };
-		1B3971FC1D760E05008E1233 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		1B3971FE1D7612EC008E1233 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
 		1B3972001D7613C2008E1233 /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
+		1B3972021D761663008E1233 /* OURICONZ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = OURICONZ; sourceTree = "<group>"; };
+		1B3972041D761A0A008E1233 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
 		1B5375881D6749FA00B9702A /* gifFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFramework.swift; sourceTree = "<group>"; };
 		1B53758A1D674A7D00B9702A /* giphy (1).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (1).gif"; sourceTree = "<group>"; };
 		1B53758C1D67550600B9702A /* giphy (2).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (2).gif"; sourceTree = "<group>"; };
 		1B53758E1D67567600B9702A /* giphy (3).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (3).gif"; sourceTree = "<group>"; };
-		1B9B249C1D5E647600E10D58 /* Lemonade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemonade.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B9B249C1D5E647600E10D58 /* Astroscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astroscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9B249F1D5E647600E10D58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B9B24A41D5E647600E10D58 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Horoscope.storyboard; sourceTree = "<group>"; };
 		1B9B24A91D5E647600E10D58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +104,7 @@
 		1B9B249D1D5E647600E10D58 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B9B249C1D5E647600E10D58 /* Lemonade.app */,
+				1B9B249C1D5E647600E10D58 /* Astroscope.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,8 +112,8 @@
 		1B9B249E1D5E647600E10D58 /* Lemonade */ = {
 			isa = PBXGroup;
 			children = (
+				1B3972041D761A0A008E1233 /* HoroscopeViewController.swift */,
 				1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */,
-				1B0F70021D6E362400605742 /* HoroscopeViewController.swift */,
 				43D35F7D1D62364B0017C4D6 /* DataStore.swift */,
 				43D35FA41D624E430017C4D6 /* UsersAndDate.xcdatamodeld */,
 				1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */,
@@ -133,14 +131,13 @@
 				1BE83D131D63989B00A95FA4 /* Secrets.swift */,
 				1B5375881D6749FA00B9702A /* gifFramework.swift */,
 				1B9B24A91D5E647600E10D58 /* Assets.xcassets */,
+				1B3972021D761663008E1233 /* OURICONZ */,
 				430672121D6CD8FD00EE31E9 /* savephotobuttonimage.png */,
-				1B3971FE1D7612EC008E1233 /* logo1.png */,
 				1B53758A1D674A7D00B9702A /* giphy (1).gif */,
 				1B53758C1D67550600B9702A /* giphy (2).gif */,
 				1B53758E1D67567600B9702A /* giphy (3).gif */,
 				1B0F70001D6E1ACE00605742 /* giphy (4).gif */,
 				1B3972001D7613C2008E1233 /* logo2.png */,
-				1B3971FC1D760E05008E1233 /* logo.png */,
 				1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */,
 				1B9B24AE1D5E647600E10D58 /* Info.plist */,
 			);
@@ -176,7 +173,7 @@
 			);
 			name = Lemonade;
 			productName = Lemonade;
-			productReference = 1B9B249C1D5E647600E10D58 /* Lemonade.app */;
+			productReference = 1B9B249C1D5E647600E10D58 /* Astroscope.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -220,7 +217,7 @@
 			files = (
 				1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */,
 				1B0F70011D6E1ACE00605742 /* giphy (4).gif in Resources */,
-				1B3971FD1D760E05008E1233 /* logo.png in Resources */,
+				1B3972031D761663008E1233 /* OURICONZ in Resources */,
 				1B53758D1D67550600B9702A /* giphy (2).gif in Resources */,
 				1B53758F1D67567600B9702A /* giphy (3).gif in Resources */,
 				1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */,
@@ -229,7 +226,6 @@
 				1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */,
 				1B9B24AA1D5E647600E10D58 /* Assets.xcassets in Resources */,
 				1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */,
-				1B3971FF1D7612EC008E1233 /* logo1.png in Resources */,
 				1B9B24A51D5E647600E10D58 /* Horoscope.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -290,7 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3A58211D6F95C800546D95 /* WelcomePageViewController.swift in Sources */,
-				1B0F70031D6E362400605742 /* HoroscopeViewController.swift in Sources */,
+				1B3972051D761A0A008E1233 /* HoroscopeViewController.swift in Sources */,
 				43D35F7E1D62364B0017C4D6 /* DataStore.swift in Sources */,
 				1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */,
 				DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */,
@@ -421,7 +417,7 @@
 				INFOPLIST_FILE = Lemonade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FlatironSchool.Lemonade;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Astroscope;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -436,7 +432,7 @@
 				INFOPLIST_FILE = Lemonade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.FlatironSchool.Lemonade;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Astroscope;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
