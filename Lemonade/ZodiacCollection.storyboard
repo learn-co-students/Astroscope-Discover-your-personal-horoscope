@@ -30,7 +30,7 @@
         <!--Horoscope-->
         <scene sceneID="zvA-fg-hFU">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Horoscope" storyboardName="Horoscope" id="ht6-nO-p7c" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="ZodiacSigns" storyboardName="Horoscope" id="ht6-nO-p7c" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P1n-Gy-5ig" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="759.5" y="401"/>

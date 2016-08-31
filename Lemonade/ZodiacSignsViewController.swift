@@ -85,9 +85,8 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
             
         cell.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
         
-        var zodiacName = UILabel()
-        var signIconView = UIImageView()
-        var signNameLabel: UILabel!
+       let zodiacName = UILabel()
+        let signIconView = UIImageView()
         
         signIconView.contentMode = .ScaleAspectFit
         signIconView.clipsToBounds = true
@@ -113,16 +112,15 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         zodiacName.centerXAnchor.constraintEqualToAnchor(signIconView.centerXAnchor).active = true
         zodiacName.topAnchor.constraintEqualToAnchor(signIconView.bottomAnchor).active = true
         zodiacName.widthAnchor.constraintEqualToAnchor(cell.widthAnchor).active = true
-        //zodiacName.topAnchor.constraintEqualToAnchor(signIconView.bottomAnchor).active = true
         
         
-//        for icon in iconsArray {
+
         let icon = iconsArray[indexPath.row]
         signIconView.image = UIImage(named: icon)
         
         zodiacName.text = iconsDictionary[icon]?.capitalizedString
         
-//        }
+
         return cell
     
        
@@ -135,36 +133,58 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
         
     }
+    
         
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+//        
+//        let cell = (self.collectionView.cellForItemAtIndexPath(indexPath)) //! as? UICollectionViewCell {
+//       self.performSegueWithIdentifier("dailyHoroscope", sender: cell)
+//        
+        print("did select item at index path")
         self.performSegueWithIdentifier("dailyHoroscope", sender: iconsArray[indexPath.item])
-        print(iconsArray[indexPath.row])
+      
+        //print(iconsArray[indexPath.row])
+        
+        
+        
     }
     
     
+//    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+//    
+//        let cell = UICollectionViewCell()
+//        
+//        if cell.highlighted == true {
+//            cell.layer.borderColor = UIColor.purpleColor().CGColor
+//        } else {
+//        
+//            cell.layer.borderColor = UIColor.clearColor().CGColor
+//        }
+//    
+//    }
+//    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("prepare for segue")
-        
-       print("\(sender) we're in the prepare for segue")
-        //let selectedCell = sender as! UICollectionViewCell
-        let indexPath = NSIndexPath()
-        
-        //let  = iconsArray[indexPath.row]
-        
-       // let iconName = iconsDictionary[sender] as? String
-        
-        
-        if segue.identifier == "dailyHoroscope" {
-         
-            let destinationHoroscopeVC: HoroscopeViewController = segue.destinationViewController as! HoroscopeViewController
-            
-//            destinationHoroscopeVC.passedHoroscopeString = iconName
+//        print("prepare for segue")
+//        
+//       print("\(sender) we're in the prepare for segue")
+//        
+//
+//        
+//        if segue.identifier == "dailyHoroscope" {
+//         
+//            let destinationHoroscopeVC: HoroscopeViewController = segue.destinationViewController as! HoroscopeViewController
+//            let selectedCell = sender as! UICollectionViewCell
+//            let indexPath = self.collectionView.indexPathForCell(selectedCell)
+//            let zodiacImage = iconsArray[indexPath!.row]
+//            
+//            let iconNameString = iconsDictionary[zodiacImage]
+//            destinationHoroscopeVC.passedHoroscopeString = iconNameString
             
         print("segue is  == dailyHoro")
             
-        }
+//        }
     }
     
     

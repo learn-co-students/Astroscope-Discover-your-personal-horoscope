@@ -300,7 +300,7 @@ class HoroscopeViewController: UIViewController {
         let savePhotoImage = UIImage.init(named: "savephotobuttonimage.png")
         let goToOtherHoroscopes = UIImage.init(named: "StarOfBethlehem-50.png")
         
-        menuButton.addItem("Go See Other Horoscopes", icon: goToOtherHoroscopes) { (action) in
+        menuButton.addItem("See Other Horoscopes", icon: goToOtherHoroscopes) { (action) in
             
             self.performSegueWithIdentifier("horoscopeToOthers", sender: self)
             
