@@ -12,8 +12,7 @@ import UIKit
 
 private let reuseIdentifier = "collectionCell"
 
-class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-
+class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     var collectionView: UICollectionView!
     
@@ -24,32 +23,44 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
     
     var passedHoroscopeString: String?
     var imageNASAView = UIImageView()
+    var collectionViewHoroscopeString = ""
     
     
     override func viewDidLoad() {
-    
+        
+        
         super.viewDidLoad()
         NASAApiPicture()
         
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 10, bottom: 20, right: 10)
+        
+        let xInset: CGFloat = 10
+        let yInset: CGFloat = 20
+        let padding: CGFloat = 10
+        let navBarHeight = self.navigationController?.navigationBar.frame.size.height
+        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+        let collectionViewCenterYConstant = ((navBarHeight! + statusBarHeight) / 2) + yInset + padding
+        
+        layout.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
         //layout.itemSize = CGSizeMake( 80, 80)
         
         collectionView = UICollectionView(frame: self.imageNASAView.frame, collectionViewLayout: layout)
-       // collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
+        // collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         
         collectionView.backgroundColor = UIColor(white: 0.1, alpha: 0.0)
-        self.imageNASAView.addSubview(collectionView)
+        self.view.addSubview(collectionView)
         
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.collectionView.centerXAnchor.constraintEqualToAnchor(self.imageNASAView.centerXAnchor).active = true
-        self.collectionView.centerYAnchor.constraintEqualToAnchor(self.imageNASAView.centerYAnchor).active = true
-        self.collectionView.widthAnchor.constraintEqualToAnchor(self.imageNASAView.widthAnchor, multiplier: 0.75).active = true
-        self.collectionView.heightAnchor.constraintEqualToAnchor(self.imageNASAView.heightAnchor, multiplier: 0.85).active = true
-    
+        self.collectionView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
+        self.collectionView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: collectionViewCenterYConstant).active = true
+        self.collectionView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.75).active = true
+        self.collectionView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.85).active = true
+        
+        self.collectionView.allowsSelection = true
+        
     }
     
     func NASAApiPicture () {
@@ -60,7 +71,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         self.imageNASAView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
         self.imageNASAView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
         self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
-        self.view.sendSubviewToBack(self.imageNASAView)
+//        self.view.sendSubviewToBack(self.imageNASAView)
         
         NASA_API_Client.getPhotoOfDay { (spaceImage) in
             
@@ -81,11 +92,11 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath)
         
-       print("cell \(indexPath.row) is getting created")
-            
+        print("cell \(indexPath.row) is getting created")
+        
         cell.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
         
-       let zodiacName = UILabel()
+        let zodiacName = UILabel()
         let signIconView = UIImageView()
         
         signIconView.contentMode = .ScaleAspectFit
@@ -114,16 +125,21 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         zodiacName.widthAnchor.constraintEqualToAnchor(cell.widthAnchor).active = true
         
         
-
+        
         let icon = iconsArray[indexPath.row]
         signIconView.image = UIImage(named: icon)
         
         zodiacName.text = iconsDictionary[icon]?.capitalizedString
         
-
+        cell.userInteractionEnabled = true
+        
+        signIconView.userInteractionEnabled = false
+        zodiacName.userInteractionEnabled = false
+        
+        
         return cell
-    
-       
+        
+        
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -134,57 +150,58 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
     }
     
-        
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-//        
-//        let cell = (self.collectionView.cellForItemAtIndexPath(indexPath)) //! as? UICollectionViewCell {
-//       self.performSegueWithIdentifier("dailyHoroscope", sender: cell)
-//        
-        print("did select item at index path")
-        self.performSegueWithIdentifier("dailyHoroscope", sender: iconsArray[indexPath.item])
-      
-        //print(iconsArray[indexPath.row])
         
+        //self.performSegueWithIdentifier("dailyHoroscope", sender: iconsArray[indexPath.item])
         
+        let iconArrayString = iconsArray[indexPath.row]
+        
+        if let unwrappedString = iconsDictionary[iconArrayString]
+        {
+            self.collectionViewHoroscopeString = unwrappedString
+        }
+        
+        print(self.collectionViewHoroscopeString)
+        self.performSegueWithIdentifier("dailyHoroscope", sender: self.collectionViewHoroscopeString)
         
     }
     
-    
-//    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
-//    
-//        let cell = UICollectionViewCell()
-//        
-//        if cell.highlighted == true {
-//            cell.layer.borderColor = UIColor.purpleColor().CGColor
-//        } else {
-//        
-//            cell.layer.borderColor = UIColor.clearColor().CGColor
-//        }
-//    
-//    }
-//    
+    //    func collectionView(collectionView: UICollectionView, didHighlightItemAtIndexPath indexPath: NSIndexPath) {
+    //
+    //        let cell = UICollectionViewCell()
+    //
+    //        if cell.highlighted == true {
+    //            cell.layer.borderColor = UIColor.purpleColor().CGColor
+    //        } else {
+    //
+    //            cell.layer.borderColor = UIColor.clearColor().CGColor
+    //        }
+    //
+    //    }
+    //
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        print("prepare for segue")
-//        
-//       print("\(sender) we're in the prepare for segue")
-//        
-//
-//        
-//        if segue.identifier == "dailyHoroscope" {
-//         
-//            let destinationHoroscopeVC: HoroscopeViewController = segue.destinationViewController as! HoroscopeViewController
-//            let selectedCell = sender as! UICollectionViewCell
-//            let indexPath = self.collectionView.indexPathForCell(selectedCell)
-//            let zodiacImage = iconsArray[indexPath!.row]
-//            
-//            let iconNameString = iconsDictionary[zodiacImage]
-//            destinationHoroscopeVC.passedHoroscopeString = iconNameString
-            
-        print("segue is  == dailyHoro")
-            
-//        }
+        //        print("prepare for segue")
+        //
+        //       print("\(sender) we're in the prepare for segue")
+        //
+        //
+        //
+        //        if segue.identifier == "dailyHoroscope" {
+        //
+        //            let destinationHoroscopeVC: HoroscopeViewController = segue.destinationViewController as! HoroscopeViewController
+        //            let selectedCell = sender as! UICollectionViewCell
+        //            let indexPath = self.collectionView.indexPathForCell(selectedCell)
+        //            let zodiacImage = iconsArray[indexPath!.row]
+        //
+        //            let iconNameString = iconsDictionary[zodiacImage]
+        //            destinationHoroscopeVC.passedHoroscopeString = iconNameString
+        
+        
+        //print("segue is  == dailyHoro")
+        
+        //        }
     }
     
     

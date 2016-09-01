@@ -20,6 +20,7 @@
 		1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */; };
 		1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */; };
 		1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB768F51D63C951009D3737 /* DatePickerViewController.swift */; };
+		1BCD2F801D78B8E100B9273B /* StarOfBethlehem-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCD2F7F1D78B8E100B9273B /* StarOfBethlehem-50.png */; };
 		1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE63D781D61FFF100066410 /* datePickerClass.swift */; };
 		1BE83D141D63989B00A95FA4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE83D131D63989B00A95FA4 /* Secrets.swift */; };
 		237A0C0B41A4CB60C871B44B /* Pods_Lemonade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B486A1C26C5C410B1D668BEF /* Pods_Lemonade.framework */; };
@@ -32,7 +33,6 @@
 		DEDA899F1D75D5A2006F94E7 /* ZodiacCollection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DEDA899E1D75D5A2006F94E7 /* ZodiacCollection.storyboard */; };
 		DEDA89A51D75F283006F94E7 /* ZodiacSignsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDA89A41D75F283006F94E7 /* ZodiacSignsViewController.swift */; };
 		DEDA89A71D760AF4006F94E7 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDA89A61D760AF4006F94E7 /* HoroscopeViewController.swift */; };
-		DEDA89AD1D761D96006F94E7 /* StarofBethlehem-50.png in Resources */ = {isa = PBXBuildFile; fileRef = DEDA89AC1D761D96006F94E7 /* StarofBethlehem-50.png */; };
 		DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */; };
 		DEFEEF421D637AF900383A56 /* NASAAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFEEF411D637AF900383A56 /* NASAAPIClient.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +54,7 @@
 		1B9B24AE1D5E647600E10D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		1BB768F51D63C951009D3737 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		1BCD2F7F1D78B8E100B9273B /* StarOfBethlehem-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarOfBethlehem-50.png"; sourceTree = "<group>"; };
 		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
 		1BE83D131D63989B00A95FA4 /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		4306720C1D6C983900EE31E9 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
@@ -67,7 +68,6 @@
 		DEDA899E1D75D5A2006F94E7 /* ZodiacCollection.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZodiacCollection.storyboard; sourceTree = "<group>"; };
 		DEDA89A41D75F283006F94E7 /* ZodiacSignsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZodiacSignsViewController.swift; sourceTree = "<group>"; };
 		DEDA89A61D760AF4006F94E7 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
-		DEDA89AC1D761D96006F94E7 /* StarofBethlehem-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "StarofBethlehem-50.png"; path = "../../../../../Downloads/StarofBethlehem-50.png"; sourceTree = "<group>"; };
 		DEDBEE851D5E731700208782 /* HoroscopeAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeAPIClient.swift; sourceTree = "<group>"; };
 		DEFEEF411D637AF900383A56 /* NASAAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NASAAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -133,7 +133,7 @@
 				1BE83D131D63989B00A95FA4 /* Secrets.swift */,
 				1B5375881D6749FA00B9702A /* gifFramework.swift */,
 				1B9B24A91D5E647600E10D58 /* Assets.xcassets */,
-				DEDA89AC1D761D96006F94E7 /* StarofBethlehem-50.png */,
+				1BCD2F7F1D78B8E100B9273B /* StarOfBethlehem-50.png */,
 				430672121D6CD8FD00EE31E9 /* savephotobuttonimage.png */,
 				1B53758A1D674A7D00B9702A /* giphy (1).gif */,
 				1B53758C1D67550600B9702A /* giphy (2).gif */,
@@ -221,7 +221,7 @@
 				1B53758F1D67567600B9702A /* giphy (3).gif in Resources */,
 				1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */,
 				430672131D6CD8FD00EE31E9 /* savephotobuttonimage.png in Resources */,
-				DEDA89AD1D761D96006F94E7 /* StarofBethlehem-50.png in Resources */,
+				1BCD2F801D78B8E100B9273B /* StarOfBethlehem-50.png in Resources */,
 				1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */,
 				1B9B24AA1D5E647600E10D58 /* Assets.xcassets in Resources */,
 				1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */,
