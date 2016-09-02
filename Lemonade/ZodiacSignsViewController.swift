@@ -161,8 +161,12 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
             self.collectionViewHoroscopeString = unwrappedString
         }
         
+        
         print(self.collectionViewHoroscopeString)
         self.performSegueWithIdentifier("dailyHoroscope", sender: self.collectionViewHoroscopeString)
+        
+        
+        
         
     }
     
@@ -202,6 +206,15 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         //print("segue is  == dailyHoro")
         
         //        }
+        
+       
+        if segue.identifier == "dailyHoroscope"
+        {
+            let destinationVC = segue.destinationViewController as? HoroscopeViewController
+            
+            destinationVC?.passedHoroscopeString = self.collectionViewHoroscopeString
+        }
+        
     }
     
     
