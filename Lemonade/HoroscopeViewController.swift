@@ -61,24 +61,23 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     }
   
     
-    func allConstraints() {
-        
-        let date = NSDate()
-        let todaysDateFormat = NSDateFormatter()
-        todaysDateFormat.dateFormat = "yyyy-MM-dd"
-        todaysDate = todaysDateFormat.stringFromDate(date)
-        
-<<<<<<< HEAD
-=======
-        self.stackViewBackgroundView.alpha = 1.0
-        view.addSubview(self.stackViewBackgroundView)
-        menuButton.fabDelegate = self
-        
-        view.userInteractionEnabled = true
-        menuButton.userInteractionEnabled = true
-        
-        
-    }
+//    func allConstraints() {
+//        
+//        let date = NSDate()
+//        let todaysDateFormat = NSDateFormatter()
+//        todaysDateFormat.dateFormat = "yyyy-MM-dd"
+//        todaysDate = todaysDateFormat.stringFromDate(date)
+//        
+//
+//        self.stackViewBackgroundView.alpha = 1.0
+//        view.addSubview(self.stackViewBackgroundView)
+//        menuButton.fabDelegate = self
+//        
+//        view.userInteractionEnabled = true
+//        menuButton.userInteractionEnabled = true
+//        
+//        
+//    }
     
     func toggleStackViewButtonView(sender: UIButton)
     {
@@ -90,7 +89,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     
     
     func allConstraints() {
->>>>>>> master
+
         self.signIcon.clipsToBounds = true
         self.signIcon.tintColor = UIColor.whiteColor()
         self.signName = UILabel()
