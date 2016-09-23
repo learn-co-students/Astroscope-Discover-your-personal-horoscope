@@ -91,12 +91,13 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         
         if networkStatus.rawValue == ReachableViaWiFi.rawValue
         {
-            
-          
+            horoscopeAPICall()
+            NASAApiPicture()
         }
         else if networkStatus.rawValue == ReachableViaWWAN.rawValue
         {
-        
+            horoscopeAPICall()
+            NASAApiPicture()
         }
         else if networkStatus.rawValue == NotReachable.rawValue
         {
