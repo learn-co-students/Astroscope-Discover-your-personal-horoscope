@@ -16,7 +16,7 @@
         <!--Date Picker View Controller-->
         <scene sceneID="FoZ-6v-bTS">
             <objects>
-                <viewController storyboardIdentifier="DatePicker" id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DatePicker" id="w5w-ff-CwY" customClass="DatePickerViewController" customModule="Astroscope" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rc0-1O-Gfd"/>
                         <viewControllerLayoutGuide type="bottom" id="iNb-lZ-yiP"/>

@@ -5,10 +5,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
+        <!--DatePicker-->
+        <scene sceneID="UEW-au-GLV">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DatePicker" id="D7T-bv-y1s" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6N-qA-usS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="356.5" y="-107"/>
+        </scene>
         <!--Zodiac Signs View Controller-->
         <scene sceneID="ieK-XF-7Pg">
             <objects>
-                <viewController id="UGh-rl-fXX" customClass="ZodiacSignsViewController" customModule="Lemonade" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UGh-rl-fXX" customClass="ZodiacSignsViewController" customModule="Astroscope" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JID-4P-fHY"/>
                         <viewControllerLayoutGuide type="bottom" id="NzX-lY-GLb"/>
@@ -21,6 +29,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <segue destination="ht6-nO-p7c" kind="show" identifier="dailyHoroscope" id="uYb-8T-gS8"/>
+                        <segue destination="D7T-bv-y1s" kind="show" identifier="goBackToHomePage" id="uHZ-LS-ziP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JA9-kX-qmg" userLabel="First Responder" sceneMemberID="firstResponder"/>

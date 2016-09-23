@@ -12,6 +12,16 @@ import AssetsLibrary
 import KCFloatingActionButton
 import SystemConfiguration
 
+
+let kREACHABILITYWITHWIFI = "ReachableWithWIFI"
+let kNOTREACHABLE = "notReachable"
+let kREACHABLEWITHWWAN = "ReachableWithWWAN"
+
+var reachability: Reachability?
+var reachabilityStatus = kREACHABILITYWITHWIFI
+
+
+
 class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate, UIGestureRecognizerDelegate {
     
     var imageNASAView = UIImageView()
@@ -23,6 +33,9 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     var todaysDate: String?
     var APIDate: String?
     var signName: UILabel!
+    
+    
+    var internetReach: Reachability?
     
     var iconsDictionary: [String: String] = ["capricorn": "capricorn_black_parkjisun.png", "aquarius":"aquarius_black_parkjisun.png", "pisces" : "pisces_black_parkjisun.png", "aries" : "aries_black_parkjisun.png", "taurus" : "taurus_black_parkjisun.png", "gemini" : "gemini_black_parkjisun.png", "cancer" : "cancer_black_parkjisun.png", "leo" : "leo_black_parkjisun.png", "virgo" : "virgo_black_parkjisun.png", "libra" : "libra_black_parkjisun.png", "scorpio" : "scorpio_black_parkjisun.png", "sagittarius" : "sagittarius_black_parkjisun.png"]
     
@@ -48,11 +61,20 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         
         super.viewDidLoad()
       
-            noInternetConnectionAlert()
             MenuBarButtons()
             NASAApiPicture()
             allConstraints()
             horoscopeAPICall()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HoroscopeViewController.reachabilityChanged(_:)), name: kReachabilityChangedNotification, object: nil)
+        
+        internetReach = Reachability.reachabilityForInternetConnection()
+        internetReach?.startNotifier()
+        
+        self.statusChangedWithReachability(internetReach!)
+        
+        guard let horoscopeString = passedHoroscopeString else {return}
+        self.title = horoscopeString.capitalizedString
 
     }
     
@@ -60,24 +82,51 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         self.stackViewBackgroundView.hidden = false
     }
   
+    func statusChangedWithReachability(currentStatus: Reachability)
+    {
+        let networkStatus: NetworkStatus = currentStatus.currentReachabilityStatus()
+        
+        print("Status: \(networkStatus.rawValue)")
+        
+        
+        if networkStatus.rawValue == ReachableViaWiFi.rawValue
+        {
+            
+          
+        }
+        else if networkStatus.rawValue == ReachableViaWWAN.rawValue
+        {
+        
+        }
+        else if networkStatus.rawValue == NotReachable.rawValue
+        {
+            reachabilityStatus = kNOTREACHABLE
+            print("Network not reachable")
+            
+            
+            let noNetworkAlertController = UIAlertController(title: "No Network Connection detected", message: "Cannot display Horoscope of the day", preferredStyle: .Alert)
+            
+            self.presentViewController(noNetworkAlertController, animated: true, completion: nil)
+            
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(2.0 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                    noNetworkAlertController.dismissViewControllerAnimated(true, completion: nil)
+                })
+            }
+            
+            
+        }
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("reachStatusChanged", object: nil)
+    }
     
-//    func allConstraints() {
-//        
-//        let date = NSDate()
-//        let todaysDateFormat = NSDateFormatter()
-//        todaysDateFormat.dateFormat = "yyyy-MM-dd"
-//        todaysDate = todaysDateFormat.stringFromDate(date)
-//        
-//
-//        self.stackViewBackgroundView.alpha = 1.0
-//        view.addSubview(self.stackViewBackgroundView)
-//        menuButton.fabDelegate = self
-//        
-//        view.userInteractionEnabled = true
-//        menuButton.userInteractionEnabled = true
-//        
-//        
-//    }
+    func reachabilityChanged(notification: NSNotification)
+    {
+        print("Reachability status changed")
+        reachability = notification.object as? Reachability
+        self.statusChangedWithReachability(reachability!)
+    }
+
     
     func toggleStackViewButtonView(sender: UIButton)
     {
@@ -90,6 +139,18 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     
     func allConstraints() {
 
+        let date = NSDate()
+        let todaysDateFormat = NSDateFormatter()
+        todaysDateFormat.dateFormat = "yyyy-MM-dd"
+        todaysDate = todaysDateFormat.stringFromDate(date)
+        
+        self.stackViewBackgroundView.alpha = 1.0
+        view.addSubview(self.stackViewBackgroundView)
+        menuButton.fabDelegate = self
+        
+        view.userInteractionEnabled = true
+        menuButton.userInteractionEnabled = true
+        
         self.signIcon.clipsToBounds = true
         self.signIcon.tintColor = UIColor.whiteColor()
         self.signName = UILabel()
@@ -320,19 +381,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         }
         super.touchesBegan(touches, withEvent:event)
     }
-    
-    func noInternetConnectionAlert () {
-        
-        if Reachability.isConnectedToNetwork() == true {
-        } else {
-            let noInternetAlertController = UIAlertController(title: "No Wifi Connection", message: "Just so you know", preferredStyle: .Alert)
-            noInternetAlertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(noInternetAlertController, animated: true, completion: nil)
-            noInternetAlertController.view.backgroundColor = UIColor.blackColor()
-            noInternetAlertController.view.tintColor = UIColor.blackColor()
-        }
-    }
-    
+      
     func MenuBarButtons() {
         
         menuButton.buttonColor = UIColor.whiteColor()
@@ -357,13 +406,13 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             if let unwrappedImage = self.imageNASAView.image {
                 
                 UIImageWriteToSavedPhotosAlbum(unwrappedImage, self, nil, nil)
-                let savedAlertController = UIAlertController(title: "Saved!", message: "", preferredStyle: .Alert)
+                let savedAlertController = UIAlertController(title: "Image Saved!", message: "", preferredStyle: .Alert)
                 
-                let okButton = UIAlertAction.init(title: "OK", style: .Default, handler: { (action) in
-                })
-                savedAlertController.addAction(okButton)
                 
                 self.presentViewController(savedAlertController, animated: true, completion: nil)
+                dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue(), { () -> Void in
+                        savedAlertController.dismissViewControllerAnimated(true, completion: nil)
                 savedAlertController.view.backgroundColor = UIColor.blackColor()
                 savedAlertController.view.tintColor = UIColor.blackColor()
                 
@@ -372,6 +421,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     }, completion: nil)
                 self.view.addSubview(self.stackViewBackgroundView)
                 self.stackViewDimed = false
+                
+                
+                    })
+                }
                 
             }
                 

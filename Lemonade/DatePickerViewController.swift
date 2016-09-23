@@ -38,7 +38,6 @@ class DatePickerViewController: UIViewController
 
         super.viewDidLoad()
     
-        
         let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (3)", withExtension: "gif")!)
         let imageGif = UIImage.gifWithData(imageData!)
         let imageView = UIImageView(image: imageGif)
