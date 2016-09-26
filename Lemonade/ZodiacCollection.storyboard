@@ -11,7 +11,7 @@
                 <viewControllerPlaceholder storyboardName="DatePicker" id="D7T-bv-y1s" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6N-qA-usS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="356.5" y="-107"/>
+            <point key="canvasLocation" x="741" y="273"/>
         </scene>
         <!--Zodiac Signs View Controller-->
         <scene sceneID="ieK-XF-7Pg">

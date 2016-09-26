@@ -63,7 +63,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
         self.title = "Other Horoscopes"
         self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "< Home", style: .Done, target: self, action: #selector(ZodiacSignsViewController.goBackToHomepage))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .Done, target: self, action: #selector(ZodiacSignsViewController.goBackToHomepage))
     }
     
 
@@ -83,13 +83,24 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
 //        self.view.sendSubviewToBack(self.imageNASAView)
         
-        NASA_API_Client.getPhotoOfDay { (spaceImage) in
+        NASA_API_Client.getMediaType { (mediaType) in
             
-            NSOperationQueue.mainQueue().addOperationWithBlock({
-                
-                self.imageNASAView.image = spaceImage
-            })
+            if mediaType == "video"
+            {
+                self.imageNASAView.image = UIImage.init(named: "spaceImage4.jpg")
+            }
+            else
+            {
+                NASA_API_Client.getPhotoOfDay { (spaceImage) in
+                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                        self.imageNASAView.image = spaceImage
+                    })
+                }
+            }
+            
         }
+        
+
         
     }
     

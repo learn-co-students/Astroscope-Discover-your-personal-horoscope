@@ -21,7 +21,6 @@ var reachability: Reachability?
 var reachabilityStatus = kREACHABILITYWITHWIFI
 
 
-
 class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate, UIGestureRecognizerDelegate {
     
     var imageNASAView = UIImageView()
@@ -75,6 +74,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         
         guard let horoscopeString = passedHoroscopeString else {return}
         self.title = horoscopeString.capitalizedString
+        
+        NASA_API_Client.getMediaType { (string) in
+            print(string)
+        }
 
     }
     
@@ -289,13 +292,23 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
         self.view.sendSubviewToBack(self.imageNASAView)
         
-        NASA_API_Client.getPhotoOfDay { (spaceImage) in
-            
-            NSOperationQueue.mainQueue().addOperationWithBlock({
-                
-                self.imageNASAView.image = spaceImage
-            })
+        NASA_API_Client.getMediaType { (mediaType) in
+                    
+        if mediaType == "video"
+        {
+            self.imageNASAView.image = UIImage.init(named: "spaceImage4.jpg")
         }
+        else
+        {
+            NASA_API_Client.getPhotoOfDay { (spaceImage) in
+                NSOperationQueue.mainQueue().addOperationWithBlock({
+                    self.imageNASAView.image = spaceImage
+                })
+            }
+        }
+        
+        }
+        
         
     }
     
