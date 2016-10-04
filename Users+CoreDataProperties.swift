@@ -15,6 +15,7 @@ import CoreData
 extension Users {
 
     @NSManaged var birthdate: Int32
-    @NSManaged var username: String?
+    @NSManaged var username: String
+
 
 }

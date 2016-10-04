@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,25 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astroscopeLaunchLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PdK-Lg-wza">
+                                <rect key="frame" x="77" y="102" width="468" height="207"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="K6K-m1-xK7">
+                                <rect key="frame" x="61" y="307" width="479" height="70"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K6K-m1-xK7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="41" id="0RP-nS-7o4"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="PdK-Lg-wza" secondAttribute="bottom" constant="291" id="HGh-ei-uY7"/>
+                            <constraint firstItem="K6K-m1-xK7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="287" id="ON4-tu-WnF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K6K-m1-xK7" secondAttribute="trailing" constant="40" id="OcV-K8-1Hf"/>
+                            <constraint firstItem="PdK-Lg-wza" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="57" id="f4L-A3-UVp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PdK-Lg-wza" secondAttribute="trailing" constant="35" id="rWO-GJ-LjQ"/>
+                            <constraint firstItem="PdK-Lg-wza" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="82" id="sGO-G9-Ksp"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="K6K-m1-xK7" secondAttribute="bottom" constant="223" id="vd4-2Z-OBR"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +43,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="astroscopeLaunchLogo.png" width="800" height="600"/>
+        <image name="logo2.png" width="370" height="86"/>
+    </resources>
 </document>

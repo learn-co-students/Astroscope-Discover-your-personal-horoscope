@@ -10,8 +10,10 @@ import Foundation
 import CoreData
 
 
-class Users: NSManagedObject {
-
+class Users: NSManagedObject
+{
+    static let entityName = "Users"
 // Insert code here to add functionality to your managed object subclass
+
 
 }

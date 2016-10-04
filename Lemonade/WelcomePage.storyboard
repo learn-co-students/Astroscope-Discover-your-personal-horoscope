@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ZjQ-qK-03L">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome Page View Controller-->
+        <scene sceneID="Gpd-4H-gdz">
+            <objects>
+                <viewController storyboardIdentifier="WelcomePage" id="ZjQ-qK-03L" customClass="WelcomePageViewController" customModule="Astroscope" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zKy-DR-ML0"/>
+                        <viewControllerLayoutGuide type="bottom" id="ON2-No-xp2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BUk-QL-foZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please enter name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Rp-al-qFr">
+                                <rect key="frame" x="40" y="319" width="300" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="MyZ-SC-i78"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1p-rg-Ufh">
+                                <rect key="frame" x="109" y="547" width="157" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="157" id="Cag-H1-9RM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonAction:" destination="ZjQ-qK-03L" eventType="touchUpInside" id="QOL-VD-Vs6"/>
+                                    <segue destination="J5j-GN-Qzq" kind="show" id="azU-ym-2pB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Rp-al-qFr" firstAttribute="centerY" secondItem="BUk-QL-foZ" secondAttribute="centerY" id="1mb-Cf-0yY"/>
+                            <constraint firstItem="h1p-rg-Ufh" firstAttribute="centerX" secondItem="3Rp-al-qFr" secondAttribute="centerX" constant="-3" id="8NX-4J-Lzv"/>
+                            <constraint firstItem="ON2-No-xp2" firstAttribute="top" secondItem="h1p-rg-Ufh" secondAttribute="bottom" constant="86" id="JIu-ip-bPV"/>
+                            <constraint firstItem="3Rp-al-qFr" firstAttribute="centerX" secondItem="BUk-QL-foZ" secondAttribute="centerX" constant="2.5" id="pAQ-LY-Maz"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="buttonLabel" destination="h1p-rg-Ufh" id="NMi-na-JEj"/>
+                        <outlet property="nameTextField" destination="3Rp-al-qFr" id="rbJ-fk-JdI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rWh-zi-6n0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="188.5" y="355.5"/>
+        </scene>
+        <!--DatePicker-->
+        <scene sceneID="csQ-Rl-akT">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DatePicker" storyboardName="DatePicker" id="J5j-GN-Qzq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4sX-lg-Oee" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="588.5" y="442"/>
+        </scene>
+    </scenes>
+</document>

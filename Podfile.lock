@@ -1,12 +1,12 @@
 PODS:
-  - SnapKit (0.21.1)
+  - KCFloatingActionButton (1.4.0)
 
 DEPENDENCIES:
-  - SnapKit
+  - KCFloatingActionButton (~> 1.4)
 
 SPEC CHECKSUMS:
-  SnapKit: bbad04cb016c7cead63965f16b00c09318d271ee
+  KCFloatingActionButton: 77218c637cb4925b2de9db2155f73f3378bf5969
 
-PODFILE CHECKSUM: 53b6666ec2fbfe01cbb3e84abc92d56f869cd6a3
+PODFILE CHECKSUM: 63cc21c1a5d6335aafb79d0faac2832a0640baa6
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.0.1
