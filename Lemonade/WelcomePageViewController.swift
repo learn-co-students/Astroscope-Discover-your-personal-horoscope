@@ -29,18 +29,18 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         //pleaseEnterNameConstraints()
         buttonConstraint()
         
-        let imageData = NSData(contentsOfURL: NSBundle.mainBundle().URLForResource("giphy (4)", withExtension: "gif")!)
+        let imageData = try? Data(contentsOf: Bundle.main.url(forResource: "giphy (4)", withExtension: "gif")!)
         let imageGif = UIImage.gifWithData(imageData!)
         let imageView = UIImageView(image: imageGif)
         
     
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        imageView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
-        imageView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
-        imageView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
-        view.sendSubviewToBack(imageView)
+        imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        view.sendSubview(toBack: imageView)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(WelcomePageViewController.tap(_:)))
         view.addGestureRecognizer(tapGesture)
@@ -56,12 +56,12 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     
     func checkForDataForWelcomeLabel()
     {
-        let userRequest = NSFetchRequest(entityName: Users.entityName)
+        let userRequest = NSFetchRequest<Users>(entityName: Users.entityName)
         
         do{
-            let object = try store.managedObjectContext.executeFetchRequest(userRequest) as? [Users]
+            let object = try store.managedObjectContext.fetch(userRequest)
             
-            if object?.count == 0
+            if object.count == 0
             {
                 self.welcomeLabel.text = "Welcome"
                 welcomeLabel.alpha = 0.0
@@ -72,7 +72,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
                 welcomeLabelAnimation()
                 
             }
-            else if object?.count != 0
+            else if object.count != 0
             {
                 self.welcomeLabel.text = "Edit Name"
                 welcomeLabelConstraints()
@@ -86,7 +86,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     {
         if nameTextField.text?.characters.count == 0
         {
-            buttonLabel.hidden = true
+            buttonLabel.isHidden = true
             buttonLabel.alpha = 0.0
         }
         
@@ -96,11 +96,11 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
     {
         self.view.addSubview(self.welcomeLabel)
         self.welcomeLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 50.0)
-        self.welcomeLabel.textColor = UIColor.whiteColor()
+        self.welcomeLabel.textColor = UIColor.white
         self.welcomeLabel.removeConstraints(self.welcomeLabel.constraints)
         self.welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.welcomeLabel.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        self.welcomeLabel.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -130).active = true
+        self.welcomeLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.welcomeLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -130).isActive = true
     }
     
     func pleaseEnterNameConstraints()
@@ -109,44 +109,44 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         self.pleaseEnterNameLabel.removeConstraints(self.pleaseEnterNameLabel.constraints)
         self.pleaseEnterNameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.pleaseEnterNameLabel.font = UIFont(name: "BradleyHandITCTT-Bold", size: 20.0)
-        self.pleaseEnterNameLabel.textColor = UIColor.whiteColor()
+        self.pleaseEnterNameLabel.textColor = UIColor.white
         //self.pleaseEnterNameLabel.text = ""
-        self.pleaseEnterNameLabel.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        self.pleaseEnterNameLabel.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: -50).active = true
+        self.pleaseEnterNameLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.pleaseEnterNameLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -50).isActive = true
     }
     func buttonConstraint()
     {
-        self.buttonLabel.titleLabel?.textColor = UIColor.whiteColor()
+        self.buttonLabel.titleLabel?.textColor = UIColor.white
         self.buttonLabel.layer.borderWidth = 1
-        self.buttonLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        self.buttonLabel.layer.borderColor = UIColor.white.cgColor
         self.buttonLabel.layer.cornerRadius = 10
-        self.buttonLabel.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.2)
+        self.buttonLabel.backgroundColor = UIColor.white.withAlphaComponent(0.2)
     }
     
     func welcomeLabelAnimation()
     {
-        UIView.animateWithDuration(1.5, animations:
+        UIView.animate(withDuration: 1.5, animations:
         {
             self.welcomeLabel.alpha = 1.0
-        }) { (true) in
+        }, completion: { (true) in
             
-            UIView.animateWithDuration(1.0, animations:
+            UIView.animate(withDuration: 1.0, animations:
                 {
                 self.pleaseEnterNameLabel.alpha = 1.0
             })
-        }
+        }) 
     }
-    @IBAction func buttonAction(sender: AnyObject)
+    @IBAction func buttonAction(_ sender: AnyObject)
     {
         
-        let userRequest = NSFetchRequest(entityName: Users.entityName)
+        let userRequest = NSFetchRequest<Users>(entityName: Users.entityName)
         
         do{
-            let object = try store.managedObjectContext.executeFetchRequest(userRequest) as? [Users]
+            let object = try store.managedObjectContext.fetch(userRequest)
             
-            if object?.count == 0
+            if object.count == 0
             {
-                let person = NSEntityDescription.insertNewObjectForEntityForName(Users.entityName, inManagedObjectContext: store.managedObjectContext) as! Users
+                let person = NSEntityDescription.insertNewObject(forEntityName: Users.entityName, into: store.managedObjectContext) as! Users
                 
                 if let unwrappedText = nameTextField.text
                 {
@@ -158,7 +158,7 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
                 
             }
                 
-            else if object?.count != 0
+            else if object.count != 0
             {
     
                 let person = store.individual
@@ -177,22 +177,22 @@ class WelcomePageViewController: UIViewController, UITextFieldDelegate
         }
     
 
-    func tap(gesture: UITapGestureRecognizer)
+    func tap(_ gesture: UITapGestureRecognizer)
     {
         self.nameTextField.resignFirstResponder()
     }
     
-    func textFieldDidBeginEditing(textField: UITextField)
+    func textFieldDidBeginEditing(_ textField: UITextField)
     {
-        UIView.animateWithDuration(1.0)
-        {
-            self.buttonLabel.hidden = false
+        UIView.animate(withDuration: 1.0, animations: {
+            self.buttonLabel.isHidden = false
             self.buttonLabel.alpha = 1.0
-        }
+        })
+        
         
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         self.nameTextField.resignFirstResponder()
         return true

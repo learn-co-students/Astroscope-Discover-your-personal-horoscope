@@ -11,48 +11,48 @@ import UIKit
 
 class NASA_API_Client {
     
-    class func getPhotoOfDay(completion: UIImage -> ()) {
+    class func getPhotoOfDay(_ completion: @escaping (UIImage) -> ()) {
         
         
         let dictionaryURLString = "https://api.nasa.gov/planetary/apod?api_key=\(Secrets.keyNASAAPI)"
         
-        let dictionaryURL = NSURL(string: dictionaryURLString)
+        let dictionaryURL = URL(string: dictionaryURLString)
         
-        let dictionarySession = NSURLSession.sharedSession()
+        let dictionarySession = URLSession.shared
         
         
         guard let unwrappedDictionaryURL = dictionaryURL else { return }
         
         
-        let request = NSMutableURLRequest.init(URL: unwrappedDictionaryURL)
+        let iRequest = URLRequest(url: unwrappedDictionaryURL)
+        let request = NSMutableURLRequest.init(url: unwrappedDictionaryURL)
         
-        request.HTTPMethod = "GET"
+        request.httpMethod = "GET"
         
-        let task = dictionarySession.dataTaskWithRequest(request){ (data, response, error) in
-            
+        let task = dictionarySession.dataTask(with: iRequest, completionHandler: { (data, response, error) in
             
             guard let unwrappedData = data else {return}
             
             do {
-                guard let photoDictionary = try NSJSONSerialization.JSONObjectWithData(unwrappedData, options: NSJSONReadingOptions.AllowFragments) as? NSDictionary else {return}
+                guard let photoDictionary = try JSONSerialization.jsonObject(with: unwrappedData, options: JSONSerialization.ReadingOptions.allowFragments) as? NSDictionary else {return}
                 
                 
                 print(photoDictionary)
                 
                 guard let imageURLString = photoDictionary["url"] as? String else {return}
-                guard let imageURL = NSURL(string: imageURLString) else {return}
-                let imageRequest = NSMutableURLRequest.init(URL: imageURL)
+                guard let imageURL = URL(string: imageURLString) else {return}
+                let imageRequest = NSMutableURLRequest.init(url: imageURL)
                 
-                imageRequest.HTTPMethod = "GET"
+                imageRequest.httpMethod = "GET"
                 
-                let imageDataTask = dictionarySession.dataTaskWithURL(imageURL) { (photoData, photoResponse, photoError) in
+                let imageDataTask = dictionarySession.dataTask(with: imageURL, completionHandler: { (photoData, photoResponse, photoError) in
                     
                     guard let photoOfDay = photoData else {return}
                     guard let photo = UIImage(data: photoOfDay) else {return}
                     
                     completion(photo)
                     
-                }
+                }) 
                 
                 imageDataTask.resume()
                 
@@ -61,26 +61,26 @@ class NASA_API_Client {
                 
             }
             
-        }
+        })
         
         task.resume()
         
     }
     
-    class func getMediaType(completion: String->())
+    class func getMediaType(_ completion: @escaping (String)->())
     {
       
         let urlString = "https://api.nasa.gov/planetary/apod?api_key=\(Secrets.keyNASAAPI)"
         
-        let url = NSURL(string: urlString)
+        let url = URL(string: urlString)
         
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         
-        let dataTask = session.dataTaskWithURL(url!) { (data, response, error) in
+        let dataTask = session.dataTask(with: url!, completionHandler: { (data, response, error) in
             guard let unwrappedData = data else {return}
             
             do{
-                let mediaType = try NSJSONSerialization.JSONObjectWithData(unwrappedData, options: NSJSONReadingOptions.AllowFragments)
+                let mediaType = try JSONSerialization.jsonObject(with: unwrappedData, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
                 
                 let media = mediaType["media_type"] as? String
                 
@@ -92,9 +92,34 @@ class NASA_API_Client {
             catch{
                 print(error)
             }
-        }
+        }) 
         dataTask.resume()
     
     }
 
+    class func getNASAPhotoInfo(_ completion: @escaping (NSDictionary)->())
+    {
+        
+        let urlString = "https://api.nasa.gov/planetary/apod?api_key=\(Secrets.keyNASAAPI)"
+        
+        let url = URL(string: urlString)
+        
+        let session = URLSession.shared
+        
+        let dataTask = session.dataTask(with: url!, completionHandler: { (data, response, error) in
+            guard let unwrappedData = data else {return}
+            
+            do{
+                let info = try JSONSerialization.jsonObject(with: unwrappedData, options: JSONSerialization.ReadingOptions.allowFragments) as! NSDictionary
+             
+                completion(info)
+                
+            }
+            catch{
+                print(error)
+            }
+        })
+        dataTask.resume()
+        
+    }
 }
