@@ -26,6 +26,7 @@
 		1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24AB1D5E647600E10D58 /* LaunchScreen.storyboard */; };
 		1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */; };
 		1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB768F51D63C951009D3737 /* DatePickerViewController.swift */; };
+		1BB921B21DAC49A500820A19 /* customBackButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BB921B11DAC49A500820A19 /* customBackButton.png */; };
 		1BCD2F801D78B8E100B9273B /* StarOfBethlehem-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BCD2F7F1D78B8E100B9273B /* StarOfBethlehem-50.png */; };
 		1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE63D781D61FFF100066410 /* datePickerClass.swift */; };
 		1BE83D141D63989B00A95FA4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BE83D131D63989B00A95FA4 /* Secrets.swift */; };
@@ -66,6 +67,7 @@
 		1B9B24AE1D5E647600E10D58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DatePicker.storyboard; sourceTree = "<group>"; };
 		1BB768F51D63C951009D3737 /* DatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
+		1BB921B11DAC49A500820A19 /* customBackButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = customBackButton.png; sourceTree = "<group>"; };
 		1BCD2F7F1D78B8E100B9273B /* StarOfBethlehem-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarOfBethlehem-50.png"; sourceTree = "<group>"; };
 		1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		1BE63D781D61FFF100066410 /* datePickerClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = datePickerClass.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				1BE83D131D63989B00A95FA4 /* Secrets.swift */,
 				1B5375881D6749FA00B9702A /* gifFramework.swift */,
 				1B9B24A91D5E647600E10D58 /* Assets.xcassets */,
+				1BB921B11DAC49A500820A19 /* customBackButton.png */,
 				1BF6EC7C1D999CA5002F3D24 /* spaceImage4.jpg */,
 				1B793D851D95A99500A7FD9A /* astroscopeLaunchLogo.png */,
 				1B793D831D95A67A00A7FD9A /* logo2.png */,
@@ -249,6 +252,7 @@
 				1B68B5CB1DAC12680094C8E6 /* movieTemp.png in Resources */,
 				1B793D841D95A67A00A7FD9A /* logo2.png in Resources */,
 				1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */,
+				1BB921B21DAC49A500820A19 /* customBackButton.png in Resources */,
 				1B9B24AA1D5E647600E10D58 /* Assets.xcassets in Resources */,
 				1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */,
 				1B9B24A51D5E647600E10D58 /* Horoscope.storyboard in Resources */,

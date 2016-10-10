@@ -90,6 +90,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         
         self.horoscopeActIndicator.isHidden = false
         self.horoscopeActIndicator.startAnimating()
+        
+        
+        self.navigationItem.leftBarButtonItem =
+            UIBarButtonItem(image: UIImage.init(named: "customBackButton.png"), style: .done, target: self, action: #selector (HoroscopeViewController.backButtonPressed))
     
 
     }
@@ -108,6 +112,11 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         self.imageNASAView.addSubview(NASAPhotoInfo)
         self.imageNASAView.addGestureRecognizer(backgroundTapped)
        
+    }
+    
+    func backButtonPressed(sender:UIButton)
+    {
+        navigationController?.popViewController(animated: true)
     }
     
   
@@ -320,9 +329,10 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 DispatchQueue.main.async(execute: {
                 self.todaysHoroscope = unwrappedHoroscopeValue
                 self.dailyHoroscopeTextView.text = self.todaysHoroscope
-                })
                 self.horoscopeActIndicator.isHidden = true
                 self.horoscopeActIndicator.stopAnimating()
+                })
+        
             }
             else if self.APIDate != self.todaysDate
             {
@@ -333,6 +343,8 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     
                     self.yesterdaysHoroscope = unwrappedHoroscopeValue
                     self.dailyHoroscopeTextView.text = self.yesterdaysHoroscope
+                        self.horoscopeActIndicator.isHidden = true
+                        self.horoscopeActIndicator.stopAnimating()
         
                     })
                     

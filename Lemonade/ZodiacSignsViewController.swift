@@ -63,14 +63,13 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         self.collectionView.allowsSelection = true
         
         self.title = "Other Horoscopes"
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(ZodiacSignsViewController.goBackToHomepage))
+        
+        self.navigationItem.leftBarButtonItem =
+            UIBarButtonItem(image: UIImage.init(named: "customBackButton.png"), style: .plain, target: self, action: #selector (ZodiacSignsViewController.goBackToHomepage))
         
         self.view.bringSubview(toFront: self.iconArtist)
     }
-    
-
-    
+  
     func goBackToHomepage()
     {
         performSegue(withIdentifier: "goBackToHomePage", sender: self)

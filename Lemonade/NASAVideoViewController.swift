@@ -36,7 +36,13 @@ class NASAVideoViewController: UIViewController
             
         }
         
-      
+        self.navigationItem.leftBarButtonItem =
+            UIBarButtonItem(image: UIImage.init(named: "customBackButton.png"), style: .done, target: self, action: #selector (NASAVideoViewController.backButtonPressed))
+    }
+    
+    func backButtonPressed(sender:UIButton)
+    {
+        navigationController?.popViewController(animated: true)
     }
 
 
