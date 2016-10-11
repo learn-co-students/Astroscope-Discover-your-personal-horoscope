@@ -381,7 +381,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         self.NASAPhotoInfo.backgroundColor = UIColor.clear
         guard self.NASAPhotoInfo != nil else {return}
         self.NASAPhotoInfo.textColor = UIColor.white
-        self.NASAPhotoInfo.font = UIFont(name: "HelveticaNeue-Light", size: 13.5)
+        self.NASAPhotoInfo.font = UIFont(name: "HelveticaNeue-Light", size: 14.0)
         
         self.stackViewBackgroundView.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
         self.view.addSubview(self.stackViewBackgroundView)

@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,29 +20,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo2.png" translatesAutoresizingMaskIntoConstraints="NO" id="K6K-m1-xK7">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astroscopeLaunchLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PdK-Lg-wza"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AstroscopeLogo1.png" translatesAutoresizingMaskIntoConstraints="NO" id="K6K-m1-xK7">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="3IW-4w-7Ez"/>
-                                    <constraint firstAttribute="width" constant="256" id="UGw-dc-s9T"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="astroscopeLaunchLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="PdK-Lg-wza">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="253" id="5f2-40-4Ve"/>
-                                    <constraint firstAttribute="width" constant="272" id="JN1-Nx-aj0"/>
+                                    <constraint firstAttribute="height" constant="70" id="rBu-Iu-U59"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="PdK-Lg-wza" secondAttribute="trailing" constant="28" id="9vl-4l-w3m"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="PdK-Lg-wza" secondAttribute="bottom" constant="319" id="TCG-Yh-q1L"/>
-                            <constraint firstItem="K6K-m1-xK7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="357" id="Wp1-He-7NA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="K6K-m1-xK7" secondAttribute="trailing" constant="44" id="gYf-lI-nbU"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="K6K-m1-xK7" secondAttribute="bottom" constant="220" id="jxk-mU-rzs"/>
-                            <constraint firstItem="K6K-m1-xK7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="43" id="nYz-eP-ats"/>
-                            <constraint firstItem="PdK-Lg-wza" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="43" id="tjq-gx-ItI"/>
-                            <constraint firstItem="PdK-Lg-wza" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="75" id="tza-rg-phA"/>
+                            <constraint firstItem="PdK-Lg-wza" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.8" constant="-19" id="FFZ-jW-het"/>
+                            <constraint firstItem="PdK-Lg-wza" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="T0J-ss-tmd"/>
+                            <constraint firstItem="PdK-Lg-wza" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.33" constant="32.889999999999986" id="Ylb-o1-hZ3"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="K6K-m1-xK7" secondAttribute="bottom" constant="186" id="bvl-Xv-t2a"/>
+                            <constraint firstItem="K6K-m1-xK7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="43" id="eQh-2z-OSq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="K6K-m1-xK7" secondAttribute="trailing" constant="44" id="rBs-jN-uF7"/>
+                            <constraint firstItem="PdK-Lg-wza" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" multiplier="0.25" constant="144.125" id="teI-Dw-uPm"/>
+                            <constraint firstItem="K6K-m1-xK7" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="391" id="wdD-GP-KDi"/>
+                            <constraint firstItem="K6K-m1-xK7" firstAttribute="centerX" secondItem="PdK-Lg-wza" secondAttribute="centerX" id="wy6-2w-bCu"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -51,7 +47,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="AstroscopeLogo1.png" width="231" height="49"/>
         <image name="astroscopeLaunchLogo.png" width="800" height="600"/>
-        <image name="logo2.png" width="370" height="86"/>
     </resources>
 </document>

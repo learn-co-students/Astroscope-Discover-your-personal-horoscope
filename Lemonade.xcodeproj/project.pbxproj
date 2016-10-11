@@ -28,11 +28,11 @@
 		1B62CDBD1DAD6FAD000D450C /* aboutusimage (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDBC1DAD6FAD000D450C /* aboutusimage (1).png */; };
 		1B62CDBF1DAD7067000D450C /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDBE1DAD7067000D450C /* AboutUs.storyboard */; };
 		1B62CDC11DAD7089000D450C /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B62CDC01DAD7089000D450C /* AboutUsViewController.swift */; };
+		1B62CDC31DAD8043000D450C /* AstroscopeLogo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDC21DAD8043000D450C /* AstroscopeLogo1.png */; };
 		1B68B5C71DAC0CBD0094C8E6 /* NASAVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B68B5C61DAC0CBD0094C8E6 /* NASAVideo.storyboard */; };
 		1B68B5C91DAC0CD60094C8E6 /* NASAVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68B5C81DAC0CD60094C8E6 /* NASAVideoViewController.swift */; };
 		1B68B5CB1DAC12680094C8E6 /* movieTemp.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B68B5CA1DAC12680094C8E6 /* movieTemp.png */; };
 		1B793D821D958C4F00A7FD9A /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B793D811D958C4F00A7FD9A /* Reachability.m */; };
-		1B793D841D95A67A00A7FD9A /* logo2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B793D831D95A67A00A7FD9A /* logo2.png */; };
 		1B793D861D95A99500A7FD9A /* astroscopeLaunchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B793D851D95A99500A7FD9A /* astroscopeLaunchLogo.png */; };
 		1B9B24A01D5E647600E10D58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9B249F1D5E647600E10D58 /* AppDelegate.swift */; };
 		1B9B24A51D5E647600E10D58 /* Horoscope.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B9B24A31D5E647600E10D58 /* Horoscope.storyboard */; };
@@ -79,13 +79,13 @@
 		1B62CDBC1DAD6FAD000D450C /* aboutusimage (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aboutusimage (1).png"; sourceTree = "<group>"; };
 		1B62CDBE1DAD7067000D450C /* AboutUs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
 		1B62CDC01DAD7089000D450C /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		1B62CDC21DAD8043000D450C /* AstroscopeLogo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AstroscopeLogo1.png; sourceTree = "<group>"; };
 		1B68B5C61DAC0CBD0094C8E6 /* NASAVideo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NASAVideo.storyboard; sourceTree = "<group>"; };
 		1B68B5C81DAC0CD60094C8E6 /* NASAVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NASAVideoViewController.swift; sourceTree = "<group>"; };
 		1B68B5CA1DAC12680094C8E6 /* movieTemp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieTemp.png; sourceTree = "<group>"; };
 		1B793D7F1D958C4E00A7FD9A /* Lemonade-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lemonade-Bridging-Header.h"; sourceTree = "<group>"; };
 		1B793D801D958C4F00A7FD9A /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1B793D811D958C4F00A7FD9A /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		1B793D831D95A67A00A7FD9A /* logo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo2.png; sourceTree = "<group>"; };
 		1B793D851D95A99500A7FD9A /* astroscopeLaunchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astroscopeLaunchLogo.png; sourceTree = "<group>"; };
 		1B9B249C1D5E647600E10D58 /* Astroscope.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Astroscope.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B9B249F1D5E647600E10D58 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -194,10 +194,10 @@
 				1B62CDAA1DAD5B98000D450C /* scorpioRightButton.png */,
 				1B62CDB21DAD5BCA000D450C /* geminiRightButton.png */,
 				1B9B24A91D5E647600E10D58 /* Assets.xcassets */,
+				1B62CDC21DAD8043000D450C /* AstroscopeLogo1.png */,
 				1BB921B11DAC49A500820A19 /* customBackButton.png */,
 				1BF6EC7C1D999CA5002F3D24 /* spaceImage4.jpg */,
 				1B793D851D95A99500A7FD9A /* astroscopeLaunchLogo.png */,
-				1B793D831D95A67A00A7FD9A /* logo2.png */,
 				1BCD2F7F1D78B8E100B9273B /* StarOfBethlehem-50.png */,
 				430672121D6CD8FD00EE31E9 /* savephotobuttonimage.png */,
 				1B53758E1D67567600B9702A /* giphy (3).gif */,
@@ -287,6 +287,7 @@
 				1B793D861D95A99500A7FD9A /* astroscopeLaunchLogo.png in Resources */,
 				1B62CDA71DAD5B7B000D450C /* piscesRightButton.png in Resources */,
 				1BF6EC7D1D999CA5002F3D24 /* spaceImage4.jpg in Resources */,
+				1B62CDC31DAD8043000D450C /* AstroscopeLogo1.png in Resources */,
 				1B0F70011D6E1ACE00605742 /* giphy (4).gif in Resources */,
 				1B62CDB91DAD5BF1000D450C /* ariesRightButton.png in Resources */,
 				1B68B5C71DAC0CBD0094C8E6 /* NASAVideo.storyboard in Resources */,
@@ -299,7 +300,6 @@
 				1B68B5CB1DAC12680094C8E6 /* movieTemp.png in Resources */,
 				1B62CDB51DAD5BDA000D450C /* capricornRightButton.png in Resources */,
 				1B62CDBB1DAD5BFB000D450C /* aquariusRightButton.png in Resources */,
-				1B793D841D95A67A00A7FD9A /* logo2.png in Resources */,
 				1B62CDB11DAD5BBF000D450C /* libraRightButton.png in Resources */,
 				1B62CDAD1DAD5BA4000D450C /* taurusRightButton.png in Resources */,
 				1B62CDA51DAD5B58000D450C /* sagittariusRightButton.png in Resources */,
