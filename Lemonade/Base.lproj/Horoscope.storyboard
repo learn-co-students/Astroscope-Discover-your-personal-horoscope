@@ -28,13 +28,21 @@
                                 <color key="color" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OTp-zl-Jeb">
-                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="colorSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="cwR-J0-Uax"/>
                                 </connections>
                             </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9x-6V-Lnb">
+                                <frame key="frameInset" minX="114" minY="53" width="245" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -51,6 +59,7 @@
                     <connections>
                         <outlet property="NASAPhotoTitle" destination="7uU-m2-cXu" id="jnz-AC-UTA"/>
                         <outlet property="colorChangeSlider" destination="OTp-zl-Jeb" id="Es7-l5-z9t"/>
+                        <outlet property="constellationInfoTextView" destination="D9x-6V-Lnb" id="BGn-LP-rPe"/>
                         <outlet property="horoscopeActIndicator" destination="nsF-UQ-glP" id="Rhc-jW-wvH"/>
                         <segue destination="9aq-eK-ujn" kind="show" identifier="horoscopeToOthers" id="kRg-Pu-NVb"/>
                         <segue destination="U0R-5S-2g9" kind="show" identifier="videoSegue" id="FZj-4B-LzK"/>

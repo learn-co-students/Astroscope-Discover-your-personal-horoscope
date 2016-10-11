@@ -11,9 +11,23 @@
 		1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */; };
 		1B3A58211D6F95C800546D95 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */; };
 		1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5375881D6749FA00B9702A /* gifFramework.swift */; };
-		1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758A1D674A7D00B9702A /* giphy (1).gif */; };
 		1B53758F1D67567600B9702A /* giphy (3).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758E1D67567600B9702A /* giphy (3).gif */; };
 		1B592F991DABE1B6009C9FF3 /* HoroscopeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B592F971DABE0BB009C9FF3 /* HoroscopeViewController.swift */; };
+		1B62CDA51DAD5B58000D450C /* sagittariusRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDA41DAD5B58000D450C /* sagittariusRightButton.png */; };
+		1B62CDA71DAD5B7B000D450C /* piscesRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDA61DAD5B7B000D450C /* piscesRightButton.png */; };
+		1B62CDA91DAD5B88000D450C /* virgoRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDA81DAD5B88000D450C /* virgoRightButton.png */; };
+		1B62CDAB1DAD5B98000D450C /* scorpioRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDAA1DAD5B98000D450C /* scorpioRightButton.png */; };
+		1B62CDAD1DAD5BA4000D450C /* taurusRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDAC1DAD5BA4000D450C /* taurusRightButton.png */; };
+		1B62CDAF1DAD5BAF000D450C /* virgoRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDAE1DAD5BAF000D450C /* virgoRightButton.png */; };
+		1B62CDB11DAD5BBF000D450C /* libraRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDB01DAD5BBF000D450C /* libraRightButton.png */; };
+		1B62CDB31DAD5BCA000D450C /* geminiRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDB21DAD5BCA000D450C /* geminiRightButton.png */; };
+		1B62CDB51DAD5BDA000D450C /* capricornRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDB41DAD5BDA000D450C /* capricornRightButton.png */; };
+		1B62CDB71DAD5BE5000D450C /* cancerRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDB61DAD5BE5000D450C /* cancerRightButton.png */; };
+		1B62CDB91DAD5BF1000D450C /* ariesRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDB81DAD5BF1000D450C /* ariesRightButton.png */; };
+		1B62CDBB1DAD5BFB000D450C /* aquariusRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDBA1DAD5BFB000D450C /* aquariusRightButton.png */; };
+		1B62CDBD1DAD6FAD000D450C /* aboutusimage (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDBC1DAD6FAD000D450C /* aboutusimage (1).png */; };
+		1B62CDBF1DAD7067000D450C /* AboutUs.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B62CDBE1DAD7067000D450C /* AboutUs.storyboard */; };
+		1B62CDC11DAD7089000D450C /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B62CDC01DAD7089000D450C /* AboutUsViewController.swift */; };
 		1B68B5C71DAC0CBD0094C8E6 /* NASAVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B68B5C61DAC0CBD0094C8E6 /* NASAVideo.storyboard */; };
 		1B68B5C91DAC0CD60094C8E6 /* NASAVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B68B5C81DAC0CD60094C8E6 /* NASAVideoViewController.swift */; };
 		1B68B5CB1DAC12680094C8E6 /* movieTemp.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B68B5CA1DAC12680094C8E6 /* movieTemp.png */; };
@@ -48,9 +62,23 @@
 		1B0F70001D6E1ACE00605742 /* giphy (4).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (4).gif"; sourceTree = "<group>"; };
 		1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomePage.storyboard; sourceTree = "<group>"; };
 		1B5375881D6749FA00B9702A /* gifFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFramework.swift; sourceTree = "<group>"; };
-		1B53758A1D674A7D00B9702A /* giphy (1).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (1).gif"; sourceTree = "<group>"; };
 		1B53758E1D67567600B9702A /* giphy (3).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (3).gif"; sourceTree = "<group>"; };
 		1B592F971DABE0BB009C9FF3 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
+		1B62CDA41DAD5B58000D450C /* sagittariusRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sagittariusRightButton.png; sourceTree = "<group>"; };
+		1B62CDA61DAD5B7B000D450C /* piscesRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = piscesRightButton.png; sourceTree = "<group>"; };
+		1B62CDA81DAD5B88000D450C /* virgoRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = virgoRightButton.png; sourceTree = "<group>"; };
+		1B62CDAA1DAD5B98000D450C /* scorpioRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scorpioRightButton.png; sourceTree = "<group>"; };
+		1B62CDAC1DAD5BA4000D450C /* taurusRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taurusRightButton.png; sourceTree = "<group>"; };
+		1B62CDAE1DAD5BAF000D450C /* virgoRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = virgoRightButton.png; sourceTree = "<group>"; };
+		1B62CDB01DAD5BBF000D450C /* libraRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = libraRightButton.png; sourceTree = "<group>"; };
+		1B62CDB21DAD5BCA000D450C /* geminiRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = geminiRightButton.png; sourceTree = "<group>"; };
+		1B62CDB41DAD5BDA000D450C /* capricornRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capricornRightButton.png; sourceTree = "<group>"; };
+		1B62CDB61DAD5BE5000D450C /* cancerRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancerRightButton.png; sourceTree = "<group>"; };
+		1B62CDB81DAD5BF1000D450C /* ariesRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ariesRightButton.png; sourceTree = "<group>"; };
+		1B62CDBA1DAD5BFB000D450C /* aquariusRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = aquariusRightButton.png; sourceTree = "<group>"; };
+		1B62CDBC1DAD6FAD000D450C /* aboutusimage (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "aboutusimage (1).png"; sourceTree = "<group>"; };
+		1B62CDBE1DAD7067000D450C /* AboutUs.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutUs.storyboard; sourceTree = "<group>"; };
+		1B62CDC01DAD7089000D450C /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		1B68B5C61DAC0CBD0094C8E6 /* NASAVideo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NASAVideo.storyboard; sourceTree = "<group>"; };
 		1B68B5C81DAC0CD60094C8E6 /* NASAVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NASAVideoViewController.swift; sourceTree = "<group>"; };
 		1B68B5CA1DAC12680094C8E6 /* movieTemp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = movieTemp.png; sourceTree = "<group>"; };
@@ -145,11 +173,26 @@
 				1B68B5C61DAC0CBD0094C8E6 /* NASAVideo.storyboard */,
 				1B68B5C81DAC0CD60094C8E6 /* NASAVideoViewController.swift */,
 				1B9B24B61D5E64EC00E10D58 /* DatePicker.storyboard */,
+				1B62CDBE1DAD7067000D450C /* AboutUs.storyboard */,
+				1B62CDC01DAD7089000D450C /* AboutUsViewController.swift */,
 				1B793D7F1D958C4E00A7FD9A /* Lemonade-Bridging-Header.h */,
 				1B793D801D958C4F00A7FD9A /* Reachability.h */,
 				1B793D811D958C4F00A7FD9A /* Reachability.m */,
 				1BE83D131D63989B00A95FA4 /* Secrets.swift */,
 				1B5375881D6749FA00B9702A /* gifFramework.swift */,
+				1B62CDBC1DAD6FAD000D450C /* aboutusimage (1).png */,
+				1B62CDBA1DAD5BFB000D450C /* aquariusRightButton.png */,
+				1B62CDB81DAD5BF1000D450C /* ariesRightButton.png */,
+				1B62CDAC1DAD5BA4000D450C /* taurusRightButton.png */,
+				1B62CDAE1DAD5BAF000D450C /* virgoRightButton.png */,
+				1B62CDB01DAD5BBF000D450C /* libraRightButton.png */,
+				1B62CDB41DAD5BDA000D450C /* capricornRightButton.png */,
+				1B62CDA41DAD5B58000D450C /* sagittariusRightButton.png */,
+				1B62CDB61DAD5BE5000D450C /* cancerRightButton.png */,
+				1B62CDA81DAD5B88000D450C /* virgoRightButton.png */,
+				1B62CDA61DAD5B7B000D450C /* piscesRightButton.png */,
+				1B62CDAA1DAD5B98000D450C /* scorpioRightButton.png */,
+				1B62CDB21DAD5BCA000D450C /* geminiRightButton.png */,
 				1B9B24A91D5E647600E10D58 /* Assets.xcassets */,
 				1BB921B11DAC49A500820A19 /* customBackButton.png */,
 				1BF6EC7C1D999CA5002F3D24 /* spaceImage4.jpg */,
@@ -157,7 +200,6 @@
 				1B793D831D95A67A00A7FD9A /* logo2.png */,
 				1BCD2F7F1D78B8E100B9273B /* StarOfBethlehem-50.png */,
 				430672121D6CD8FD00EE31E9 /* savephotobuttonimage.png */,
-				1B53758A1D674A7D00B9702A /* giphy (1).gif */,
 				1B53758E1D67567600B9702A /* giphy (3).gif */,
 				1B0F70001D6E1ACE00605742 /* giphy (4).gif */,
 				1B68B5CA1DAC12680094C8E6 /* movieTemp.png */,
@@ -240,21 +282,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B62CDBF1DAD7067000D450C /* AboutUs.storyboard in Resources */,
+				1B62CDB71DAD5BE5000D450C /* cancerRightButton.png in Resources */,
 				1B793D861D95A99500A7FD9A /* astroscopeLaunchLogo.png in Resources */,
+				1B62CDA71DAD5B7B000D450C /* piscesRightButton.png in Resources */,
 				1BF6EC7D1D999CA5002F3D24 /* spaceImage4.jpg in Resources */,
-				1B53758B1D674A7D00B9702A /* giphy (1).gif in Resources */,
 				1B0F70011D6E1ACE00605742 /* giphy (4).gif in Resources */,
+				1B62CDB91DAD5BF1000D450C /* ariesRightButton.png in Resources */,
 				1B68B5C71DAC0CBD0094C8E6 /* NASAVideo.storyboard in Resources */,
 				1B53758F1D67567600B9702A /* giphy (3).gif in Resources */,
 				1B9B24B71D5E64EC00E10D58 /* DatePicker.storyboard in Resources */,
+				1B62CDA91DAD5B88000D450C /* virgoRightButton.png in Resources */,
 				430672131D6CD8FD00EE31E9 /* savephotobuttonimage.png in Resources */,
 				1BCD2F801D78B8E100B9273B /* StarOfBethlehem-50.png in Resources */,
+				1B62CDAB1DAD5B98000D450C /* scorpioRightButton.png in Resources */,
 				1B68B5CB1DAC12680094C8E6 /* movieTemp.png in Resources */,
+				1B62CDB51DAD5BDA000D450C /* capricornRightButton.png in Resources */,
+				1B62CDBB1DAD5BFB000D450C /* aquariusRightButton.png in Resources */,
 				1B793D841D95A67A00A7FD9A /* logo2.png in Resources */,
+				1B62CDB11DAD5BBF000D450C /* libraRightButton.png in Resources */,
+				1B62CDAD1DAD5BA4000D450C /* taurusRightButton.png in Resources */,
+				1B62CDA51DAD5B58000D450C /* sagittariusRightButton.png in Resources */,
 				1B9B24AD1D5E647600E10D58 /* LaunchScreen.storyboard in Resources */,
 				1BB921B21DAC49A500820A19 /* customBackButton.png in Resources */,
 				1B9B24AA1D5E647600E10D58 /* Assets.xcassets in Resources */,
+				1B62CDB31DAD5BCA000D450C /* geminiRightButton.png in Resources */,
+				1B62CDAF1DAD5BAF000D450C /* virgoRightButton.png in Resources */,
 				1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */,
+				1B62CDBD1DAD6FAD000D450C /* aboutusimage (1).png in Resources */,
 				1B9B24A51D5E647600E10D58 /* Horoscope.storyboard in Resources */,
 				DEDA899F1D75D5A2006F94E7 /* ZodiacCollection.storyboard in Resources */,
 			);
@@ -327,6 +382,7 @@
 				1BB768F61D63C951009D3737 /* DatePickerViewController.swift in Sources */,
 				43D35FB41D6357780017C4D6 /* Users.swift in Sources */,
 				1B793D821D958C4F00A7FD9A /* Reachability.m in Sources */,
+				1B62CDC11DAD7089000D450C /* AboutUsViewController.swift in Sources */,
 				DEDBEE861D5E731700208782 /* HoroscopeAPIClient.swift in Sources */,
 				1BE63D791D61FFF100066410 /* datePickerClass.swift in Sources */,
 				1B9B24A01D5E647600E10D58 /* AppDelegate.swift in Sources */,

@@ -114,6 +114,10 @@ class DatePickerViewController: UIViewController
     
     }
 
+    @IBAction func aboutUsButton(_ sender: AnyObject)
+    {
+        performSegue(withIdentifier: "aboutUsSegue", sender: self)
+    }
 
     //Gets user's input from date picker
     @IBAction func datePickerAction(_ sender: AnyObject)

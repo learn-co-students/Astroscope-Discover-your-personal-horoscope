@@ -97,6 +97,17 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rtA-W1-MGa">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="9Ki-eh-ddt"/>
+                                    <constraint firstAttribute="width" constant="40" id="n26-V6-zhn"/>
+                                </constraints>
+                                <state key="normal" image="aboutusimage (1).png"/>
+                                <connections>
+                                    <action selector="aboutUsButton:" destination="w5w-ff-CwY" eventType="touchUpInside" id="B2n-Ue-u0F"/>
+                                    <segue destination="2a2-Do-afu" kind="presentation" identifier="aboutUsSegue" modalTransitionStyle="flipHorizontal" id="1Gt-9k-3kt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -109,6 +120,8 @@
                             <constraint firstItem="74g-XH-wrq" firstAttribute="top" secondItem="jyl-hJ-cD8" secondAttribute="bottom" constant="8" id="D27-Uu-mPh"/>
                             <constraint firstItem="7gt-z4-rpw" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="G30-v7-Xcx"/>
                             <constraint firstItem="7gt-z4-rpw" firstAttribute="centerY" secondItem="R0T-nj-NVb" secondAttribute="centerY" id="LU9-ZW-voK"/>
+                            <constraint firstItem="iNb-lZ-yiP" firstAttribute="top" secondItem="rtA-W1-MGa" secondAttribute="bottom" constant="20" id="Za8-av-gSo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rtA-W1-MGa" secondAttribute="trailing" id="ayX-HJ-88m"/>
                             <constraint firstItem="74g-XH-wrq" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="bfb-pE-PFH"/>
                             <constraint firstItem="MB3-nq-jVU" firstAttribute="centerX" secondItem="R0T-nj-NVb" secondAttribute="centerX" id="bgg-fL-Fja"/>
                             <constraint firstItem="iNb-lZ-yiP" firstAttribute="top" secondItem="jnp-5g-m8O" secondAttribute="bottom" constant="50" id="gOi-M9-vjd"/>
@@ -150,12 +163,20 @@
             </objects>
             <point key="canvasLocation" x="1466" y="369"/>
         </scene>
+        <!--AboutUs-->
+        <scene sceneID="S6z-Fp-Aev">
+            <objects>
+                <viewControllerPlaceholder storyboardName="AboutUs" id="2a2-Do-afu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5We-Xl-wOB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1522" y="660"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="joy-vy-fHK">
             <objects>
                 <navigationController storyboardIdentifier="navController" automaticallyAdjustsScrollViewInsets="NO" id="hy1-7Z-jZ6" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="hsB-wr-fxq">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hsB-wr-fxq">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -174,6 +195,9 @@
             <point key="canvasLocation" x="204" y="349"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="aboutusimage (1).png" width="35" height="35"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PNL-dC-RC6"/>
     </inferredMetricsTieBreakers>
