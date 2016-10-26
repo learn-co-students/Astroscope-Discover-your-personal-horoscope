@@ -1,12 +1,21 @@
 PODS:
-  - KCFloatingActionButton (1.4.0)
+  - KCFloatingActionButton (2.1.1)
 
 DEPENDENCIES:
-  - KCFloatingActionButton (~> 1.4)
+  - KCFloatingActionButton (from `https://github.com/kciter/KCFloatingActionButton.git`)
+
+EXTERNAL SOURCES:
+  KCFloatingActionButton:
+    :git: https://github.com/kciter/KCFloatingActionButton.git
+
+CHECKOUT OPTIONS:
+  KCFloatingActionButton:
+    :commit: 93544f98333b06bf81226b32524d39e4a61d8ad1
+    :git: https://github.com/kciter/KCFloatingActionButton.git
 
 SPEC CHECKSUMS:
-  KCFloatingActionButton: 77218c637cb4925b2de9db2155f73f3378bf5969
+  KCFloatingActionButton: 084cfe9d16b741be33393c99757f5967296c7645
 
-PODFILE CHECKSUM: 63cc21c1a5d6335aafb79d0faac2832a0640baa6
+PODFILE CHECKSUM: 9f1bea32b452bef4911ce3d75eb38f989ad4dc86
 
 COCOAPODS: 1.0.1

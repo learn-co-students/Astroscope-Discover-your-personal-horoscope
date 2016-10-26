@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="UIv-Kf-het">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--About Us View Controller-->
+        <scene sceneID="z5v-ri-qLe">
+            <objects>
+                <viewController id="UIv-Kf-het" customClass="AboutUsViewController" customModule="Astroscope" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p9s-KR-Ygn"/>
+                        <viewControllerLayoutGuide type="bottom" id="mvt-NZ-oHj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iPW-qI-zBu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HvQ-tN-mVt">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="d6Q-Ml-D0H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iUn-eu-fX3">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="356" id="0yf-EE-ci0"/>
+                                    <constraint firstAttribute="width" constant="244" id="AcU-E1-NYl"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JCm-Ej-C59">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="7JT-uv-079"/>
+                                    <constraint firstAttribute="width" constant="176" id="JXn-tD-uNd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Go Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBackButton:" destination="UIv-Kf-het" eventType="touchUpInside" id="tWL-FM-PkQ"/>
+                                    <segue destination="ZQN-5w-d9Z" kind="presentation" identifier="goBack" modalTransitionStyle="flipHorizontal" id="qL0-aK-FPG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mvt-NZ-oHj" firstAttribute="top" secondItem="iUn-eu-fX3" secondAttribute="bottom" constant="147" id="3MS-fw-mXr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iUn-eu-fX3" secondAttribute="trailing" constant="52" id="6vo-Ew-QSR"/>
+                            <constraint firstItem="JCm-Ej-C59" firstAttribute="leading" secondItem="iPW-qI-zBu" secondAttribute="leadingMargin" constant="83" id="7Si-Z4-LjQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HvQ-tN-mVt" secondAttribute="trailing" id="9iJ-jT-h5N"/>
+                            <constraint firstItem="iUn-eu-fX3" firstAttribute="top" secondItem="p9s-KR-Ygn" secondAttribute="bottom" constant="144" id="N52-9f-QAt"/>
+                            <constraint firstItem="mvt-NZ-oHj" firstAttribute="top" secondItem="JCm-Ej-C59" secondAttribute="bottom" constant="57" id="NHR-1v-c0y"/>
+                            <constraint firstItem="HvQ-tN-mVt" firstAttribute="top" secondItem="p9s-KR-Ygn" secondAttribute="bottom" constant="55" id="SgT-XJ-CS9"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="HvQ-tN-mVt" secondAttribute="leading" id="ZEH-Wh-dss"/>
+                            <constraint firstItem="iUn-eu-fX3" firstAttribute="leading" secondItem="iPW-qI-zBu" secondAttribute="leadingMargin" constant="47" id="eKF-OI-1Ic"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JCm-Ej-C59" secondAttribute="trailing" constant="84" id="lal-8v-IUE"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="goBackButton" destination="JCm-Ej-C59" id="DWR-et-TgM"/>
+                        <outlet property="informationTextView" destination="iUn-eu-fX3" id="baa-al-yge"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O76-4f-z0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="205.54722638680661"/>
+        </scene>
+        <!--DatePicker-->
+        <scene sceneID="bqL-dT-kdq">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DatePicker" id="ZQN-5w-d9Z" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cmh-FU-KFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="464"/>
+        </scene>
+    </scenes>
+</document>

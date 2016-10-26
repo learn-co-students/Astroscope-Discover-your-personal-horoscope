@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Horoscope View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HoroscopeViewController" customModule="Astroscope" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HoroscopeViewController" customModule="Astroscope" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,6 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Sign Name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4q-K4-QZT">
                                 <rect key="frame" x="139" y="202" width="97" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -38,15 +41,57 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7uU-m2-cXu">
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nsF-UQ-glP">
+                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
+                            </activityIndicatorView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OTp-zl-Jeb">
+                                <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="thumbTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="colorSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="cwR-J0-Uax"/>
+                                </connections>
+                            </slider>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.59999999999999998" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D9x-6V-Lnb">
+                                <frame key="frameInset" minX="114" minY="53" width="245" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="7uU-m2-cXu" secondAttribute="leading" id="AhK-we-0xn"/>
+                            <constraint firstItem="nsF-UQ-glP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LFS-B1-sOD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OTp-zl-Jeb" secondAttribute="trailing" constant="90" id="OZc-Ad-V2u"/>
+                            <constraint firstItem="7uU-m2-cXu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="33" id="WwA-Dx-UG1"/>
+                            <constraint firstItem="nsF-UQ-glP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="124" id="XNq-jC-eGF"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OTp-zl-Jeb" secondAttribute="bottom" constant="20" id="Xxg-no-RVx"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="OTp-zl-Jeb" secondAttribute="leading" id="ZsP-I8-kSH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7uU-m2-cXu" secondAttribute="trailing" id="ehi-u5-6yy"/>
+                        </constraints>
+
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="NASAPhotoTitle" destination="7uU-m2-cXu" id="jnz-AC-UTA"/>
+                        <outlet property="colorChangeSlider" destination="OTp-zl-Jeb" id="Es7-l5-z9t"/>
+                        <outlet property="constellationInfoTextView" destination="D9x-6V-Lnb" id="BGn-LP-rPe"/>
+                        <outlet property="horoscopeActIndicator" destination="nsF-UQ-glP" id="Rhc-jW-wvH"/>
                         <segue destination="9aq-eK-ujn" kind="show" identifier="horoscopeToOthers" id="kRg-Pu-NVb"/>
+                        <segue destination="U0R-5S-2g9" kind="show" identifier="videoSegue" id="FZj-4B-LzK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="102.5" y="98.5"/>
+            <point key="canvasLocation" x="101.59999999999999" y="97.601199400299862"/>
         </scene>
         <!--ZodiacCollection-->
         <scene sceneID="eM5-wc-Vjj">
@@ -55,6 +100,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVz-fY-gCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="442.5" y="131"/>
+        </scene>
+        <!--NASAVideo-->
+        <scene sceneID="Yc5-tU-ydO">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NASAVideo" id="U0R-5S-2g9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDQ-tg-AHA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="721" y="283"/>
         </scene>
     </scenes>
 </document>

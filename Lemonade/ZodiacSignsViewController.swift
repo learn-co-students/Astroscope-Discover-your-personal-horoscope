@@ -25,6 +25,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
     var imageNASAView = UIImageView()
     var collectionViewHoroscopeString = ""
     
+    @IBOutlet weak var iconArtist: UILabel!
     
     override func viewDidLoad() {
         
@@ -38,7 +39,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         let yInset: CGFloat = 20
         let padding: CGFloat = 10
         let navBarHeight = self.navigationController?.navigationBar.frame.size.height
-        let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
+        let statusBarHeight = UIApplication.shared.statusBarFrame.height
         let collectionViewCenterYConstant = ((navBarHeight! + statusBarHeight) / 2) + yInset + padding
         
         layout.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
@@ -48,51 +49,55 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         // collectionView = UICollectionView(frame: self.view.frame, collectionViewLayout: layout)
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         
         collectionView.backgroundColor = UIColor(white: 0.1, alpha: 0.0)
         self.view.addSubview(collectionView)
         
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.collectionView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        self.collectionView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor, constant: collectionViewCenterYConstant).active = true
-        self.collectionView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.75).active = true
-        self.collectionView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.85).active = true
+        self.collectionView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.collectionView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: collectionViewCenterYConstant).isActive = true
+        self.collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.75).isActive = true
+        self.collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.85).isActive = true
         
         self.collectionView.allowsSelection = true
         
         self.title = "Other Horoscopes"
-        self.navigationItem.hidesBackButton = true
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .Done, target: self, action: #selector(ZodiacSignsViewController.goBackToHomepage))
+        
+        self.navigationItem.leftBarButtonItem =
+            UIBarButtonItem(image: UIImage.init(named: "customBackButton.png"), style: .plain, target: self, action: #selector (ZodiacSignsViewController.goBackToHomepage))
+        
+        self.view.bringSubview(toFront: self.iconArtist)
     }
-    
-
-    
+  
     func goBackToHomepage()
     {
-        performSegueWithIdentifier("goBackToHomePage", sender: self)
+        performSegue(withIdentifier: "goBackToHomePage", sender: self)
     }
     
     func NASAApiPicture () {
         
         self.view.addSubview(self.imageNASAView)
         self.imageNASAView.translatesAutoresizingMaskIntoConstraints = false
-        self.imageNASAView.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor).active = true
-        self.imageNASAView.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor).active = true
-        self.imageNASAView.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor).active = true
-        self.imageNASAView.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor).active = true
-//        self.view.sendSubviewToBack(self.imageNASAView)
+        self.imageNASAView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        self.imageNASAView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+        self.imageNASAView.heightAnchor.constraint(equalTo: self.view.heightAnchor).isActive = true
+        self.imageNASAView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+
         
         NASA_API_Client.getMediaType { (mediaType) in
             
             if mediaType == "video"
             {
-                self.imageNASAView.image = UIImage.init(named: "spaceImage4.jpg")
+                OperationQueue.main.addOperation({ 
+                    self.imageNASAView.image = UIImage.init(named: "spaceImage4.jpg")
+                })
+                
             }
             else
             {
                 NASA_API_Client.getPhotoOfDay { (spaceImage) in
-                    NSOperationQueue.mainQueue().addOperationWithBlock({
+                    OperationQueue.main.addOperation({
                         self.imageNASAView.image = spaceImage
                     })
                 }
@@ -104,29 +109,29 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
     }
     
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.iconsArray.count
     }
     
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionCell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath)
         
-        print("cell \(indexPath.row) is getting created")
+        print("cell \((indexPath as NSIndexPath).row) is getting created")
         
         cell.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
         
         let zodiacName = UILabel()
         let signIconView = UIImageView()
         
-        signIconView.contentMode = .ScaleAspectFit
+        signIconView.contentMode = .scaleAspectFit
         signIconView.clipsToBounds = true
-        signIconView.tintColor = UIColor.whiteColor()
+        signIconView.tintColor = UIColor.white
         
         
-        zodiacName.textAlignment = NSTextAlignment.Center
-        zodiacName.textColor = UIColor.whiteColor()
+        zodiacName.textAlignment = NSTextAlignment.center
+        zodiacName.textColor = UIColor.white
         zodiacName.font = UIFont(name: "BradleyHandITCTT-Bold", size: 16.0)
         zodiacName.adjustsFontSizeToFitWidth = true
         
@@ -135,27 +140,27 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         cell.addSubview(zodiacName)
         
         signIconView.translatesAutoresizingMaskIntoConstraints = false
-        signIconView.widthAnchor.constraintEqualToAnchor(cell.widthAnchor).active = true
-        signIconView.heightAnchor.constraintEqualToAnchor(cell.heightAnchor, multiplier: 0.75).active = true
-        signIconView.topAnchor.constraintEqualToAnchor(cell.topAnchor).active = true
-        signIconView.leadingAnchor.constraintEqualToAnchor(cell.leadingAnchor).active = true
+        signIconView.widthAnchor.constraint(equalTo: cell.widthAnchor).isActive = true
+        signIconView.heightAnchor.constraint(equalTo: cell.heightAnchor, multiplier: 0.75).isActive = true
+        signIconView.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+        signIconView.leadingAnchor.constraint(equalTo: cell.leadingAnchor).isActive = true
         
         zodiacName.translatesAutoresizingMaskIntoConstraints = false
-        zodiacName.centerXAnchor.constraintEqualToAnchor(signIconView.centerXAnchor).active = true
-        zodiacName.topAnchor.constraintEqualToAnchor(signIconView.bottomAnchor).active = true
-        zodiacName.widthAnchor.constraintEqualToAnchor(cell.widthAnchor).active = true
+        zodiacName.centerXAnchor.constraint(equalTo: signIconView.centerXAnchor).isActive = true
+        zodiacName.topAnchor.constraint(equalTo: signIconView.bottomAnchor).isActive = true
+        zodiacName.widthAnchor.constraint(equalTo: cell.widthAnchor).isActive = true
         
         
         
-        let icon = iconsArray[indexPath.row]
+        let icon = iconsArray[(indexPath as NSIndexPath).row]
         signIconView.image = UIImage(named: icon)
         
-        zodiacName.text = iconsDictionary[icon]?.capitalizedString
+        zodiacName.text = iconsDictionary[icon]?.capitalized
         
-        cell.userInteractionEnabled = true
+        cell.isUserInteractionEnabled = true
         
-        signIconView.userInteractionEnabled = false
-        zodiacName.userInteractionEnabled = false
+        signIconView.isUserInteractionEnabled = false
+        zodiacName.isUserInteractionEnabled = false
         
         
         return cell
@@ -163,19 +168,19 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSizeMake(imageNASAView.frame.width/5.5, imageNASAView.frame.height/6.5)
+        return CGSize(width: imageNASAView.frame.width/5.5, height: imageNASAView.frame.height/6.5)
         // return CGSizeMake(, collectionView.frame.height/4)
         
         
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         //self.performSegueWithIdentifier("dailyHoroscope", sender: iconsArray[indexPath.item])
         
-        let iconArrayString = iconsArray[indexPath.row]
+        let iconArrayString = iconsArray[(indexPath as NSIndexPath).row]
         
         if let unwrappedString = iconsDictionary[iconArrayString]
         {
@@ -184,7 +189,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
         
         
         print(self.collectionViewHoroscopeString)
-        self.performSegueWithIdentifier("dailyHoroscope", sender: self.collectionViewHoroscopeString)
+        self.performSegue(withIdentifier: "dailyHoroscope", sender: self.collectionViewHoroscopeString)
         
         
         
@@ -206,7 +211,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
     //
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //        print("prepare for segue")
         //
         //       print("\(sender) we're in the prepare for segue")
@@ -231,7 +236,7 @@ class ZodiacSignsViewController: UIViewController, UICollectionViewDelegateFlowL
        
         if segue.identifier == "dailyHoroscope"
         {
-            let destinationVC = segue.destinationViewController as? HoroscopeViewController
+            let destinationVC = segue.destination as? HoroscopeViewController
             
             destinationVC?.passedHoroscopeString = self.collectionViewHoroscopeString
         }
