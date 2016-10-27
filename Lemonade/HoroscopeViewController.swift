@@ -24,8 +24,9 @@ var reachabilityStatus = kREACHABILITYWITHWIFI
 
 class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate, UIGestureRecognizerDelegate
 {
-    let button = KCFloatingActionButton()
     
+    let button = KCFloatingActionButton()
+
     @IBOutlet weak var colorChangeSlider: UISlider!
     @IBOutlet weak var NASAPhotoTitle: UILabel!
     @IBOutlet weak var horoscopeActIndicator: UIActivityIndicatorView!
@@ -80,6 +81,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         internetReach = Reachability.forInternetConnection()
         internetReach?.startNotifier()
         
+    
         self.statusChangedWithReachability(internetReach!)
         
         guard let horoscopeString = passedHoroscopeString else {return}
@@ -580,7 +582,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             self.NASAPhotoInfo.isHidden = false
             self.NASAPhotoTitle.isHidden = false
             self.constellationInfoTextView.isHidden = true
-           // self.colorChangeSlider.isHidden = false
             
             UIView.animate(withDuration: 0.75, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
                     self.stackViewBackgroundView.alpha = 0.0

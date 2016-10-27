@@ -9,7 +9,7 @@
 import Foundation
 
 class HoroscopeAPIClient {
-      
+    
     
     class func getAnyDayHoroscope(_ sign: String, day: String, completion: @escaping (NSDictionary) ->()) {
     
@@ -23,12 +23,56 @@ class HoroscopeAPIClient {
     
             guard let unwrappedURL = url else { return }
     
+            let request = NSMutableURLRequest(url: unwrappedURL)
+        
+            request.httpMethod = "GET"
+        
+        
     
             let dataTask = session.dataTask(with: unwrappedURL, completionHandler: { (data, response, error) in
     
                 guard let unwrappedData = data else {return}
-    
-                do {
+                guard let responseValue = response as? HTTPURLResponse else {return}
+                
+                
+                if responseValue.statusCode == 503
+                {
+                    print("\(responseValue.statusCode): original API not working, gotta use ganesia")
+                    
+                    let urlString = "https://horoscope-api.herokuapp.com/horoscope/today/\(sign)"
+                    
+                    let session = URLSession.shared
+                    
+                    let url = URL(string: urlString)
+                    
+                    guard let URL = url else { return }
+                    
+                    
+                    let Task = session.dataTask(with: URL, completionHandler: { (data, response, error) in
+                        
+                        guard let unwrappedData = data else {return}
+                        
+                        
+                        do {
+                            let TodayDictionary = try JSONSerialization.jsonObject(with: unwrappedData, options: JSONSerialization.ReadingOptions.allowFragments) as? NSDictionary
+                            
+                            
+                            guard let Zodiac = TodayDictionary else {return}
+                            completion(Zodiac)
+                            
+                        } catch {
+                            print(error)
+                        }
+                    
+                    })
+                    Task.resume()
+                    
+                }
+                else
+                {
+                    print("Original API Working")
+                    
+                    do {
                     let zodiacTodayDictionary = try JSONSerialization.jsonObject(with: unwrappedData, options: JSONSerialization.ReadingOptions.allowFragments) as? NSDictionary
     
     
@@ -38,11 +82,13 @@ class HoroscopeAPIClient {
                 } catch {
                     print(error)
                 }
+                }
+                
               }) 
             
             dataTask.resume()
             
         }
     
-        
+    
 }

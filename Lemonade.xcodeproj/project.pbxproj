@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B0F70011D6E1ACE00605742 /* giphy (4).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B0F70001D6E1ACE00605742 /* giphy (4).gif */; };
 		1B14C93D1D6CEF3400CEB6D0 /* WelcomePage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */; };
+		1B2736C71DADA2AD007E58E5 /* leoRightButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2736C61DADA2AD007E58E5 /* leoRightButton.png */; };
 		1B3A58211D6F95C800546D95 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7EC5A1D6F7C4300A47514 /* WelcomePageViewController.swift */; };
 		1B5375891D6749FA00B9702A /* gifFramework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B5375881D6749FA00B9702A /* gifFramework.swift */; };
 		1B53758F1D67567600B9702A /* giphy (3).gif in Resources */ = {isa = PBXBuildFile; fileRef = 1B53758E1D67567600B9702A /* giphy (3).gif */; };
@@ -61,6 +62,7 @@
 		139238EF116A873FAE18CB02 /* Pods-Lemonade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lemonade.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Lemonade/Pods-Lemonade.debug.xcconfig"; sourceTree = "<group>"; };
 		1B0F70001D6E1ACE00605742 /* giphy (4).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (4).gif"; sourceTree = "<group>"; };
 		1B14C93C1D6CEF3400CEB6D0 /* WelcomePage.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WelcomePage.storyboard; sourceTree = "<group>"; };
+		1B2736C61DADA2AD007E58E5 /* leoRightButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leoRightButton.png; sourceTree = "<group>"; };
 		1B5375881D6749FA00B9702A /* gifFramework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gifFramework.swift; sourceTree = "<group>"; };
 		1B53758E1D67567600B9702A /* giphy (3).gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "giphy (3).gif"; sourceTree = "<group>"; };
 		1B592F971DABE0BB009C9FF3 /* HoroscopeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoroscopeViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				1B62CDAC1DAD5BA4000D450C /* taurusRightButton.png */,
 				1B62CDAE1DAD5BAF000D450C /* virgoRightButton.png */,
 				1B62CDB01DAD5BBF000D450C /* libraRightButton.png */,
+				1B2736C61DADA2AD007E58E5 /* leoRightButton.png */,
 				1B62CDB41DAD5BDA000D450C /* capricornRightButton.png */,
 				1B62CDA41DAD5B58000D450C /* sagittariusRightButton.png */,
 				1B62CDB61DAD5BE5000D450C /* cancerRightButton.png */,
@@ -298,6 +301,7 @@
 				1BCD2F801D78B8E100B9273B /* StarOfBethlehem-50.png in Resources */,
 				1B62CDAB1DAD5B98000D450C /* scorpioRightButton.png in Resources */,
 				1B68B5CB1DAC12680094C8E6 /* movieTemp.png in Resources */,
+				1B2736C71DADA2AD007E58E5 /* leoRightButton.png in Resources */,
 				1B62CDB51DAD5BDA000D450C /* capricornRightButton.png in Resources */,
 				1B62CDBB1DAD5BFB000D450C /* aquariusRightButton.png in Resources */,
 				1B62CDB11DAD5BBF000D450C /* libraRightButton.png in Resources */,
