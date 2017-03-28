@@ -455,10 +455,24 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             if self.APIDate == self.todaysDate
             {
                 DispatchQueue.main.async(execute: {
-                self.todaysHoroscope = unwrappedHoroscopeValue
+                
+                    
+                    if unwrappedHoroscopeValue == "[]"
+                    {
+                        self.todaysHoroscope = "Horoscope unavailable at this time"
+                        self.dailyHoroscopeTextView.text = "Horoscope unavailable at this time. We're sorry for the inconvenience and Please check back later."
+                    }
+                    else
+                    {
+                        self.todaysHoroscope = unwrappedHoroscopeValue
+                         self.dailyHoroscopeTextView.text = self.todaysHoroscope
+                    }
+                    
                 self.dailyHoroscopeTextView.text = self.todaysHoroscope
                 self.horoscopeActIndicator.isHidden = true
                 self.horoscopeActIndicator.stopAnimating()
+                    
+            
                 })
         
             }
@@ -470,7 +484,18 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     guard let unwrappedHoroscopeValue = unwrappedZodiac["horoscope"] as? String else {return}
                     
                     self.yesterdaysHoroscope = unwrappedHoroscopeValue
-                    self.dailyHoroscopeTextView.text = self.yesterdaysHoroscope
+                  //  self.dailyHoroscopeTextView.text = self.yesterdaysHoroscope
+                        
+                        if unwrappedHoroscopeValue == "[]"
+                        {
+                            self.todaysHoroscope = "Horoscope unavailable at this time"
+                            self.dailyHoroscopeTextView.text = "Horoscope unavailable at this time. We're sorry for the inconvenience and Please check back later."
+                        }
+                        else
+                        {
+                            self.dailyHoroscopeTextView.text = self.yesterdaysHoroscope
+                        }
+                        
                         self.horoscopeActIndicator.isHidden = true
                         self.horoscopeActIndicator.stopAnimating()
         
@@ -478,6 +503,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     
                 }
             }
+            
            
         }
     }
@@ -572,8 +598,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        print("pressed?")
-        print(stackViewDimed)
         if stackViewDimed == false
         {
             stackViewDimed = !stackViewDimed
@@ -595,14 +619,12 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             self.NASAPhotoInfo.isHidden = true
             self.NASAPhotoTitle.isHidden = true
             self.constellationInfoTextView.isHidden = true
-           // self.colorChangeSlider.isHidden = true
                     
             UIView.animate(withDuration: 1.0, delay: 0.5, options: UIViewAnimationOptions.curveEaseOut, animations: {
                 self.stackViewBackgroundView.alpha = 1.0}, completion: nil)
                 stackViewDimed = false
         }
-        print(stackViewDimed)
-        
+       
     }
     
   
