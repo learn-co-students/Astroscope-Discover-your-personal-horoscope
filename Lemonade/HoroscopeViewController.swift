@@ -337,8 +337,8 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
     {
         toggleStackView()
 
-        print("Toggled!!!!!")
-        print(stackViewDimed)
+        print("Toggled!!!!")
+      //  print(stackViewDimed)
     }
     
     func allConstraints()
@@ -456,7 +456,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
             {
                 DispatchQueue.main.async(execute: {
                 
-                    
                     if unwrappedHoroscopeValue == "[]"
                     {
                         self.dailyHoroscopeTextView.text = "Horoscope unavailable at this time. We're sorry for the inconvenience and Please check back later."
