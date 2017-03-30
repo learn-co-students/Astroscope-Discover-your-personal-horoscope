@@ -458,7 +458,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 
                     if unwrappedHoroscopeValue == "[]"
                     {
-                        self.dailyHoroscopeTextView.text = "Horoscope unavailable at this time. We're sorry for the inconvenience and Please check back later."
+                        self.dailyHoroscopeTextView.text = "Horoscope is currently unavailable at this time. \nWe're sorry for the inconvenience and Please check back later."
                     }
                     else
                     {
@@ -485,7 +485,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                 
                         if unwrappedHoroscopeValue == "[]"
                         {
-                            self.dailyHoroscopeTextView.text = "Horoscope unavailable at this time. We're sorry for the inconvenience and Please check back later."
+                            self.dailyHoroscopeTextView.text = "Horoscope is currently unavailable at this time. \nWe're sorry for the inconvenience and Please check back later."
                         }
                         else
                         {
