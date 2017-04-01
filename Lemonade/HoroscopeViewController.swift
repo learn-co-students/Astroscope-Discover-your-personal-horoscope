@@ -100,7 +100,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         self.navigationItem.leftBarButtonItem =
             UIBarButtonItem(image: UIImage.init(named: "customBackButton.png"), style: .done, target: self, action: #selector (HoroscopeViewController.backButtonPressed))
         
-    
 
         setConstellationInfo()
     }
@@ -127,7 +126,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         navigationController?.popViewController(animated: true)
     }
     
-  
+
     @IBAction func colorSlider(_ sender: AnyObject)
     {
         
@@ -224,7 +223,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         let statusBarHeight = UIApplication.shared.statusBarFrame.size.height
         guard let navBarHeight = navHeight else {return}
         
-        print(constellationTextDimed)
+
         if constellationTextDimed == false
         {
             constellationTextDimed = !constellationTextDimed
@@ -338,7 +337,6 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
         toggleStackView()
 
         print("Toggled!!!!")
-      //  print(stackViewDimed)
     }
     
     func allConstraints()
@@ -463,7 +461,7 @@ class HoroscopeViewController: UIViewController, KCFloatingActionButtonDelegate,
                     else
                     {
                         self.todaysHoroscope = unwrappedHoroscopeValue
-                         self.dailyHoroscopeTextView.text = self.todaysHoroscope
+                        self.dailyHoroscopeTextView.text = self.todaysHoroscope
                     }
                     
                 self.dailyHoroscopeTextView.text = self.todaysHoroscope
